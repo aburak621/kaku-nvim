@@ -91,6 +91,8 @@ return packer.startup(function(use)
     "turbio/bracey.vim",
     run = "npm install --prefix server"
   }
+  use { 'filipdutescu/renamer.nvim', branch = 'master', requires = { { 'nvim-lua/plenary.nvim' } }
+  }
 
   -- Colorschemes
   -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
