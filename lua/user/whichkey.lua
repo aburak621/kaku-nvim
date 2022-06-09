@@ -92,7 +92,7 @@ local mappings = {
       "Buffers",
     },
     c = { "<cmd>Bdelete<CR>", "Close buffer" },
-    C = { "<cmd>%bd|e#<CR>", "Close all other buffers" },
+    C = { "<cmd>%bd|e#|bd#|'\"<CR>", "Close all other buffers" },
     n = { "<cmd>enew<CR>", "New empty buffer" },
   },
 
@@ -102,7 +102,8 @@ local mappings = {
   w = {
     name = "Window",
     c = { "<cmd>close<CR>", "Close" },
-    C = { "<cmd>Bdelete<CR><cmd>close<CR>", "Close and kill buffer" },
+    C = { "<cmd>only<CR>", "Close and kill buffer" },
+    k = { "<cmd>Bdelete<CR><cmd>close<CR>", "Close and kill buffer" },
     s = { "<cmd>split<CR>", "Split horizontal" },
     v = { "<cmd>vsplit<CR>", "Split vertical" },
     m = { "<C-W>_", "Maximize" },

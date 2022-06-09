@@ -86,6 +86,7 @@ return packer.startup(function(use)
     end,
     wants = { 'nvim-treesitter' }, -- or require if not used so far
     after = { 'nvim-cmp' } -- if a completion plugin is using tabs load it before
+    -- after = { 'coq_nvim' } -- if a completion plugin is using tabs load it before
   }
   use {
     "turbio/bracey.vim",
@@ -98,6 +99,10 @@ return packer.startup(function(use)
   -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   use "lunarvim/darkplus.nvim"
   use 'navarasu/onedark.nvim'
+
+  -- Completion plugins
+  -- use { "ms-jpq/coq_nvim", branch = "coq"}
+  -- use { "ms-jpq/coq.artifacts", branch = "artifacts" }
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin

@@ -52,6 +52,8 @@ keymap("i", "<C-l>", "<Right>", opts)
 -- keymap("i", "<C-h>", "<C-w>", opts)
 -- Press ctrl + del to delete word to right
 keymap("i", "<C-Del>", "<C-o>de", opts)
+-- Alt + Enter to insert new line from anywhere
+keymap("i", "<A-CR>", "<ESC>o", opts)
 
 -- Visual --
 -- Stay in indent mode
