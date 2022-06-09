@@ -80,17 +80,47 @@ local opts = {
 
 local mappings = {
   ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
-  ["b"] = {
-    "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-    "Buffers",
+
+  -- ["b"] = {
+  --   "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+  --   "Buffers",
+  -- },
+  b = {
+    name = "Buffer",
+    b = {
+      "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{ initial_mode = 'normal' })<cr>",
+      "Buffers",
+    },
+    c = { "<cmd>Bdelete<CR>", "Close buffer" },
+    C = { "<cmd>%bd|e#<CR>", "Close all other buffers" },
+    n = { "<cmd>enew<CR>", "New empty buffer" },
   },
+
   ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-  ["w"] = { "<cmd>w!<CR>", "Save" },
-  ["q"] = { "<cmd>q!<CR>", "Quit" },
+
+  -- ["w"] = { "<cmd>w!<CR>", "Save" },
+  w = {
+    name = "Window",
+    c = { "<cmd>close<CR>", "Close" },
+    C = { "<cmd>Bdelete<CR><cmd>close<CR>", "Close and kill buffer" },
+    s = { "<cmd>split<CR>", "Split horizontal" },
+    v = { "<cmd>vsplit<CR>", "Split vertical" },
+    m = { "<C-W>_", "Maximize" },
+    e = { "<C-W>=", "Equal size" },
+    r = { "<C-W>r", "Rotate clockwise" },
+    R = { "<C-W>R", "Rotate counter-clockwise" },
+  },
+
+  -- ["q"] = { "<cmd>q!<CR>", "Quit" },
+  -- q = {
+  --   name = "Quit",
+  --
+  -- },
+
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
   ["f"] = {
-    "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+    "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{ previewer = false })<CR>",
     "Find files",
   },
   ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
@@ -151,7 +181,6 @@ local mappings = {
       "Prev Diagnostic",
     },
     l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-    q = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
     r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
     s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
     S = {

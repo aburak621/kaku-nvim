@@ -8,9 +8,9 @@ telescope.load_extension("media_files")
 
 telescope.setup {
   defaults = {
-
-    prompt_prefix = " ",
-    selection_caret = " ",
+    prompt_prefix = "   ",
+    selection_caret = "  ",
+    entry_prefix = "  ",
     path_display = { "smart" },
 
     mappings = {
@@ -94,7 +94,7 @@ telescope.setup {
     -- }
     -- please take a look at the readme of the extension you want to configure
     media_files = {
-      filetypes = {"png", "webp", "jpg", "jpeg"},
+      filetypes = { "png", "webp", "jpg", "jpeg" },
       find_cmd = "rg"
     }
   },
