@@ -91,8 +91,8 @@ return packer.startup(function(use)
     "turbio/bracey.vim",
     run = "npm install --prefix server"
   }
-  use { 'filipdutescu/renamer.nvim', branch = 'master', requires = { { 'nvim-lua/plenary.nvim' } }
-  }
+  use { 'filipdutescu/renamer.nvim', branch = 'master', requires = { { 'nvim-lua/plenary.nvim' } } }
+  use "mattn/emmet-vim"
 
   -- Colorschemes
   -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
@@ -119,6 +119,7 @@ return packer.startup(function(use)
 
   -- Telescope
   use "nvim-telescope/telescope.nvim"
+  use "nvim-telescope/telescope-media-files.nvim"
 
   -- Treesitter
   use {
