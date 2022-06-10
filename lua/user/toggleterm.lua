@@ -3,6 +3,8 @@ if not status_ok then
 	return
 end
 
+vim.o.shell = "zsh"
+
 toggleterm.setup({
 	size = 20,
 	open_mapping = [[<c-\>]],

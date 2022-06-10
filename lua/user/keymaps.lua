@@ -75,13 +75,15 @@ keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
 -- Terminal --
+keymap("n", "<C-d>", "<cmd>ToggleTerm size=10 direction=horizontal<cr>", opts)
+keymap("i", "<C-d>", "<cmd>ToggleTerm size=10 direction=horizontal<cr>", opts)
 -- Better terminal navigation
--- keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
--- keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
--- keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
--- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
+keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
+keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
+keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
+keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
 -- Renamer Keymaps
-vim.api.nvim_set_keymap('i', '<F2>', '<cmd>lua require("renamer").rename()<cr>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<F2>', '<cmd>lua require("renamer").rename()<cr>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('v', '<F2>', '<cmd>lua require("renamer").rename()<cr>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<F2>', '<Plug>(coc-rename)<cr>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<F2>', '<Plug>(coc-rename)<cr>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', '<F2>', '<Plug>(coc-rename)<cr>', { noremap = true, silent = true })

@@ -130,6 +130,7 @@ let g:coc_global_extensions = [
  \ 'coc-clangd',
  \ 'coc-cmake',
  \ 'coc-emmet',
+ \ 'coc-jedi',
  \ ]
 
 " TextEdit might fail if hidden is not set.
@@ -310,7 +311,7 @@ require "user.colorscheme"
 require "user.lsp"
 require "user.telescope"
 require "user.treesitter"
--- require "user.autopairs"
+require "user.autopairs"
 require "user.comment"
 require "user.gitsigns"
 require "user.nvim-tree"
