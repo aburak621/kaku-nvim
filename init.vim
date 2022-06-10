@@ -163,10 +163,13 @@ endif
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
+      \ pumvisible() ? coc#_select_confirm():
       \ CheckBackspace() ? "\<TAB>" :
       \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+" ESC closes suggestion window
+inoremap <silent><expr> <ESC> pumvisible() ? "\<ESC>a" : "\<ESC>"
 
 function! CheckBackspace() abort
   let col = col('.') - 1

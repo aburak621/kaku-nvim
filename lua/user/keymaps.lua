@@ -40,7 +40,7 @@ keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
 keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 
 -- Insert --
-keymap("i", "<C-y><TAB>", "<Plug>(emmet-expand-abbr)", opts)
+-- keymap("i", "<C-y><TAB>", "<Plug>(emmet-expand-abbr)", opts)
 -- Press jk fast to enter
 keymap("i", "jk", "<ESC>", opts)
 -- Move with ctrl + hjkl
