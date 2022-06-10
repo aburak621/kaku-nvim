@@ -277,6 +277,11 @@ command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.org
 " provide custom statusline: lightline.vim, vim-airline.
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
+" COC Keymaps
+let g:coc_snippet_next = '<TAB>'
+let g:coc_snippet_prev = '<S-TAB>'
+let g:coc#_select_confirm = '<TAB>'
+
 " Mappings for CoCList
 " Show all diagnostics.
 " nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
@@ -301,11 +306,11 @@ require "user.options"
 require "user.keymaps"
 require "user.plugins"
 require "user.colorscheme"
-require "user.cmp"
+-- require "user.cmp"
 require "user.lsp"
 require "user.telescope"
 require "user.treesitter"
-require "user.autopairs"
+-- require "user.autopairs"
 require "user.comment"
 require "user.gitsigns"
 require "user.nvim-tree"
@@ -318,7 +323,7 @@ require "user.indentline"
 require "user.alpha"
 require "user.whichkey"
 require "user.autocommands"
-require "user.renamer"
+-- require "user.renamer"
 -- require "user.coq_nvim"
 
 EOF
