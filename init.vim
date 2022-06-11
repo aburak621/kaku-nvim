@@ -329,5 +329,6 @@ require "user.whichkey"
 require "user.autocommands"
 -- require "user.renamer"
 -- require "user.coq_nvim"
+require "user.code_runner"
 
 EOF

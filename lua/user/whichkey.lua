@@ -120,13 +120,15 @@ local mappings = {
 
   -- ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   c = {
-  name = "Code",
-  b = {
+    name = "Code",
+    b = {
       name = "Bracey",
       b = { "<cmd>Bracey<CR>", "Start" },
       s = { "<cmd>BraceyStop<CR>", "Stop" }
-    }
-},
+    },
+    r = { "<cmd>RunFile toggleterm<CR>", "Run" },
+    R = { "<cmd>RunProject toggleterm<CR>", "Run project" }
+  },
 
   ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
   ["f"] = {

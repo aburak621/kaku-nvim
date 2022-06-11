@@ -94,6 +94,7 @@ return packer.startup(function(use)
   }
   -- use { 'filipdutescu/renamer.nvim', branch = 'master', requires = { { 'nvim-lua/plenary.nvim' } } }
   -- use "mattn/emmet-vim"
+  use { 'CRAG666/code_runner.nvim', requires = 'nvim-lua/plenary.nvim' }
 
   -- Colorschemes
   use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
