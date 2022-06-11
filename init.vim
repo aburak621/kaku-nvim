@@ -159,6 +159,11 @@ else
   set signcolumn=yes
 endif
 
+" COC Keymaps
+let g:coc_snippet_next = '<TAB>'
+let g:coc_snippet_prev = '<S-TAB>'
+let g:coc#_select_confirm = '<TAB>'
+
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
@@ -280,11 +285,6 @@ command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.org
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline.
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-
-" COC Keymaps
-let g:coc_snippet_next = '<TAB>'
-let g:coc_snippet_prev = '<S-TAB>'
-let g:coc#_select_confirm = '<TAB>'
 
 " Mappings for CoCList
 " Show all diagnostics.
