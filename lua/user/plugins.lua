@@ -51,7 +51,7 @@ return packer.startup(function(use)
   use "akinsho/bufferline.nvim"
   use "moll/vim-bbye"
   use "nvim-lualine/lualine.nvim"
-  use "akinsho/toggleterm.nvim"
+  use "akinsho/toggleterm.nvim" -- Terminal inside nvim
   use "ahmedkhalf/project.nvim"
   use "lewis6991/impatient.nvim"
   use "lukas-reineke/indent-blankline.nvim"
@@ -95,6 +95,8 @@ return packer.startup(function(use)
   -- use { 'filipdutescu/renamer.nvim', branch = 'master', requires = { { 'nvim-lua/plenary.nvim' } } }
   -- use "mattn/emmet-vim"
   use { 'CRAG666/code_runner.nvim', requires = 'nvim-lua/plenary.nvim' }
+  use "windwp/nvim-ts-autotag"
+
 
   -- Colorschemes
   use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
