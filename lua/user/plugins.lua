@@ -103,6 +103,8 @@ return packer.startup(function(use)
   use "lunarvim/darkplus.nvim"
   use 'navarasu/onedark.nvim'
   use "morhetz/gruvbox"
+  use "rafamadriz/neon"
+  use "tomasiser/vim-code-dark"
 
   -- Completion plugins
   use { "neoclide/coc.nvim", branch = "release" }
