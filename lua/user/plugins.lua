@@ -96,6 +96,7 @@ return packer.startup(function(use)
   -- use "mattn/emmet-vim"
   use { 'CRAG666/code_runner.nvim', requires = 'nvim-lua/plenary.nvim' }
   use "windwp/nvim-ts-autotag"
+  use "tpope/vim-surround"
 
 
   -- Colorschemes
