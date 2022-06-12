@@ -132,6 +132,7 @@ let g:coc_global_extensions = [
  \ 'coc-emmet',
  \ 'coc-jedi',
  \ 'coc-html-css-support',
+ \ 'coc-cssmodules'
  \ ]
 
 " TextEdit might fail if hidden is not set.
@@ -304,6 +305,9 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " " Resume latest coc list.
 " nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
+syntax on
+let g:rainbow_active = 1
 
 lua << EOF
 

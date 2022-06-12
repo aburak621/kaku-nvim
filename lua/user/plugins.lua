@@ -97,6 +97,8 @@ return packer.startup(function(use)
   use { 'CRAG666/code_runner.nvim', requires = 'nvim-lua/plenary.nvim' }
   use "windwp/nvim-ts-autotag"
   use "tpope/vim-surround"
+  -- use "luochen1990/rainbow"
+  -- use "junegunn/rainbow_parentheses.vim"
 
 
   -- Colorschemes
