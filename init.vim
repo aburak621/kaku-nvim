@@ -131,6 +131,7 @@ let g:coc_global_extensions = [
  \ 'coc-cmake',
  \ 'coc-emmet',
  \ 'coc-jedi',
+ \ 'coc-html-css-support',
  \ ]
 
 " TextEdit might fail if hidden is not set.
