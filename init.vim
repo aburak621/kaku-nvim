@@ -1,120 +1,29 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
-"               ██╗   ██╗██╗███╗   ███╗██████╗  ██████╗
-"               ██║   ██║██║████╗ ████║██╔══██╗██╔════╝
-"               ██║   ██║██║██╔████╔██║██████╔╝██║
-"               ╚██╗ ██╔╝██║██║╚██╔╝██║██╔══██╗██║
-"                ╚████╔╝ ██║██║ ╚═╝ ██║██║  ██║╚██████╗
-"                 ╚═══╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝ ╚═════╝
+"               ███╗  ██╗██╗   ██╗██╗███╗   ███╗██████╗  ██████╗
+"               ████╗ ██║██║   ██║██║████╗ ████║██╔══██╗██╔════╝
+"               ██╔██╗██║██║   ██║██║██╔████╔██║██████╔╝██║
+"               ██║╚████║╚██╗ ██╔╝██║██║╚██╔╝██║██╔══██╗██║
+"               ██║ ╚███║ ╚████╔╝ ██║██║ ╚═╝ ██║██║  ██║╚██████╗
+"               ╚═╝  ╚══╝  ╚═══╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝ ╚═════╝
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" VIMSCRIPT
+" Bracey
+let g:bracey_browser_command = "google-chrome-stable"
 
-" inoremap jk <ESC>
-"
-" syntax on " highlight syntax
-" set number " show line numbers
-" set noswapfile " disable the swapfile
-" set hlsearch " highlight all results
-" set ignorecase " ignore case in search
-" set incsearch " show search results as you type
-"
-" " turn relative line numbers on
-" set relativenumber
-" set rnu
-" " Disable compatibility with vi which can cause unexpected issues.
-" set nocompatible
-" " Enable type file detection. Vim will be able to try to detect the type of file in use.
-" filetype on
-" " Enable plugins and load plugin for the detected file type.
-" filetype plugin on
-" " Load an indent file for the detected file type.
-" filetype indent on
-" " Turn syntax highlighting on.
-" syntax on
-" " Set shift width to 4 spaces.
-" set shiftwidth=4
-" " Set tab width to 4 columns.
-" set tabstop=4
-" " Use space characters instead of tabs.
-" set expandtab
-" " Do not let cursor scroll below or above N number of lines when scrolling.
-" set scrolloff=10
-" " Override the ignorecase option if searching for capital letters.
-" " This will allow you to search specifically for capital letters.
-" set smartcase
-" " Set the commands to save in history default number is 20.
-" set history=1000
-" " Enable auto completion menu after pressing TAB.
-" set wildmenu
-" " There are certain files that we would never want to edit with Vim.
-" " Wildmenu will ignore files with these extensions.
-" set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
-" " Make wildmenu behave like similar to Bash completion.
-" set wildmode=list:longest
-" set autoindent
-" set mouse=a
+" Easymotion
+map S <Plug>(easymotion-s2)
 
-" PLUGINS ---------------------------------------------------------------- {{{
-" call plug#begin()
-"
-"     Plug 'joshdick/onedark.vim'
-"     Plug 'preservim/NERDTree'
-"     Plug 'itchyny/lightline.vim'
-"     Plug 'https://github.com/ap/vim-css-color'
-"     Plug 'sheerun/vim-polyglot'
-"     Plug 'justinmk/vim-sneak'
-"     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-"     Plug 'lilydjwg/colorizer'
-"     Plug 'liuchengxu/vim-which-key'
-"     Plug 'luochen1990/rainbow'
-"     let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
-"     Plug 'francoiscabrol/ranger.vim'
-"     Plug 'mhinz/vim-startify'
-"
-" call plug#end()
-" }}}
-
-
-" MAPPINGS --------------------------------------------------------------- {{{
-
-" Mappings code goes here.
-    " inoremap jk <ESC>
-    nnoremap <ESC> :nohlsearch<CR>
-" }}}
-
-
-" VIMSCRIPT -------------------------------------------------------------- {{{
-
-" This will enable code folding.
-" Use the marker method of folding.
-"augroup filetype_vim
-"    autocmd!
-"    autocmd FileType vim setlocal foldmethod=marker
-"augroup END
-
-" More Vimscripts code goes here.
-
-" }}}
-
-
-" STATUS LINE ------------------------------------------------------------ {{{
-
-" Status bar code goes here.
-    " set laststatus=2
-    "
-    " if !has('gui_running')
-    "     set t_Co=256
-    " endif
-    "
-    " set noshowmode
-" }}}
-
-" syntax on
-" colorscheme onedark
-" highlight Normal ctermbg=Black
-
-" New documentation --------------------------------------------------------
+" Format on save
+autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()
+" ESC to disable search highlight
+nnoremap <ESC> :nohlsearch<CR>
+" Continue from same place in a file
 autocmd BufRead * :'" 
+
+syntax on
+let g:rainbow_active = 1
 
 " COC Config ---------------------------------------------------------------
 let g:coc_global_extensions = [
@@ -164,7 +73,7 @@ endif
 " COC Keymaps
 let g:coc_snippet_next = '<TAB>'
 let g:coc_snippet_prev = '<S-TAB>'
-let g:coc#_select_confirm = '<TAB>'
+" let g:coc#_select_confirm = '<TAB>'
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
@@ -173,7 +82,7 @@ inoremap <silent><expr> <TAB>
       \ pumvisible() ? coc#_select_confirm():
       \ CheckBackspace() ? "\<TAB>" :
       \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <silent><expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 " ESC closes suggestion window
 inoremap <silent><expr> <ESC> pumvisible() ? "\<ESC>a" : "\<ESC>"
@@ -306,20 +215,7 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " " Resume latest coc list.
 " nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
-syntax on
-let g:rainbow_active = 1
-
-" Bracey
-let g:bracey_browser_command = "google-chrome-stable"
-
-" Easymotion
-map S <Plug>(easymotion-s2)
-
-" Format on save
-autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()
-
-lua << EOF
-
+lua << LUA
 
 require "user.options"
 require "user.keymaps"
@@ -346,4 +242,4 @@ require "user.autocommands"
 -- require "user.coq_nvim"
 require "user.code_runner"
 
-EOF
+LUA

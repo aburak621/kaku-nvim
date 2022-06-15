@@ -20,7 +20,7 @@ vim.g.maplocalleader = " "
 
 -- Normal --
 -- Save
-keymap("n", "<C-s>", "<cmd>w<Cr>", opts)
+keymap("n", "<C-s>", "<cmd>w<CR>", opts)
 
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
@@ -88,6 +88,6 @@ keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
 -- Renamer Keymaps
-vim.api.nvim_set_keymap('i', '<F2>', '<Plug>(coc-rename)<cr>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<F2>', '<Plug>(coc-rename)<cr>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('v', '<F2>', '<Plug>(coc-rename)<cr>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap("i", "<F2>", "<Plug>(coc-rename)<cr>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<F2>", "<Plug>(coc-rename)<cr>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("v", "<F2>", "<Plug>(coc-rename)<cr>", { noremap = true, silent = true })

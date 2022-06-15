@@ -44,7 +44,6 @@ return packer.startup(function(use)
 	use("wbthomason/packer.nvim") -- Have packer manage itself
 	use("nvim-lua/popup.nvim") -- An implementation of the Popup API from vim in Neovim
 	use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
-	use("windwp/nvim-autopairs") -- Autopairs, integrates with both cmp and treesitter
 	use("numToStr/Comment.nvim") -- Easily comment stuff
 	use("kyazdani42/nvim-web-devicons")
 	use("kyazdani42/nvim-tree.lua")
@@ -54,12 +53,28 @@ return packer.startup(function(use)
 	use("akinsho/toggleterm.nvim") -- Terminal inside nvim
 	use("ahmedkhalf/project.nvim")
 	use("lewis6991/impatient.nvim")
-	use("lukas-reineke/indent-blankline.nvim")
-	use("goolord/alpha-nvim")
+	use("lukas-reineke/indent-blankline.nvim") -- Visual indentlines
+	use("goolord/alpha-nvim") -- Startup screen
 	use("antoinemadec/FixCursorHold.nvim") -- This is needed to fix lsp doc highlight
-	use("folke/which-key.nvim")
 	use("ap/vim-css-color")
 	use("max397574/better-escape.nvim")
+	-- use { 'filipdutescu/renamer.nvim', branch = 'master', requires = { { 'nvim-lua/plenary.nvim' } } }
+	-- use "mattn/emmet-vim"
+	use({ "CRAG666/code_runner.nvim", requires = "nvim-lua/plenary.nvim" })
+	use("windwp/nvim-ts-autotag")
+	use({
+		"turbio/bracey.vim", -- Live server for Web Dev
+		run = "npm install --prefix server",
+	})
+	-- Rainbow couldn't get it to work
+	-- use "luochen1990/rainbow"
+	-- use "junegunn/rainbow_parentheses.vim"
+
+	-- Input
+	use("windwp/nvim-autopairs") -- Autopairs, integrates with both cmp and treesitter
+	use("folke/which-key.nvim")
+	use("tpope/vim-surround")
+	use("easymotion/vim-easymotion")
 	use({
 		"abecodes/tabout.nvim",
 		config = function()
@@ -88,18 +103,6 @@ return packer.startup(function(use)
 		-- after = { 'nvim-cmp' } -- if a completion plugin is using tabs load it before
 		after = { "coc.nvim" }, -- if a completion plugin is using tabs load it before
 	})
-	use({
-		"turbio/bracey.vim",
-		run = "npm install --prefix server",
-	})
-	-- use { 'filipdutescu/renamer.nvim', branch = 'master', requires = { { 'nvim-lua/plenary.nvim' } } }
-	-- use "mattn/emmet-vim"
-	use({ "CRAG666/code_runner.nvim", requires = "nvim-lua/plenary.nvim" })
-	use("windwp/nvim-ts-autotag")
-	use("tpope/vim-surround")
-	-- use "luochen1990/rainbow"
-	-- use "junegunn/rainbow_parentheses.vim"
-	use("easymotion/vim-easymotion")
 
 	-- Colorschemes
 	use("lunarvim/colorschemes") -- A bunch of colorschemes you can try out
