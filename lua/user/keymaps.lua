@@ -44,15 +44,18 @@ keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 
 -- Insert --
 -- keymap("i", "<C-y><TAB>", "<Plug>(emmet-expand-abbr)", opts)
+
 -- Press jk fast to enter
 keymap("i", "jk", "<ESC>", opts)
+
 -- Move with ctrl + hjkl
-keymap("i", "<C-h>", "<Left>", opts)
+-- Ctrl-h equals to Ctrl-backspace you need to choose one or the other
+keymap("i", "<C-h>", "<C-w>", opts)
+-- keymap("i", "<C-h>", "<Left>", opts)
 keymap("i", "<C-j>", "<Down>", opts)
 keymap("i", "<C-k>", "<Up>", opts)
 keymap("i", "<C-l>", "<Right>", opts)
 -- Press ctrl + backspace to delete word
--- keymap("i", "<C-h>", "<C-w>", opts)
 -- Press ctrl + del to delete word to right
 keymap("i", "<C-Del>", "<C-o>de", opts)
 -- Alt + Enter to insert new line from anywhere
