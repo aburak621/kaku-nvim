@@ -309,7 +309,17 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 syntax on
 let g:rainbow_active = 1
 
+" Bracey
+let g:bracey_browser_command = "google-chrome-stable"
+
+" Easymotion
+map S <Plug>(easymotion-s2)
+
+" Format on save
+autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()
+
 lua << EOF
+
 
 require "user.options"
 require "user.keymaps"
