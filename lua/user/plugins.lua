@@ -113,8 +113,7 @@ return packer.startup(function(use)
 	use("tomasiser/vim-code-dark")
 
 	-- Completion plugins
-	-- Copilot
-	use("github/copilot.vim")
+	-- use("github/copilot.vim") -- Github Copilot
 
 	-- Coc
 	use({ "neoclide/coc.nvim", branch = "release" })
@@ -152,6 +151,7 @@ return packer.startup(function(use)
 
 	-- Git
 	use("lewis6991/gitsigns.nvim")
+	use("tpope/vim-fugitive")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

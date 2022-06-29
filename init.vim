@@ -18,7 +18,7 @@ map S <Plug>(easymotion-s2)
 " Format on save
 autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()
 " ESC to disable search highlight
-nnoremap <ESC> :nohlsearch<CR>
+nnoremap <silent> <ESC> :nohlsearch<CR>
 " Continue from same place in a file
 autocmd BufRead * :'" 
 
@@ -80,7 +80,7 @@ let g:coc_snippet_prev = '<S-TAB>'
 " other plugin before putting this into your config.
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? coc#_select_confirm():
-      \ CheckBackspace() ? "\<TAB>" :
+      \ CheckBackspace() ? coc#_select_confirm()<TAB> :
       \ coc#refresh()
 inoremap <silent><expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
