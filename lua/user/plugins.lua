@@ -106,11 +106,11 @@ return packer.startup(function(use)
 
 	-- Colorschemes
 	use("lunarvim/colorschemes") -- A bunch of colorschemes you can try out
-	use("lunarvim/darkplus.nvim")
+	-- use("lunarvim/darkplus.nvim")
 	use("navarasu/onedark.nvim")
 	use("morhetz/gruvbox")
 	use("rafamadriz/neon")
-	use("tomasiser/vim-code-dark")
+	-- use("tomasiser/vim-code-dark")
 
 	-- Completion plugins
 	-- use("github/copilot.vim") -- Github Copilot

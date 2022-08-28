@@ -243,3 +243,6 @@ require "user.autocommands"
 require "user.code_runner"
 
 LUA
+" GUI
+set guifont=JetBrainsMono\ Nerd\ Font:h11
+

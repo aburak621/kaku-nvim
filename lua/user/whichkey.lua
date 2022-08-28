@@ -217,6 +217,7 @@ local mappings = {
 		g = { "<cmd>Telescope live_grep<CR>", "Live Grep" },
 		m = { "<cmd>Telescope media_files<CR>", "Media Files" },
 		p = { "<cmd>Telescope projects<CR>", "Projects" },
+		k = { "<cmd>Telescope keymaps<CR>", "Keymaps" },
 		-- name = "Terminal",
 		-- n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
 		-- u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },
