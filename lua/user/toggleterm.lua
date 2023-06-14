@@ -3,11 +3,36 @@ if not status_ok then
 	return
 end
 
-vim.o.shell = "zsh"
+if vim.loop.os_uname().sysname == "Windows_NT" then
+	-- Windows-specific configuration
+	vim.o.shell = "cmd.exe"
+  else
+	-- Linux-specific configuration
+	vim.o.shell = "zsh"
+end
+
+local powershell_options = {
+	shell = vim.fn.executable "pwsh" == 1 and "pwsh" or "powershell",
+	shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;",
+	shellredir = "-RedirectStandardOutput %s -NoNewWindow -Wait",
+	shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode",
+	shellquote = "",
+	shellxquote = "",
+}
+
+for option, value in pairs(powershell_options) do
+	vim.opt[option] = value
+end
 
 toggleterm.setup({
-	size = 20,
-	open_mapping = [[<c-\>]],
+	size = function(term)
+		if term.direction == "horizontal" then
+		  return 15
+		elseif term.direction == "vertical" then
+		  return vim.o.columns * 0.4
+		end
+	  end,
+	open_mapping = [[<a-j>]],
 	hide_numbers = true,
 	shade_filetypes = {},
 	shade_terminals = true,

@@ -26,6 +26,6 @@ tabout.setup {
   }
 }
 
-vim.cmd [[
-inoremap <silent><expr> <TAB> pumvisible() ? coc#_select_confirm() : "<Plug>(Tabout)"
-]]
+-- vim.cmd [[
+-- inoremap <silent><expr> <TAB> pumvisible() ? coc#_select_confirm() : "<Plug>(Tabout)"
+-- ]]

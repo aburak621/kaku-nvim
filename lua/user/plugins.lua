@@ -43,29 +43,28 @@ return packer.startup(function(use)
 	-- My plugins here
 	use("wbthomason/packer.nvim") -- Have packer manage itself
 	use("nvim-lua/popup.nvim") -- An implementation of the Popup API from vim in Neovim
-	use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
+	use("nvim-lua/plenary.nvim") -- Useful lua functions used by lots of plugins
 	use("numToStr/Comment.nvim") -- Easily comment stuff
-	use("kyazdani42/nvim-web-devicons")
+	use("nvim-tree/nvim-web-devicons")
+	use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
 	use("kyazdani42/nvim-tree.lua")
-	use("akinsho/bufferline.nvim")
 	use("moll/vim-bbye")
 	use("nvim-lualine/lualine.nvim")
-	use("akinsho/toggleterm.nvim") -- Terminal inside nvim
+	-- use("akinsho/toggleterm.nvim") -- Terminal inside nvim
 	use("ahmedkhalf/project.nvim")
-	use("lewis6991/impatient.nvim")
 	use("lukas-reineke/indent-blankline.nvim") -- Visual indentlines
 	use("goolord/alpha-nvim") -- Startup screen
 	use("antoinemadec/FixCursorHold.nvim") -- This is needed to fix lsp doc highlight
 	use("ap/vim-css-color")
 	use("max397574/better-escape.nvim")
 	-- use { 'filipdutescu/renamer.nvim', branch = 'master', requires = { { 'nvim-lua/plenary.nvim' } } }
-	-- use "mattn/emmet-vim"
+	use("mattn/emmet-vim")
 	use({ "CRAG666/code_runner.nvim", requires = "nvim-lua/plenary.nvim" })
-	use("windwp/nvim-ts-autotag")
-	use({
-		"turbio/bracey.vim", -- Live server for Web Dev
-		run = "npm install --prefix server",
-	})
+	--use("windwp/nvim-ts-autotag")
+	-- use({
+	-- 	"turbio/bracey.vim", -- Live server for Web Dev
+	-- 	run = "npm install --prefix server",
+	-- })
 	-- Rainbow couldn't get it to work
 	-- use "luochen1990/rainbow"
 	-- use "junegunn/rainbow_parentheses.vim"
@@ -100,33 +99,40 @@ return packer.startup(function(use)
 			})
 		end,
 		wants = { "nvim-treesitter" }, -- or require if not used so far
-		-- after = { 'nvim-cmp' } -- if a completion plugin is using tabs load it before
-		after = { "coc.nvim" }, -- if a completion plugin is using tabs load it before
+		after = { 'nvim-cmp' } -- if a completion plugin is using tabs load it before
+		-- after = { "coc.nvim" }, -- if a completion plugin is using tabs load it before
 	})
+
+	-- cmake plugin
+	use({ "Civitasv/cmake-tools.nvim", commit="f97b83023eb3798f1ddb8a4e431c5bac032f1949"})
+	-- use("cdelledonne/vim-cmake")
 
 	-- Colorschemes
 	use("lunarvim/colorschemes") -- A bunch of colorschemes you can try out
-	-- use("lunarvim/darkplus.nvim")
+	use("lunarvim/darkplus.nvim")
 	use("navarasu/onedark.nvim")
 	use("morhetz/gruvbox")
 	use("rafamadriz/neon")
-	-- use("tomasiser/vim-code-dark")
+	use("tomasiser/vim-code-dark")
 
 	-- Completion plugins
-	-- use("github/copilot.vim") -- Github Copilot
+	use("github/copilot.vim") -- Github Copilot
 
 	-- Coc
-	use({ "neoclide/coc.nvim", branch = "release" })
+	-- use({ "neoclide/coc.nvim", branch = "release" })
 	-- use { "ms-jpq/coq_nvim", branch = "coq"}
 	-- use { "ms-jpq/coq.artifacts", branch = "artifacts" }
 
 	-- cmp plugins
-	-- use "hrsh7th/nvim-cmp" -- The completion plugin
-	-- use "hrsh7th/cmp-buffer" -- buffer completions
-	-- use "hrsh7th/cmp-path" -- path completions
-	-- use "hrsh7th/cmp-cmdline" -- cmdline completions
-	-- use "saadparwaiz1/cmp_luasnip" -- snippet completions
-	-- use "hrsh7th/cmp-nvim-lsp"
+	use "hrsh7th/nvim-cmp" -- The completion plugin
+	use "hrsh7th/cmp-buffer" -- buffer completions
+	use "hrsh7th/cmp-path" -- path completions
+	use "hrsh7th/cmp-copilot" -- path completions
+	use "hrsh7th/cmp-nvim-lua" -- path completions
+	use "hrsh7th/cmp-calc" -- path completions
+	use "hrsh7th/cmp-cmdline" -- cmdline completions
+	use "saadparwaiz1/cmp_luasnip" -- snippet completions
+	use "hrsh7th/cmp-nvim-lsp"
 
 	-- snippets
 	use("L3MON4D3/LuaSnip") --snippet engine
@@ -134,24 +140,31 @@ return packer.startup(function(use)
 
 	-- LSP
 	use("neovim/nvim-lspconfig") -- enable LSP
-	use("williamboman/nvim-lsp-installer") -- simple to use language server installer
+	use({
+		"williamboman/mason.nvim",
+		run = ":MasonUpdate" -- :MasonUpdate updates registry contents
+	}) -- simple to use language server installer
+	use("williamboman/mason-lspconfig.nvim")
 	use("tamago324/nlsp-settings.nvim") -- language server settings defined in json for
 	use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
 
 	-- Telescope
 	use("nvim-telescope/telescope.nvim")
-	use("nvim-telescope/telescope-media-files.nvim")
+	-- use("nvim-telescope/telescope-media-files.nvim")
 
 	-- Treesitter
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
 	})
-	use("JoosepAlviste/nvim-ts-context-commentstring")
+	-- use("JoosepAlviste/nvim-ts-context-commentstring")
 
 	-- Git
 	use("lewis6991/gitsigns.nvim")
 	use("tpope/vim-fugitive")
+	-- use("kdheepak/lazygit.nvim")
+
+	use("linux-cultist/venv-selector.nvim")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

@@ -1,4 +1,0 @@
-# Kakule Neovim Config
-
-## TODOs
-

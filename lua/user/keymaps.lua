@@ -42,6 +42,8 @@ keymap("n", "<S-TAB>", ":bprevious<CR>", opts)
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
 keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 
+keymap("n", "<F2>", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
+
 -- Insert --
 -- keymap("i", "<C-y><TAB>", "<Plug>(emmet-expand-abbr)", opts)
 
@@ -91,6 +93,8 @@ keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
 -- Renamer Keymaps
-vim.api.nvim_set_keymap("i", "<F2>", "<Plug>(coc-rename)<cr>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<F2>", "<Plug>(coc-rename)<cr>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", "<F2>", "<Plug>(coc-rename)<cr>", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("i", "<F2>", "<Plug>(coc-rename)<cr>", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "<F2>", "<Plug>(coc-rename)<cr>", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("v", "<F2>", "<Plug>(coc-rename)<cr>", { noremap = true, silent = true })
+
+keymap("c", "<C-h>", "<C-w>", { noremap = true, silent = false } )

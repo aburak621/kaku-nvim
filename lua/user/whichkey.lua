@@ -91,8 +91,8 @@ local mappings = {
 			"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{ initial_mode = 'normal' })<cr>",
 			"Buffers",
 		},
-		c = { "<cmd>Bdelete<CR>", "Close buffer" },
-		C = { "<cmd>%bd|e#|bd#|'\"<CR>", "Close all other buffers" },
+		c = { "<cmd>Bdelete!<CR>", "Close buffer" },
+		C = { "<cmd>%bd!|e#|bd!#|'\"<CR>", "Close all other buffers" },
 		n = { "<cmd>enew<CR>", "New empty buffer" },
 	},
 
@@ -112,13 +112,14 @@ local mappings = {
 		R = { "<C-W>R", "Rotate counter-clockwise" },
 	},
 
-	-- ["q"] = { "<cmd>q!<CR>", "Quit" },
-	-- q = {
-	--   name = "Quit",
-	--
-	-- },
+	q = {
+	  name = "Quit",
+      a = { "<cmd>qa!<CR>", "Close all" },
+      q = { "<cmd>q!<CR>", "Close" },
+      w = { "<cmd>wq<CR>", "Save and close" },
+      w = { "<cmd>wqa<CR>", "Save and close all" },
+	},
 
-	-- ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
 	c = {
 		name = "Code",
 		b = {
@@ -126,6 +127,7 @@ local mappings = {
 			b = { "<cmd>Bracey<CR>", "Start" },
 			s = { "<cmd>BraceyStop<CR>", "Stop" },
 		},
+        c = { "<cmd>CMakeRun<CR>", "CMake Run" },
 		r = { "<cmd>RunFile toggleterm<CR>", "Run" },
 		R = { "<cmd>RunProject toggleterm<CR>", "Run project" },
 	},
@@ -181,7 +183,7 @@ local mappings = {
 			"<cmd>Telescope lsp_workspace_diagnostics<cr>",
 			"Workspace Diagnostics",
 		},
-		f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
+		f = { "<cmd>lua vim.lsp.buf.format()<cr>", "Format" },
 		i = { "<cmd>LspInfo<cr>", "Info" },
 		I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
 		j = {

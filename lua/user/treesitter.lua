@@ -3,7 +3,7 @@ if not status_ok then
   return
 end
 
-require("nvim-ts-autotag").setup()
+-- require("nvim-ts-autotag").setup()
 
 configs.setup {
   ensure_installed = "all", -- "all" (parsers with maintainers), or a list of languages
