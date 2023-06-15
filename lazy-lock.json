@@ -4,6 +4,7 @@
   "FixCursorHold.nvim": { "branch": "master", "commit": "1900f89dc17c603eec29960f57c00bd9ae696495" },
   "LuaSnip": { "branch": "master", "commit": "bfbd03952f428db6e28bb199c713b1b25576cec9" },
   "alpha-nvim": { "branch": "main", "commit": "9e33db324b8bb7a147bce9ea5496686ee859461d" },
+  "auto-save.nvim": { "branch": "main", "commit": "979b6c82f60cfa80f4cf437d77446d0ded0addf0" },
   "better-escape.nvim": { "branch": "master", "commit": "7031dc734add47bb71c010e0551829fa5799375f" },
   "bufferline.nvim": { "branch": "main", "commit": "02d795081e6a24ec1fd506c513491543793d0780" },
   "cmake-tools.nvim": { "branch": "master", "commit": "f97b83023eb3798f1ddb8a4e431c5bac032f1949" },
