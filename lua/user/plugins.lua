@@ -23,7 +23,7 @@ local plugins = {
     { "kyazdani42/nvim-tree.lua" },
     { "moll/vim-bbye" },
     { "nvim-lualine/lualine.nvim" },
-    -- { "akinsho/toggleterm.nvim" }, -- Terminal inside nvim
+    { "akinsho/toggleterm.nvim" }, -- Terminal inside nvim
     { "ahmedkhalf/project.nvim" },
     { "lukas-reineke/indent-blankline.nvim" }, -- Visual indentlines
     { "goolord/alpha-nvim" },                  -- Startup screen
