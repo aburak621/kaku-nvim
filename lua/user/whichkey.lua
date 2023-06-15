@@ -117,7 +117,7 @@ local mappings = {
       a = { "<cmd>qa!<CR>", "Close all" },
       q = { "<cmd>q!<CR>", "Close" },
       w = { "<cmd>wq<CR>", "Save and close" },
-      w = { "<cmd>wqa<CR>", "Save and close all" },
+      W = { "<cmd>wqa<CR>", "Save and close all" },
 	},
 
 	c = {

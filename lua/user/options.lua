@@ -33,18 +33,26 @@ local options = {
     wrap = false,                            -- display lines as one long line
     scrolloff = 8,                           -- buffer lines when scrolling
     sidescrolloff = 8,
-    guifont = "Cascadia Code:h16",               -- the font used in graphical neovim applications
-  }
-  
-  vim.opt.shortmess:append "c"
-  
-  for k, v in pairs(options) do
-    vim.opt[k] = v
-  end
-  
-  vim.cmd "language en_US"
-  vim.cmd "set whichwrap+=<,>,[,],h,l"
-  vim.cmd [[set iskeyword+=-]]
-  vim.cmd [[set completeopt=menu,noinsert]]
-  vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
-  
+    guifont = "CaskaydiaCove Nerd Font Mono:h16",               -- the font used in graphical neovim applications
+}
+
+vim.opt.shortmess:append "c"
+
+for k, v in pairs(options) do
+  vim.opt[k] = v
+end
+
+vim.cmd "language en_US"
+vim.cmd "set whichwrap+=<,>,[,],h,l"
+vim.cmd [[set iskeyword+=-]]
+vim.cmd [[set completeopt=menu,noinsert]]
+vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
+
+vim.api.nvim_create_autocmd('TextYankPost', {
+  group = vim.api.nvim_create_augroup('highlight_yank', {}),
+  desc = 'Hightlight selection on yank',
+  pattern = '*',
+  callback = function()
+    vim.highlight.on_yank { higroup = 'IncSearch', timeout = 500 }
+  end,
+})
