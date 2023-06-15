@@ -15,24 +15,24 @@ vim.opt.rtp:prepend(lazypath)
 local plugins = {
     -- My plugins here
     { "wbthomason/packer.nvim" }, -- Have packer manage itself
-    { "nvim-lua/popup.nvim" }, -- An implementation of the Popup API from vim in Neovim
-    { "nvim-lua/plenary.nvim" }, -- Useful lua functions used by lots of plugins
-    { "numToStr/Comment.nvim" }, -- Easily comment stuff
+    { "nvim-lua/popup.nvim" },    -- An implementation of the Popup API from vim in Neovim
+    { "nvim-lua/plenary.nvim" },  -- Useful lua functions used by lots of plugins
+    { "numToStr/Comment.nvim" },  -- Easily comment stuff
     { "nvim-tree/nvim-web-devicons" },
-    { 'akinsho/bufferline.nvim',                                             dependencies = 'nvim-tree/nvim-web-devicons' },
+    { 'akinsho/bufferline.nvim',            dependencies = 'nvim-tree/nvim-web-devicons' },
     { "kyazdani42/nvim-tree.lua" },
     { "moll/vim-bbye" },
     { "nvim-lualine/lualine.nvim" },
     -- { "akinsho/toggleterm.nvim" }, -- Terminal inside nvim
     { "ahmedkhalf/project.nvim" },
     { "lukas-reineke/indent-blankline.nvim" }, -- Visual indentlines
-    { "goolord/alpha-nvim" },               -- Startup screen
-    { "antoinemadec/FixCursorHold.nvim" },  -- This is needed to fix lsp doc highlight
+    { "goolord/alpha-nvim" },                  -- Startup screen
+    { "antoinemadec/FixCursorHold.nvim" },     -- This is needed to fix lsp doc highlight
     { "ap/vim-css-color" },
     { "max397574/better-escape.nvim" },
     -- use { 'filipdutescu/renamer.nvim', branch = 'master', dependencies = { { 'nvim-lua/plenary.nvim' } } }
     { "mattn/emmet-vim" },
-    { { "CRAG666/code_runner.nvim", dependencies = "nvim-lua/plenary.nvim" } },
+    { "CRAG666/code_runner.nvim",           dependencies = "nvim-lua/plenary.nvim" },
     --{ "windwp/nvim-ts-autotag" },
     -- { {
     -- 	"turbio/bracey.vim", -- Live server for Web Dev
@@ -45,7 +45,7 @@ local plugins = {
         "Pocco81/auto-save.nvim",
         opts = {
             execution_message = {
-                message = function ()
+                message = function()
                     return ""
                 end
             }
@@ -59,7 +59,7 @@ local plugins = {
     { "easymotion/vim-easymotion" },
 
     -- cmake plugin
-    { "Civitasv/cmake-tools.nvim",   commit = "f97b83023eb3798f1ddb8a4e431c5bac032f1949" },
+    { "Civitasv/cmake-tools.nvim",          commit = "f97b83023eb3798f1ddb8a4e431c5bac032f1949" },
     -- { "cdelledonne/vim-cmake" },
 
     -- Colorschemes
@@ -79,18 +79,19 @@ local plugins = {
     -- use { "ms-jpq/coq.artifacts", branch = "artifacts" }
 
     -- cmp plugins
-    { "hrsh7th/nvim-cmp" },      -- The completion plugin
-    { "hrsh7th/cmp-buffer" },    -- buffer completions
-    { "hrsh7th/cmp-path" },      -- path completions
-    { "hrsh7th/cmp-copilot" },   -- path completions
-    { "hrsh7th/cmp-nvim-lua" },  -- path completions
-    { "hrsh7th/cmp-calc" },      -- path completions
-    { "hrsh7th/cmp-cmdline" },   -- cmdline completions
+    { "hrsh7th/nvim-cmp" },         -- The completion plugin
+    { "hrsh7th/cmp-buffer" },       -- buffer completions
+    { "hrsh7th/cmp-path" },         -- path completions
+    { "hrsh7th/cmp-copilot" },      -- path completions
+    { "hrsh7th/cmp-nvim-lua" },     -- path completions
+    { "hrsh7th/cmp-calc" },         -- path completions
+    { "hrsh7th/cmp-cmdline" },      -- cmdline completions
     { "saadparwaiz1/cmp_luasnip" }, -- snippet completions
     { "hrsh7th/cmp-nvim-lsp" },
+    { "hrsh7th/cmp-nvim-lsp-signature-help" },
 
     -- snippets
-    { "L3MON4D3/LuaSnip" },          --snippet engine
+    { "L3MON4D3/LuaSnip" },             --snippet engine
     { "rafamadriz/friendly-snippets" }, -- a bunch of snippets to use
 
     -- LSP
@@ -98,9 +99,9 @@ local plugins = {
     { {
         "williamboman/mason.nvim",
         build = ":MasonUpdate"
-    } },                                -- simple to use language server installer
+    } },                                   -- simple to use language server installer
     { "williamboman/mason-lspconfig.nvim" },
-    { "tamago324/nlsp-settings.nvim" }, -- language server settings defined in json for
+    { "tamago324/nlsp-settings.nvim" },    -- language server settings defined in json for
     { "jose-elias-alvarez/null-ls.nvim" }, -- for formatters and linters
 
     -- Telescope
@@ -125,14 +126,14 @@ local plugins = {
         "abecodes/tabout.nvim",
         config = function()
             require("tabout").setup({
-                tabkey = "<Tab>", -- key to trigger tabout, set to an empty string to disable
+                tabkey = "<Tab>",             -- key to trigger tabout, set to an empty string to disable
                 backwards_tabkey = "<S-Tab>", -- key to trigger backwards tabout, set to an empty string to disable
-                act_as_tab = true, -- shift content if tab out is not possible
-                act_as_shift_tab = false, -- reverse shift content if tab out is not possible (if your keyboard/terminal supports <S-Tab>)
-                default_tab = "<C-t>", -- shift default action (only at the beginning of a line, otherwise <TAB> is used)
-                default_shift_tab = "<C-d>", -- reverse shift default action,
-                enable_backwards = true, -- well ...
-                completion = true, -- if the tabkey is used in a completion pum
+                act_as_tab = true,            -- shift content if tab out is not possible
+                act_as_shift_tab = false,     -- reverse shift content if tab out is not possible (if your keyboard/terminal supports <S-Tab>)
+                default_tab = "<C-t>",        -- shift default action (only at the beginning of a line, otherwise <TAB> is used)
+                default_shift_tab = "<C-d>",  -- reverse shift default action,
+                enable_backwards = true,      -- well ...
+                completion = true,            -- if the tabkey is used in a completion pum
                 tabouts = {
                     { open = "'", close = "'" },
                     { open = '"', close = '"' },
@@ -149,6 +150,11 @@ local plugins = {
         -- after = { 'nvim-cmp' } -- if a completion plugin is using tabs load it before
         -- after = { "coc.nvim" }, -- if a completion plugin is using tabs load it before
     },
+    { "xiyaowong/transparent.nvim" },
+    { "folke/trouble.nvim" },
+    { "mbbill/undotree" },
+    { "easymotion/vim-easymotion" },
+    { "Eandrju/cellular-automaton.nvim" },
 }
 
 local opts = {}

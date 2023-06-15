@@ -97,4 +97,7 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 -- vim.api.nvim_set_keymap("n", "<F2>", "<Plug>(coc-rename)<cr>", { noremap = true, silent = true })
 -- vim.api.nvim_set_keymap("v", "<F2>", "<Plug>(coc-rename)<cr>", { noremap = true, silent = true })
 
+-- EasyMotion
+keymap("n", "S", "<Plug>(easymotion-sn)", opts)
+
 keymap("c", "<C-h>", "<C-w>", { noremap = true, silent = false } )
