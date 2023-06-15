@@ -67,8 +67,8 @@ local plugins = {
     { "lunarvim/darkplus.nvim" },
     { "LunarVim/Colorschemes" },
     { "morhetz/gruvbox" },
-    { "rafamadriz/neon" },
     { "tomasiser/vim-code-dark" },
+    { "NTBBloodbath/doom-one.nvim" },
 
     -- Completion plugins
     { "github/copilot.vim" }, -- Github Copilot
@@ -118,7 +118,7 @@ local plugins = {
     { "lewis6991/gitsigns.nvim" },
     { "tpope/vim-fugitive" },
     { "sindrets/diffview.nvim" },
-    -- { "kdheepak/lazygit.nvim" },
+    { "kdheepak/lazygit.nvim" },
 
     { "linux-cultist/venv-selector.nvim" },
     {
