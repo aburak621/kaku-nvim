@@ -1,9 +1,10 @@
 require("mason").setup()
-servers = { "lua_ls", "clangd", "cmake", "pyright", "rust_analyzer", "tsserver", "vimls", "omnisharp", "jdtls"}
--- with_daps = { "cpptools", "debugpy"}
+servers = { "lua_ls", "clangd", "cmake", "pyright", "rust_analyzer", "tsserver", "vimls", "omnisharp", "jdtls" }
+-- with_daps = { "cpptools", "debugpy" }
 
 require("mason-lspconfig").setup({
     ensure_installed = servers,
+    with_daps = with_daps
 })
 
 local on_attach = function(_, _)
@@ -19,22 +20,22 @@ local on_attach = function(_, _)
     -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>f", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
     vim.api.nvim_buf_set_keymap(
-      bufnr,
-      "n",
-      "gl",
-      '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ border = "rounded" })<CR>',
-      opts
+        bufnr,
+        "n",
+        "gl",
+        '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ border = "rounded" })<CR>',
+        opts
     )
     vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
     vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
-  end
+end
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 for _, server in ipairs(servers) do
     require("lspconfig")[server].setup {
-      on_attach = on_attach,
-      capabilities = capabilities,
+        on_attach = on_attach,
+        capabilities = capabilities,
     }
 end

@@ -79,7 +79,7 @@ local opts = {
 }
 
 local mappings = {
-	["a"] = { "<cmd>Alpha<cr>", "Alpha" },
+	a = { "<cmd>Alpha<cr>", "Alpha" },
 
 	-- ["b"] = {
 	--   "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
@@ -96,14 +96,19 @@ local mappings = {
 		n = { "<cmd>enew<CR>", "New empty buffer" },
 	},
 
-	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
+    d = {
+		b = { "<cmd>DapToggleBreakpoint<CR>", "Add breakpoint" },
+        r = { "<cmd>DapContinue<CR>", "Start or continue debugger"}
+    },
+
+	e = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
 
 	-- ["w"] = { "<cmd>w!<CR>", "Save" },
 	w = {
 		name = "Window",
 		c = { "<cmd>close<CR>", "Close" },
-		C = { "<cmd>only<CR>", "Close and kill buffer" },
-		k = { "<cmd>Bdelete<CR><cmd>close<CR>", "Close and kill buffer" },
+		o = { "<cmd>only<CR>", "Close and kill buffer" },
+		C = { "<cmd>Bdelete!<CR><cmd>close<CR>", "Close and kill buffer" },
 		s = { "<cmd>split<CR>", "Split horizontal" },
 		v = { "<cmd>vsplit<CR>", "Split vertical" },
 		m = { "<C-W>_", "Maximize" },
@@ -132,6 +137,8 @@ local mappings = {
         c = { "<cmd>CMakeRun<CR>", "CMake Run" },
 		r = { "<cmd>RunFile toggleterm<CR>", "Run" },
 		R = { "<cmd>RunProject toggleterm<CR>", "Run project" },
+        m = { "<cmd>!cmake --no-warn-unused-cli -DCMAKE_BUILD_TYPE:STRING=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE -G Ninja | cmake --build . --config Debug --target all<CR>", "CMake Ninja Debug" },
+        -- M = { "<cmd>!cmake --build ./build --config Debug --target all<CR>", "CMake Debug Run" }
 	},
 
 	["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },

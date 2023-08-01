@@ -23,7 +23,7 @@ local plugins = {
     { "kyazdani42/nvim-tree.lua" },
     { "moll/vim-bbye" },
     { "nvim-lualine/lualine.nvim" },
-    { "akinsho/toggleterm.nvim" }, -- Terminal inside nvim
+    { "akinsho/toggleterm.nvim" },             -- Terminal inside nvim
     { "ahmedkhalf/project.nvim" },
     { "lukas-reineke/indent-blankline.nvim" }, -- Visual indentlines
     { "goolord/alpha-nvim" },                  -- Startup screen
@@ -42,13 +42,12 @@ local plugins = {
     -- use "luochen1990/rainbow"
     -- use "junegunn/rainbow_parentheses.vim"
     {
-        "Pocco81/auto-save.nvim",
+        "okuuva/auto-save.nvim",
         opts = {
             execution_message = {
-                message = function()
-                    return ""
-                end
-            }
+                enabled = false,
+            },
+            debounce_delay = 135
         }
     },
 
@@ -96,13 +95,31 @@ local plugins = {
 
     -- LSP
     { "neovim/nvim-lspconfig" }, -- enable LSP
-    { {
+    {
         "williamboman/mason.nvim",
         build = ":MasonUpdate"
-    } },                                   -- simple to use language server installer
+    },                                     -- simple to use language server installer
     { "williamboman/mason-lspconfig.nvim" },
     { "tamago324/nlsp-settings.nvim" },    -- language server settings defined in json for
     { "jose-elias-alvarez/null-ls.nvim" }, -- for formatters and linters
+
+    -- Debug
+    { "mfussenegger/nvim-dap" },
+    { "rcarriga/nvim-dap-ui",             dependencies = "mfussenegger/nvim-dap", event = "VeryLazy" },
+    {
+        "Weissle/persistent-breakpoints.nvim",
+        opts = {
+            load_breakpoints_event = { "BufReadPost" }
+        }
+    },
+    {
+        "jay-babu/mason-nvim-dap.nvim",
+        event = "VeryLazy",
+        dependencies = { "williamboman/mason.nvim", "mfussenegger/nvim-dap" },
+        opts = {
+            handlers = {}
+        }
+    },
 
     -- Telescope
     { "nvim-telescope/telescope.nvim" },

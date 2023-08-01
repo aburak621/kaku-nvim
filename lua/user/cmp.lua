@@ -61,6 +61,10 @@ cmp.setup {
     end,
   },
   completion = { completeopt = "menu, menuone, noinsert, preview" },
+  performance = {
+      debounce = 300,
+      throttle = 60
+  },
   mapping = {
     ["<C-k>"] = cmp.mapping.select_prev_item(),
     ["<C-j>"] = cmp.mapping.select_next_item(),
@@ -109,6 +113,8 @@ cmp.setup {
   formatting = {
     fields = { "kind", "abbr", "menu" },
     format = function(entry, vim_item)
+      -- Max width
+      vim_item.abbr = string.sub(vim_item.abbr, 1, 60)
       -- Kind icons
       vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
       -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
