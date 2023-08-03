@@ -9,11 +9,14 @@ if not snip_status_ok then
 end
 
 require("luasnip/loaders/from_vscode").lazy_load()
+local autopairs = require("nvim-autopairs.completion.cmp")
 
 local check_backspace = function()
   local col = vim.fn.col "." - 1
   return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
 end
+
+cmp.event:on('confirm_done', autopairs.on_confirm_done())
 
 --   פּ ﯟ   some other good icons
 local kind_icons = {
@@ -63,7 +66,8 @@ cmp.setup {
   completion = { completeopt = "menu, menuone, noinsert, preview" },
   performance = {
       debounce = 300,
-      throttle = 60
+      throttle = 100,
+      fetching_timeout = 200,
   },
   mapping = {
     ["<C-k>"] = cmp.mapping.select_prev_item(),
@@ -128,7 +132,7 @@ cmp.setup {
     end,
   },
   sources = {
-    { name = "nvim_lsp" },
+    { name = "nvim_lsp", keyword_length = 3, max_item_count = 30 },
     { name = "luasnip" },
     { name = "buffer" },
     { name = "path" },

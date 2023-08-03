@@ -30,3 +30,7 @@ require "user.dap"
 -- -- require "user.coq_nvim"
 require "user.code_runner"
 require "user.cmake-tools"
+
+require "user.semicolon"
+-- Bind the function to the semicolon key in insert mode.
+vim.api.nvim_set_keymap('i', ';', '<C-o>:lua require("user.semicolon").place_semicolon()<CR>', { noremap = true, silent = true })

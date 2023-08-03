@@ -33,10 +33,13 @@ null_ls.setup({
 			extra_args = { "--no-semi" },
 		}),
 		-- Python
-		formatting.black,
+		-- formatting.black,
 		-- diagnostics.flake8,
 		-- diagnostics.pylint,
 		-- Lua
-		formatting.stylua,
+		-- formatting.stylua,
+        formatting.clang_format.with({
+            extra_args = { "--style=Microsoft" }
+        })
 	},
 })

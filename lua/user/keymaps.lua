@@ -92,6 +92,10 @@ keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
+-- LSP
+keymap("n", "<A-q>", "<cmd>lua vim.lsp.buf.hover()<CR>", term_opts)
+keymap("i", "<A-q>", "<cmd>lua vim.lsp.buf.hover()<CR>", term_opts)
+
 -- Renamer Keymaps
 -- vim.api.nvim_set_keymap("i", "<F2>", "<Plug>(coc-rename)<cr>", { noremap = true, silent = true })
 -- vim.api.nvim_set_keymap("n", "<F2>", "<Plug>(coc-rename)<cr>", { noremap = true, silent = true })
@@ -99,5 +103,7 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
 -- EasyMotion
 keymap("n", "S", "<Plug>(easymotion-sn)", opts)
+
+keymap("n", "<F10>", "<cmd>ClangdSwitchSourceHeader<CR>", opts)
 
 keymap("c", "<C-h>", "<C-w>", { noremap = true, silent = false } )

@@ -1,4 +1,4 @@
-vim.cmd [[colorscheme codedark]]
+vim.cmd [[colorscheme doom-one]]
 vim.cmd("highlight Comment gui=NONE")
 
 -- local status_ok, theme = pcall(require, "onedark")

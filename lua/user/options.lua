@@ -35,6 +35,7 @@ local options = {
     scrolloff = 8,                           -- buffer lines when scrolling
     sidescrolloff = 8,
     guifont = "CaskaydiaCove Nerd Font Mono:h16",               -- the font used in graphical neovim applications
+    colorcolumn = "120",
 }
 
 vim.opt.shortmess:append "c"
@@ -57,3 +58,9 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank { higroup = 'IncSearch', timeout = 500 }
   end,
 })
+
+vim.cmd([[
+  set list
+  set listchars+=trail:•
+]])
+

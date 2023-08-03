@@ -102,6 +102,7 @@ local plugins = {
     { "williamboman/mason-lspconfig.nvim" },
     { "tamago324/nlsp-settings.nvim" },    -- language server settings defined in json for
     { "jose-elias-alvarez/null-ls.nvim" }, -- for formatters and linters
+    { "RRethy/vim-illuminate" },
 
     -- Debug
     { "mfussenegger/nvim-dap" },

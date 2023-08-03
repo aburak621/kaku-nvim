@@ -4,9 +4,9 @@ if not status_ok then
 end
 
 lsp.clangd.setup {
-    cmd = { "clangd", "--header-insertion=never" }
+    cmd = { "clangd", "--header-insertion=never", "--offset-encoding=utf-16" },
 }
 
 -- require "user.lsp.lsp-installer"
 -- require("user.lsp.handlers").setup()
--- require "user.lsp.null-ls"
+require "user.lsp.null-ls"
