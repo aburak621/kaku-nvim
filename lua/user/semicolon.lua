@@ -19,15 +19,12 @@ function M.place_semicolon()
     if char == ')' then
         -- If there is a closing parenthesis, insert the semicolon after it and move the cursor after the semicolon
         vim.api.nvim_put({';'}, 'c', true, true)
-        print("a")
     else
         -- If there is no closing parenthesis, just insert a semicolon
         if line_len ~= col then
             vim.cmd('normal! h')
-            print("b")
         end
         vim.api.nvim_put({';'}, 'c', true, true)
-        print("c")
     end
 end
 
