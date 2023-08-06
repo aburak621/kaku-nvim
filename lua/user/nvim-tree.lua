@@ -15,12 +15,12 @@ local tree_cb = nvim_tree_config.nvim_tree_callback
 
 local function on_attach(bufnr)
 	local api = require('nvim-tree.api')
-  
+
 	local function opts(desc)
 	  return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
 	end
-  
-  
+
+
 	-- Default mappings. Feel free to modify or remove as you wish.
 	--
 	-- BEGIN_DEFAULT_ON_ATTACH
@@ -77,8 +77,7 @@ local function on_attach(bufnr)
 	vim.keymap.set('n', '<2-LeftMouse>',  api.node.open.edit,           opts('Open'))
 	vim.keymap.set('n', '<2-RightMouse>', api.tree.change_root_to_node, opts('CD'))
 	-- END_DEFAULT_ON_ATTACH
-  
-  
+
 	-- Mappings migrated from view.mappings.list
 	--
 	-- You will need to insert "your code goes here" for any mappings with a custom action_cb
@@ -88,7 +87,6 @@ local function on_attach(bufnr)
 	vim.keymap.set('n', 'h', api.node.navigate.parent_close, opts('Close Directory'))
 	vim.keymap.set('n', 'v', api.node.open.vertical, opts('Open: Vertical Split'))
 	vim.keymap.set('n', 's', api.node.open.horizontal, opts('Open: Horizontal Split'))
-  
   end
 
 nvim_tree.setup({
@@ -98,7 +96,6 @@ nvim_tree.setup({
 		enable = true,
 		update_root = true
 	},
-	auto_reload_on_write = true,
 	create_in_closed_folder = false,
 	disable_netrw = false,
 	hijack_cursor = false,
@@ -181,11 +178,6 @@ nvim_tree.setup({
 	hijack_directories = {
 		enable = true,
 		auto_open = true,
-	},
-	update_focused_file = {
-		enable = true, -- Project plugin setting
-		update_cwd = true, -- Project plugin setting
-		ignore_list = {},
 	},
 	system_open = {
 		cmd = "",
