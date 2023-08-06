@@ -1,13 +1,13 @@
 require("mason").setup()
-servers = { "lua_ls", "clangd", "cmake", "pyright", "rust_analyzer", "tsserver", "vimls", "omnisharp", "jdtls" }
+local servers = { "lua_ls", "clangd", "cmake", "pyright", "rust_analyzer", "tsserver", "vimls", "omnisharp", "jdtls" }
 -- with_daps = { "cpptools", "debugpy" }
 
 require("mason-lspconfig").setup({
     ensure_installed = servers,
-    with_daps = with_daps
+    -- with_daps = with_daps
 })
 
-local on_attach = function(_, _)
+local on_attach = function(bufnr)
     local opts = { noremap = true, silent = true }
     vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
