@@ -94,7 +94,6 @@ local function on_attach(bufnr)
 nvim_tree.setup({
 	auto_reload_on_write = true,
 	sync_root_with_cwd = true,
-	respect_buf_cwd = true,
 	update_focused_file = {
 		enable = true,
 		update_root = true
@@ -121,7 +120,7 @@ nvim_tree.setup({
 		-- height = 30,
 		hide_root_folder = false,
 		side = "left",
-		preserve_window_proportions = false,
+		preserve_window_proportions = true,
 		number = false,
 		relativenumber = false,
 		signcolumn = "yes",
@@ -213,7 +212,7 @@ nvim_tree.setup({
 	},
 	git = {
 		enable = true,
-		ignore = true,
+		ignore = false,
 		timeout = 400,
 	},
 	actions = {
@@ -228,7 +227,7 @@ nvim_tree.setup({
 		},
 		open_file = {
 			quit_on_open = false,
-			resize_window = true,
+			resize_window = false,
 			window_picker = {
 				enable = true,
 				chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",

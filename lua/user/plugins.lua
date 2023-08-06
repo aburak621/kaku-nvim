@@ -30,17 +30,9 @@ local plugins = {
     { "antoinemadec/FixCursorHold.nvim" },     -- This is needed to fix lsp doc highlight
     { "ap/vim-css-color" },
     { "max397574/better-escape.nvim" },
-    -- use { 'filipdutescu/renamer.nvim', branch = 'master', dependencies = { { 'nvim-lua/plenary.nvim' } } }
     { "mattn/emmet-vim" },
     { "CRAG666/code_runner.nvim",           dependencies = "nvim-lua/plenary.nvim" },
-    --{ "windwp/nvim-ts-autotag" },
-    -- { {
-    -- 	"turbio/bracey.vim", -- Live server for Web Dev
-    -- 	run = "npm install --prefix server",
-    -- })
-    -- Rainbow couldn't get it to work
-    -- use "luochen1990/rainbow"
-    -- use "junegunn/rainbow_parentheses.vim"
+    -- { "turbio/bracey.vim", run = "npm install --prefix server"}, -- Live server for Web Dev
     {
         "okuuva/auto-save.nvim",
         opts = {
@@ -59,7 +51,6 @@ local plugins = {
 
     -- cmake plugin
     { "Civitasv/cmake-tools.nvim",          commit = "f97b83023eb3798f1ddb8a4e431c5bac032f1949" },
-    -- { "cdelledonne/vim-cmake" },
 
     -- Colorschemes
     { "navarasu/onedark.nvim" },
@@ -71,11 +62,6 @@ local plugins = {
 
     -- Completion plugins
     { "github/copilot.vim" }, -- Github Copilot
-
-    -- Coc
-    -- { { "neoclide/coc.nvim", branch = "release" })
-    -- use { "ms-jpq/coq_nvim", branch = "coq"}
-    -- use { "ms-jpq/coq.artifacts", branch = "artifacts" }
 
     -- cmp plugins
     { "hrsh7th/nvim-cmp" },         -- The completion plugin
@@ -94,19 +80,15 @@ local plugins = {
     { "rafamadriz/friendly-snippets" }, -- a bunch of snippets to use
 
     -- LSP
-    { "neovim/nvim-lspconfig" }, -- enable LSP
-    {
-        "williamboman/mason.nvim",
-        build = ":MasonUpdate"
-    },                                     -- simple to use language server installer
+    { "neovim/nvim-lspconfig" },                                      -- enable LSP
+    { "williamboman/mason.nvim",            build = ":MasonUpdate" }, -- simple to use language server installer
     { "williamboman/mason-lspconfig.nvim" },
-    { "tamago324/nlsp-settings.nvim" },    -- language server settings defined in json for
-    { "jose-elias-alvarez/null-ls.nvim" }, -- for formatters and linters
+    { "jose-elias-alvarez/null-ls.nvim" },                            -- for formatters and linters
     { "RRethy/vim-illuminate" },
 
     -- Debug
     { "mfussenegger/nvim-dap" },
-    { "rcarriga/nvim-dap-ui",             dependencies = "mfussenegger/nvim-dap", event = "VeryLazy" },
+    { "rcarriga/nvim-dap-ui",               dependencies = "mfussenegger/nvim-dap",             event = "VeryLazy" },
     {
         "Weissle/persistent-breakpoints.nvim",
         opts = {
@@ -124,14 +106,9 @@ local plugins = {
 
     -- Telescope
     { "nvim-telescope/telescope.nvim" },
-    -- { "nvim-telescope/telescope-media-files.nvim" },
 
     -- Treesitter
-    {
-        "nvim-treesitter/nvim-treesitter",
-        build = ":TSUpdate"
-    },
-    -- { "JoosepAlviste/nvim-ts-context-commentstring" },
+    { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 
     -- Git
     { "lewis6991/gitsigns.nvim" },
@@ -139,7 +116,6 @@ local plugins = {
     { "sindrets/diffview.nvim" },
     { "kdheepak/lazygit.nvim" },
 
-    { "linux-cultist/venv-selector.nvim" },
     {
         "abecodes/tabout.nvim",
         config = function()
@@ -164,14 +140,10 @@ local plugins = {
                 exclude = {}, -- tabout will ignore these filetypes
             })
         end,
-        -- wants = { "nvim-treesitter" }, -- or require if not used so far
-        -- after = { 'nvim-cmp' } -- if a completion plugin is using tabs load it before
-        -- after = { "coc.nvim" }, -- if a completion plugin is using tabs load it before
     },
     { "xiyaowong/transparent.nvim" },
     { "folke/trouble.nvim" },
     { "mbbill/undotree" },
-    { "easymotion/vim-easymotion" },
     { "Eandrju/cellular-automaton.nvim" },
 }
 

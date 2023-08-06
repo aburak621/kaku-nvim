@@ -96,14 +96,12 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 keymap("n", "<A-q>", "<cmd>lua vim.lsp.buf.hover()<CR>", term_opts)
 keymap("i", "<A-q>", "<cmd>lua vim.lsp.buf.hover()<CR>", term_opts)
 
--- Renamer Keymaps
--- vim.api.nvim_set_keymap("i", "<F2>", "<Plug>(coc-rename)<cr>", { noremap = true, silent = true })
--- vim.api.nvim_set_keymap("n", "<F2>", "<Plug>(coc-rename)<cr>", { noremap = true, silent = true })
--- vim.api.nvim_set_keymap("v", "<F2>", "<Plug>(coc-rename)<cr>", { noremap = true, silent = true })
-
 -- EasyMotion
 keymap("n", "S", "<Plug>(easymotion-sn)", opts)
 
 keymap("n", "<F10>", "<cmd>ClangdSwitchSourceHeader<CR>", opts)
 
 keymap("c", "<C-h>", "<C-w>", { noremap = true, silent = false } )
+
+-- Bind the function to the semicolon key in insert mode.
+vim.api.nvim_set_keymap('i', ';', '<C-o>:lua require("user.semicolon").place_semicolon()<CR>', { noremap = true, silent = true })
