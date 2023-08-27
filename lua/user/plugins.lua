@@ -14,10 +14,9 @@ vim.opt.rtp:prepend(lazypath)
 -- Install your plugins here
 local plugins = {
     -- My plugins here
-    { "wbthomason/packer.nvim" }, -- Have packer manage itself
-    { "nvim-lua/popup.nvim" },    -- An implementation of the Popup API from vim in Neovim
-    { "nvim-lua/plenary.nvim" },  -- Useful lua functions used by lots of plugins
-    { "numToStr/Comment.nvim" },  -- Easily comment stuff
+    { "nvim-lua/popup.nvim" },   -- An implementation of the Popup API from vim in Neovim
+    { "nvim-lua/plenary.nvim" }, -- Useful lua functions used by lots of plugins
+    { "numToStr/Comment.nvim" }, -- Easily comment stuff
     { "nvim-tree/nvim-web-devicons" },
     { 'akinsho/bufferline.nvim',            dependencies = 'nvim-tree/nvim-web-devicons' },
     { "kyazdani42/nvim-tree.lua" },
@@ -62,6 +61,21 @@ local plugins = {
 
     -- Completion plugins
     { "github/copilot.vim" }, -- Github Copilot
+    -- {
+    --     "zbirenbaum/copilot.lua",
+    --     config = function()
+    --         require("copilot").setup({
+    --             suggestion = { enabled = false },
+    --             panel = { enabled = false },
+    --         })
+    --     end
+    -- },
+    -- {
+    --     "zbirenbaum/copilot-cmp",
+    --     config = function()
+    --         require("copilot_cmp").setup()
+    --     end
+    -- },
 
     -- cmp plugins
     { "hrsh7th/nvim-cmp" },         -- The completion plugin
@@ -80,10 +94,10 @@ local plugins = {
     { "rafamadriz/friendly-snippets" }, -- a bunch of snippets to use
 
     -- LSP
-    { "neovim/nvim-lspconfig" },                                      -- enable LSP
-    { "williamboman/mason.nvim",            build = ":MasonUpdate" }, -- simple to use language server installer
+    { "neovim/nvim-lspconfig" },           -- enable LSP
+    { "williamboman/mason.nvim" },         -- simple to use language server installer
     { "williamboman/mason-lspconfig.nvim" },
-    { "jose-elias-alvarez/null-ls.nvim" },                            -- for formatters and linters
+    { "jose-elias-alvarez/null-ls.nvim" }, -- for formatters and linters
     { "RRethy/vim-illuminate" },
 
     -- Debug

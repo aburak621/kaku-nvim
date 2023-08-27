@@ -97,8 +97,14 @@ local mappings = {
 	},
 
     d = {
-		b = { "<cmd>DapToggleBreakpoint<CR>", "Add breakpoint" },
-        r = { "<cmd>DapContinue<CR>", "Start or continue debugger"}
+        c = { "<cmd>DapContinue<CR>", "Start/Continue"},
+        i = { "<cmd>DapStepInto<CR>", "Step Into"},
+        o = { "<cmd>DapStepOver<CR>", "Step Over"},
+        q = { "<cmd>DapTerminate<CR>", "Terminate"},
+        r = { "<cmd>DapToggleRepl<CR>", "Toggle Repl"},
+		t = { "<cmd>DapToggleBreakpoint<CR>", "Toggle breakpoint" },
+        u = { "<cmd>DapStepOut<CR>", "Step Out"},
+        U = { "<cmd>lua require'dapui'.toggle({reset = true})<cr>", "Toggle UI" },
     },
 
 	e = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
@@ -135,10 +141,9 @@ local mappings = {
 			s = { "<cmd>BraceyStop<CR>", "Stop" },
 		},
         c = { "<cmd>CMakeRun<CR>", "CMake Run" },
+        d = { "<cmd>CMakeDebug<CR>", "CMake Debug" },
 		r = { "<cmd>RunFile toggleterm<CR>", "Run" },
 		R = { "<cmd>RunProject toggleterm<CR>", "Run project" },
-        m = { "<cmd>!cmake --no-warn-unused-cli -DCMAKE_BUILD_TYPE:STRING=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE -G Ninja | cmake --build . --config Debug --target all<CR>", "CMake Ninja Debug" },
-        -- M = { "<cmd>!cmake --build ./build --config Debug --target all<CR>", "CMake Debug Run" }
 	},
 
 	["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
@@ -175,21 +180,14 @@ local mappings = {
 		o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
 		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
 		c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
-		d = {
-			"<cmd>Gitsigns diffthis HEAD<cr>",
-			"Diff",
-		},
+		d = { "<cmd>DiffviewOpen<cr>", "Diffview Open" },
+		D = { "<cmd>DiffviewClose<cr>", "Diffview Close" },
 	},
 
 	l = {
 		name = "LSP",
 		a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
 		d = { "<cmd>lua vim.lsp.buf.declaration()<CR>", "Go to definition" },
-		r = { "<cmd>lua require('telescope.builtin').lsp_references()<cr>", "Find references" },
-		w = {
-			"<cmd>Telescope lsp_workspace_diagnostics<cr>",
-			"Workspace Diagnostics",
-		},
 		f = { "<cmd>lua vim.lsp.buf.format()<cr>", "Format" },
 		i = { "<cmd>LspInfo<cr>", "Info" },
 		I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
@@ -207,16 +205,26 @@ local mappings = {
 			"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
 			"Workspace Symbols",
 		},
+		r = { "<cmd>lua require('telescope.builtin').lsp_references()<cr>", "Find references" },
+		w = {
+			"<cmd>Telescope lsp_workspace_diagnostics<cr>",
+			"Workspace Diagnostics",
+		},
 	},
 	s = {
 		name = "Search",
 		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-		c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
+		c = {
+            "<cmd>lua require('telescope.builtin').colorscheme({ enable_preview = true })<cr>",
+            "Colorscheme with Preview"
+        },
 		h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
 		M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
 		r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
 		R = { "<cmd>Telescope registers<cr>", "Registers" },
+        t = { "<cmd>Telescope live_grep<cr>", "Text" },
 		k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
+        l = { "<cmd>Telescope resume<cr>", "Resume last search" },
 		C = { "<cmd>Telescope commands<cr>", "Commands" },
 	},
 
