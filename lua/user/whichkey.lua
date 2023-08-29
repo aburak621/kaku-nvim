@@ -227,7 +227,13 @@ local mappings = {
         l = { "<cmd>Telescope resume<cr>", "Resume last search" },
 		C = { "<cmd>Telescope commands<cr>", "Commands" },
 	},
-
+    S = {
+        name = "Session",
+        d = { "<cmd>SessionManager delete_session<cr>", "Delete Session" },
+        s = { "<cmd>SessionManager save_current_session<cr>", "Save Session" },
+        l = { "<cmd>SessionManager load_session<cr>", "Load session" },
+        L = { "<cmd>SessionManager load_last_session<cr>", "Load last session" },
+    },
 	t = {
 		name = "Telescope",
 		g = { "<cmd>Telescope live_grep<CR>", "Live Grep" },

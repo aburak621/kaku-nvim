@@ -51,13 +51,17 @@ local plugins = {
     -- cmake plugin
     { "Civitasv/cmake-tools.nvim",          commit = "f97b83023eb3798f1ddb8a4e431c5bac032f1949" },
 
-    -- Colorschemes
+    -- Colorschemes (Themes)
     { "navarasu/onedark.nvim" },
     { "lunarvim/darkplus.nvim" },
     { "LunarVim/Colorschemes" },
     { "morhetz/gruvbox" },
     { "tomasiser/vim-code-dark" },
     { "NTBBloodbath/doom-one.nvim" },
+    { "Mofiqul/vscode.nvim" },
+    { "BoHomola/vsassist.nvim" },
+    { "bartekprtc/gruv-vsassist.nvim" },
+    { "rktjmp/lush.nvim" },
 
     -- Completion plugins
     { "github/copilot.vim" }, -- Github Copilot
@@ -132,6 +136,7 @@ local plugins = {
 
     {
         "abecodes/tabout.nvim",
+        dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-cmp" },
         config = function()
             require("tabout").setup({
                 tabkey = "<Tab>",             -- key to trigger tabout, set to an empty string to disable
@@ -159,6 +164,15 @@ local plugins = {
     { "folke/trouble.nvim" },
     { "mbbill/undotree" },
     { "Eandrju/cellular-automaton.nvim" },
+    {
+        "Shatur/neovim-session-manager",
+        config = function ()
+            require("session_manager").setup({
+                autoload_mode = require("session_manager.config").AutoloadMode.Disabled,
+                autosave_ignore_buftypes = { "terminal" },
+            })
+        end
+    }
 }
 
 local opts = {}

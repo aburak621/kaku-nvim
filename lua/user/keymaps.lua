@@ -105,3 +105,7 @@ keymap("c", "<C-h>", "<C-w>", { noremap = true, silent = false } )
 
 -- Bind the function to the semicolon key in insert mode.
 vim.api.nvim_set_keymap('i', ';', '<C-o>:lua require("user.semicolon").place_semicolon()<CR>', { noremap = true, silent = true })
+
+-- Copilot
+vim.cmd [[imap <silent><script><expr> <C-l> copilot#Accept("\<CR>")]]
+vim.cmd [[let g:copilot_no_tab_map = v:true]]

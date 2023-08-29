@@ -1,2 +1,2 @@
-vim.cmd [[colorscheme doom-one]]
+vim.cmd [[colorscheme onedarker]]
 vim.cmd("highlight Comment gui=NONE")
