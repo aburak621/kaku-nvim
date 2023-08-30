@@ -218,6 +218,7 @@ local mappings = {
             "<cmd>lua require('telescope.builtin').colorscheme({ enable_preview = true })<cr>",
             "Colorscheme with Preview"
         },
+        d = { "<cmd>DevdocsOpenCurrentFloat<cr>", "Devdocs Search"},
 		h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
 		M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
 		r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },

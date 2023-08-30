@@ -1,13 +1,15 @@
-local status_ok, lsp = pcall(require, "lspconfig")
+local status_ok, lspconfig = pcall(require, "lspconfig")
 if not status_ok then
     return
 end
 
-lsp.clangd.setup {
+lspconfig.clangd.setup {
     cmd = { "clangd", "--header-insertion=never", "--offset-encoding=utf-16" },
 }
 
-lsp.lua_ls.setup {
+lspconfig.csharp_ls.setup {}
+
+lspconfig.lua_ls.setup {
     settings = {
         Lua = {
             diagnostics = {

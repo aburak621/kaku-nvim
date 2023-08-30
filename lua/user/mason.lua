@@ -1,5 +1,5 @@
 require("mason").setup()
-local servers = { "lua_ls", "clangd", "cmake", "pyright", "rust_analyzer", "tsserver", "vimls", "omnisharp", "jdtls" }
+local servers = { "lua_ls", "clangd", "cmake", "pyright", "rust_analyzer", "tsserver", "vimls", "jdtls" }
 -- with_daps = { "cpptools", "debugpy" }
 
 require("mason-lspconfig").setup({

@@ -54,7 +54,7 @@ local plugins = {
     -- Colorschemes (Themes)
     { "navarasu/onedark.nvim" },
     { "lunarvim/darkplus.nvim" },
-    { "LunarVim/Colorschemes" },
+    -- { "LunarVim/Colorschemes" },
     { "morhetz/gruvbox" },
     { "tomasiser/vim-code-dark" },
     { "NTBBloodbath/doom-one.nvim" },
@@ -124,9 +124,10 @@ local plugins = {
 
     -- Telescope
     { "nvim-telescope/telescope.nvim" },
+    { "nvim-telescope/telescope-media-files.nvim" },
 
     -- Treesitter
-    { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+    { "nvim-treesitter/nvim-treesitter",          build = ":TSUpdate" },
 
     -- Git
     { "lewis6991/gitsigns.nvim" },
@@ -166,13 +167,28 @@ local plugins = {
     { "Eandrju/cellular-automaton.nvim" },
     {
         "Shatur/neovim-session-manager",
-        config = function ()
+        config = function()
             require("session_manager").setup({
                 autoload_mode = require("session_manager.config").AutoloadMode.Disabled,
                 autosave_ignore_buftypes = { "terminal" },
             })
         end
-    }
+    },
+    {
+        "luckasRanarison/nvim-devdocs",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-telescope/telescope.nvim",
+            "nvim-treesitter/nvim-treesitter",
+        },
+        opts = {}
+    },
+    { "MunifTanjim/nui.nvim" },
+    {
+       "m4xshen/hardtime.nvim",
+       dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+       opts = {}
+    },
 }
 
 local opts = {}
