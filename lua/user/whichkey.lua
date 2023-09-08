@@ -91,9 +91,9 @@ local mappings = {
 			"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{ initial_mode = 'normal' })<cr>",
 			"Buffers",
 		},
-		c = { "<cmd>Bdelete!<CR>", "Close buffer" },
-		C = { "<cmd>%bd!|e#|bd!#|'\"<CR>", "Close all other buffers" },
-		n = { "<cmd>enew<CR>", "New empty buffer" },
+		c = { "<cmd>Bdelete!<CR>", "Close Buffer" },
+		C = { "<cmd>%bd!|e#|bd!#|'\"<CR>", "Close All Other Buffers" },
+		n = { "<cmd>enew<CR>", "New Empty Buffer" },
 	},
 
     d = {
@@ -102,7 +102,7 @@ local mappings = {
         o = { "<cmd>DapStepOver<CR>", "Step Over"},
         q = { "<cmd>DapTerminate<CR>", "Terminate"},
         r = { "<cmd>DapToggleRepl<CR>", "Toggle Repl"},
-		t = { "<cmd>DapToggleBreakpoint<CR>", "Toggle breakpoint" },
+		t = { "<cmd>DapToggleBreakpoint<CR>", "Toggle Breakpoint" },
         u = { "<cmd>DapStepOut<CR>", "Step Out"},
         U = { "<cmd>lua require'dapui'.toggle({reset = true})<cr>", "Toggle UI" },
     },
@@ -113,24 +113,24 @@ local mappings = {
 	w = {
 		name = "Window",
 		c = { "<cmd>close<CR>", "Close" },
-		o = { "<cmd>only<CR>", "Close and kill buffer" },
-		C = { "<cmd>Bdelete!<CR><cmd>close<CR>", "Close and kill buffer" },
-		s = { "<cmd>split<CR>", "Split horizontal" },
-		v = { "<cmd>vsplit<CR>", "Split vertical" },
+		o = { "<cmd>only<CR>", "Close and Kill Buffer" },
+		C = { "<cmd>Bdelete!<CR><cmd>close<CR>", "Close and Kill Buffer" },
+		s = { "<cmd>split<CR>", "Split Horizontal" },
+		v = { "<cmd>vsplit<CR>", "Split Vertical" },
 		m = { "<C-W>_", "Maximize" },
-		e = { "<C-W>=", "Equal size" },
-		r = { "<C-W>r", "Rotate clockwise" },
-		R = { "<C-W>R", "Rotate counter-clockwise" },
+		e = { "<C-W>=", "Equal Size" },
+		r = { "<C-W>r", "Rotate Clockwise" },
+		R = { "<C-W>R", "Rotate Counter-clockwise" },
 	},
 
 	q = {
 	  name = "Quit",
-      a = { "<cmd>qa<CR>", "Close all" },
-      A = { "<cmd>qa!<CR>", "Close all (force)" },
+      a = { "<cmd>qa<CR>", "Close All" },
+      A = { "<cmd>qa!<CR>", "Close All (force)" },
       q = { "<cmd>q<CR>", "Close" },
       Q = { "<cmd>q!<CR>", "Close (force)" },
-      w = { "<cmd>wq<CR>", "Save and close" },
-      W = { "<cmd>wqa<CR>", "Save and close all" },
+      w = { "<cmd>wq<CR>", "Save and Close" },
+      W = { "<cmd>wqa<CR>", "Save and Close All" },
 	},
 
 	c = {
@@ -143,7 +143,7 @@ local mappings = {
         c = { "<cmd>CMakeRun<CR>", "CMake Run" },
         d = { "<cmd>CMakeDebug<CR>", "CMake Debug" },
 		r = { "<cmd>RunFile toggleterm<CR>", "Run" },
-		R = { "<cmd>RunProject toggleterm<CR>", "Run project" },
+		R = { "<cmd>RunProject toggleterm<CR>", "Run Project" },
 	},
 
 	["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
@@ -177,9 +177,9 @@ local mappings = {
 			"<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
 			"Undo Stage Hunk",
 		},
-		o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
-		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-		c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
+		o = { "<cmd>Telescope git_status<cr>", "Open Changed File" },
+		b = { "<cmd>Telescope git_branches<cr>", "Checkout Branch" },
+		c = { "<cmd>Telescope git_commits<cr>", "Checkout Commit" },
 		d = { "<cmd>DiffviewOpen<cr>", "Diffview Open" },
 		D = { "<cmd>DiffviewClose<cr>", "Diffview Close" },
 	},
@@ -205,7 +205,7 @@ local mappings = {
 			"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
 			"Workspace Symbols",
 		},
-		r = { "<cmd>lua require('telescope.builtin').lsp_references()<cr>", "Find references" },
+		r = { "<cmd>lua require('telescope.builtin').lsp_references()<cr>", "Find References" },
 		w = {
 			"<cmd>Telescope lsp_workspace_diagnostics<cr>",
 			"Workspace Diagnostics",
@@ -213,7 +213,7 @@ local mappings = {
 	},
 	s = {
 		name = "Search",
-		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
+		b = { "<cmd>Telescope git_branches<cr>", "Checkout Branch" },
 		c = {
             "<cmd>lua require('telescope.builtin').colorscheme({ enable_preview = true })<cr>",
             "Colorscheme with Preview"
@@ -225,15 +225,15 @@ local mappings = {
 		R = { "<cmd>Telescope registers<cr>", "Registers" },
         t = { "<cmd>Telescope live_grep<cr>", "Text" },
 		k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
-        l = { "<cmd>Telescope resume<cr>", "Resume last search" },
+        l = { "<cmd>Telescope resume<cr>", "Resume Last Search" },
 		C = { "<cmd>Telescope commands<cr>", "Commands" },
 	},
     S = {
         name = "Session",
         d = { "<cmd>SessionManager delete_session<cr>", "Delete Session" },
         s = { "<cmd>SessionManager save_current_session<cr>", "Save Session" },
-        l = { "<cmd>SessionManager load_session<cr>", "Load session" },
-        L = { "<cmd>SessionManager load_last_session<cr>", "Load last session" },
+        l = { "<cmd>SessionManager load_session<cr>", "Load Session" },
+        L = { "<cmd>SessionManager load_last_session<cr>", "Load Last Session" },
     },
 	t = {
 		name = "Telescope",
@@ -250,6 +250,7 @@ local mappings = {
 		-- h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
 		-- v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
 	},
+    ["<tab>"] = { "<cmd>tabprevious<CR>", "Cycle Tabs" }
 }
 
 which_key.setup(setup)

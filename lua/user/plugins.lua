@@ -46,7 +46,28 @@ local plugins = {
     { "windwp/nvim-autopairs" }, -- Autopairs, integrates with both cmp and treesitter
     { "folke/which-key.nvim" },
     { "tpope/vim-surround" },
-    { "easymotion/vim-easymotion" },
+    {
+        "folke/flash.nvim",
+        event = "VeryLazy",
+        opts = {},
+        keys = {
+            { "S", mode = { "n", "o", "x" }, function() require("flash").jump() end, desc = "Flash" },
+            {
+                "C",
+                mode = { "n", "o", "x" },
+                function() require("flash").treesitter() end,
+                desc =
+                "Flash Treesitter"
+            },
+            {
+                "R",
+                mode = { "n", "o", "x" },
+                function() require("flash").treesitter_search() end,
+                desc =
+                "Treesitter Search"
+            },
+        },
+    },
 
     -- cmake plugin
     { "Civitasv/cmake-tools.nvim",          commit = "f97b83023eb3798f1ddb8a4e431c5bac032f1949" },
@@ -62,6 +83,8 @@ local plugins = {
     { "BoHomola/vsassist.nvim" },
     { "bartekprtc/gruv-vsassist.nvim" },
     { "rktjmp/lush.nvim" },
+    { "folke/tokyonight.nvim" },
+    { "catppuccin/nvim",                    name = "catppuccin",                                priority = 1000 },
 
     -- Completion plugins
     { "github/copilot.vim" }, -- Github Copilot
@@ -98,7 +121,20 @@ local plugins = {
     { "rafamadriz/friendly-snippets" }, -- a bunch of snippets to use
 
     -- LSP
-    { "neovim/nvim-lspconfig" },           -- enable LSP
+    { "neovim/nvim-lspconfig" }, -- enable LSP
+    {
+        "neovim/nvim-lspconfig",
+        dependencies = {
+            {
+                "SmiteshP/nvim-navbuddy",
+                dependencies = {
+                    "SmiteshP/nvim-navic",
+                    "MunifTanjim/nui.nvim"
+                },
+                opts = { lsp = { auto_attach = true } }
+            }
+        },
+    },
     { "williamboman/mason.nvim" },         -- simple to use language server installer
     { "williamboman/mason-lspconfig.nvim" },
     { "jose-elias-alvarez/null-ls.nvim" }, -- for formatters and linters
@@ -106,7 +142,7 @@ local plugins = {
 
     -- Debug
     { "mfussenegger/nvim-dap" },
-    { "rcarriga/nvim-dap-ui",               dependencies = "mfussenegger/nvim-dap",             event = "VeryLazy" },
+    { "rcarriga/nvim-dap-ui",             dependencies = "mfussenegger/nvim-dap", event = "VeryLazy" },
     {
         "Weissle/persistent-breakpoints.nvim",
         opts = {
@@ -185,10 +221,19 @@ local plugins = {
     },
     { "MunifTanjim/nui.nvim" },
     {
-       "m4xshen/hardtime.nvim",
-       dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
-       opts = {}
+        "m4xshen/hardtime.nvim",
+        dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+        opts = {
+            max_time = 0,
+        }
     },
+    { "wintermute-cell/gitignore.nvim" },
+    {
+        "folke/todo-comments.nvim",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        opts = {}
+    },
+    { "SmiteshP/nvim-navic", opts = {} },
 }
 
 local opts = {}

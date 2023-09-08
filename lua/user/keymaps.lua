@@ -96,12 +96,11 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 keymap("n", "<A-q>", "<cmd>lua vim.lsp.buf.hover()<CR>", term_opts)
 keymap("i", "<A-q>", "<cmd>lua vim.lsp.buf.hover()<CR>", term_opts)
 
--- EasyMotion
-keymap("n", "S", "<Plug>(easymotion-sn)", opts)
-
 keymap("n", "<F10>", "<cmd>ClangdSwitchSourceHeader<CR>", opts)
 
 keymap("c", "<C-h>", "<C-w>", { noremap = true, silent = false } )
+
+keymap("n", "<F12>", "<cmd>Navbuddy<CR>", opts)
 
 -- Bind the function to the semicolon key in insert mode.
 vim.api.nvim_set_keymap('i', ';', '<C-o>:lua require("user.semicolon").place_semicolon()<CR>', { noremap = true, silent = true })
