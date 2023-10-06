@@ -17,6 +17,6 @@ cr.setup({
 		java = "cd $dir && javac $fileName && java $fileNameWithoutExt",
 		python = python_cmd,
 		typescript = "deno run",
-		rust = "cd $dir && rustc $fileName && $dir/$fileNameWithoutExt",
+		rust = "cd $dir && cargo run",
 	},
 })

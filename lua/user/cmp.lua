@@ -65,8 +65,9 @@ cmp.setup {
   completion = { completeopt = "menu, menuone, noinsert, preview" },
   performance = {
       debounce = 300,
-      throttle = 100,
+      throttle = 500,
       fetching_timeout = 200,
+      max_view_entries = 20
   },
   mapping = {
     ["<C-k>"] = cmp.mapping.select_prev_item(),
@@ -132,7 +133,7 @@ cmp.setup {
   },
   sources = {
     -- { name = "copilot", group_index = 2 },
-    { name = "nvim_lsp", keyword_length = 3, max_item_count = 30 },
+    { name = "nvim_lsp", keyword_length = 2, max_item_count = 20 },
     { name = "luasnip" },
     { name = "buffer" },
     { name = "path" },

@@ -196,7 +196,7 @@ local mappings = {
 			"Next Diagnostic",
 		},
 		k = {
-			"<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>",
+			"<cmd>lua vim.diagnostic.goto_prev()<cr>",
 			"Prev Diagnostic",
 		},
 		l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },

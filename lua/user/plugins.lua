@@ -24,7 +24,7 @@ local plugins = {
     { "nvim-lualine/lualine.nvim" },
     { "akinsho/toggleterm.nvim" },             -- Terminal inside nvim
     { "ahmedkhalf/project.nvim" },
-    { "lukas-reineke/indent-blankline.nvim" }, -- Visual indentlines
+    { "lukas-reineke/indent-blankline.nvim", commit = "9637670896b68805430e2f72cf5d16be5b97a22a" }, -- Visual indentlines
     { "goolord/alpha-nvim" },                  -- Startup screen
     { "antoinemadec/FixCursorHold.nvim" },     -- This is needed to fix lsp doc highlight
     { "ap/vim-css-color" },
@@ -170,33 +170,6 @@ local plugins = {
     { "tpope/vim-fugitive" },
     { "sindrets/diffview.nvim" },
     { "kdheepak/lazygit.nvim" },
-
-    {
-        "abecodes/tabout.nvim",
-        dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-cmp" },
-        config = function()
-            require("tabout").setup({
-                tabkey = "<Tab>",             -- key to trigger tabout, set to an empty string to disable
-                backwards_tabkey = "<S-Tab>", -- key to trigger backwards tabout, set to an empty string to disable
-                act_as_tab = true,            -- shift content if tab out is not possible
-                act_as_shift_tab = false,     -- reverse shift content if tab out is not possible (if your keyboard/terminal supports <S-Tab>)
-                default_tab = "<C-t>",        -- shift default action (only at the beginning of a line, otherwise <TAB> is used)
-                default_shift_tab = "<C-d>",  -- reverse shift default action,
-                enable_backwards = true,      -- well ...
-                completion = true,            -- if the tabkey is used in a completion pum
-                tabouts = {
-                    { open = "'", close = "'" },
-                    { open = '"', close = '"' },
-                    { open = "`", close = "`" },
-                    { open = "(", close = ")" },
-                    { open = "[", close = "]" },
-                    { open = "{", close = "}" },
-                },
-                ignore_beginning = true, --[[ if the cursor is at the beginning of a filled element it will rather tab out than shift the content ]]
-                exclude = {}, -- tabout will ignore these filetypes
-            })
-        end,
-    },
     { "xiyaowong/transparent.nvim" },
     { "folke/trouble.nvim" },
     { "mbbill/undotree" },
@@ -220,13 +193,13 @@ local plugins = {
         opts = {}
     },
     { "MunifTanjim/nui.nvim" },
-    {
-        "m4xshen/hardtime.nvim",
-        dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
-        opts = {
-            max_time = 0,
-        }
-    },
+    -- {
+    --     "m4xshen/hardtime.nvim",
+    --     dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+    --     opts = {
+    --         max_time = 0,
+    --     }
+    -- },
     { "wintermute-cell/gitignore.nvim" },
     {
         "folke/todo-comments.nvim",
