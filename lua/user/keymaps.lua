@@ -39,6 +39,12 @@ keymap("n", "<TAB>", ":bnext<CR>", opts)
 keymap("n", "<S-TAB>", ":bprevious<CR>", opts)
 keymap("n", "<C-W>",  "<cmd>Bdelete!<CR>", opts)
 
+-- Tabs
+keymap("n", "<S-h>",  "<cmd>tabprevious<CR>", opts)
+keymap("n", "<S-l>",  "<cmd>tabnext<CR>", opts)
+keymap("n", "<C-t>",  "<cmd>tabnew<CR>", opts)
+keymap("n", "<A-w>",  "<cmd>tabclose<CR>", opts)
+
 -- Move text up and down
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
 keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
@@ -101,7 +107,12 @@ keymap("n", "<F10>", "<cmd>ClangdSwitchSourceHeader<CR>", opts)
 
 keymap("c", "<C-h>", "<C-w>", { noremap = true, silent = false } )
 
-keymap("n", "<F12>", "<cmd>Navbuddy<CR>", opts)
+-- DAP
+keymap("n", "<F5>", "<cmd>DapContinue<CR>", opts)
+keymap("n", "<F6>", "<cmd>DapStepInto<CR>", opts)
+keymap("n", "<F7>", "<cmd>DapStepOver<CR>", opts)
+keymap("n", "<F8>", "<cmd>DapStepOut<CR>", opts)
+
 
 -- Bind the function to the semicolon key in insert mode.
 vim.api.nvim_set_keymap('i', ';', '<C-o>:lua require("user.semicolon").place_semicolon()<CR>', { noremap = true, silent = true })

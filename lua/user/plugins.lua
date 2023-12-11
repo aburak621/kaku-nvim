@@ -133,16 +133,16 @@ local plugins = {
     { "neovim/nvim-lspconfig" }, -- enable LSP
     {
         "neovim/nvim-lspconfig",
-        dependencies = {
-            {
-                "SmiteshP/nvim-navbuddy",
-                dependencies = {
-                    "SmiteshP/nvim-navic",
-                    "MunifTanjim/nui.nvim"
-                },
-                opts = { lsp = { auto_attach = true } }
-            }
-        },
+        -- dependencies = {
+        --     {
+        --         "SmiteshP/nvim-navbuddy",
+        --         dependencies = {
+        --             "SmiteshP/nvim-navic",
+        --             "MunifTanjim/nui.nvim"
+        --         },
+        --         opts = { lsp = { auto_attach = true } }
+        --     }
+        -- },
     },
     { "williamboman/mason.nvim" },         -- simple to use language server installer
     { "williamboman/mason-lspconfig.nvim" },
@@ -201,7 +201,7 @@ local plugins = {
         },
         opts = {}
     },
-    { "MunifTanjim/nui.nvim" },
+    -- { "MunifTanjim/nui.nvim" },
     -- {
     --     "m4xshen/hardtime.nvim",
     --     dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },

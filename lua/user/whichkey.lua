@@ -206,10 +206,7 @@ local mappings = {
 			"Workspace Symbols",
 		},
 		r = { "<cmd>lua require('telescope.builtin').lsp_references()<cr>", "Find References" },
-		w = {
-			"<cmd>Telescope lsp_workspace_diagnostics<cr>",
-			"Workspace Diagnostics",
-		},
+		t = { "<cmd>Trouble<CR>", "Go to definition" },
 	},
 	s = {
 		name = "Search",

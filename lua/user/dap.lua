@@ -30,3 +30,5 @@ M.dap = {
         }
     }
 }
+
+return M
