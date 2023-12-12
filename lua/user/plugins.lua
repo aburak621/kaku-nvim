@@ -79,7 +79,7 @@ local plugins = {
     },
 
     -- cmake plugin
-    { "Civitasv/cmake-tools.nvim",          commit = "f97b83023eb3798f1ddb8a4e431c5bac032f1949" },
+    { "Civitasv/cmake-tools.nvim",          commit = "565d3a07cf0605a347cb68714015c0eef7213b16" },
 
     -- Colorschemes (Themes)
     { "navarasu/onedark.nvim" },
