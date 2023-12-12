@@ -118,5 +118,6 @@ keymap("n", "<F8>", "<cmd>DapStepOut<CR>", opts)
 vim.api.nvim_set_keymap('i', ';', '<C-o>:lua require("user.semicolon").place_semicolon()<CR>', { noremap = true, silent = true })
 
 -- Copilot
-vim.cmd [[imap <silent><script><expr> <C-l> copilot#Accept("\<CR>")]]
+keymap("i", "<C-l>", "<cmd>lua require('copilot.suggestion').accept()<CR>", opts)
+-- vim.cmd [[imap <silent><script><expr> <C-l> copilot#Accept("\<CR>")]]
 vim.cmd [[let g:copilot_no_tab_map = v:true]]

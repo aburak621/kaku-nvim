@@ -96,22 +96,22 @@ local plugins = {
     { "catppuccin/nvim",                    name = "catppuccin",                                priority = 1000 },
 
     -- Completion plugins
-    { "github/copilot.vim" }, -- Github Copilot
-    -- {
-    --     "zbirenbaum/copilot.lua",
-    --     config = function()
-    --         require("copilot").setup({
-    --             suggestion = { enabled = false },
-    --             panel = { enabled = false },
-    --         })
-    --     end
-    -- },
-    -- {
-    --     "zbirenbaum/copilot-cmp",
-    --     config = function()
-    --         require("copilot_cmp").setup()
-    --     end
-    -- },
+    -- { "github/copilot.vim" }, -- Github Copilot
+    {
+        "zbirenbaum/copilot.lua",
+        config = function()
+            require("copilot").setup({
+                suggestion = { auto_trigger = true },
+                -- panel = { enabled = false },
+            })
+        end
+    },
+    {
+        "zbirenbaum/copilot-cmp",
+        config = function()
+            require("copilot_cmp").setup()
+        end
+    },
 
     -- cmp plugins
     { "hrsh7th/nvim-cmp" },         -- The completion plugin
