@@ -25,7 +25,7 @@ local plugins = {
     { "nvim-lualine/lualine.nvim" },
     { "akinsho/toggleterm.nvim" },             -- Terminal inside nvim
     { "ahmedkhalf/project.nvim" },
-    { "lukas-reineke/indent-blankline.nvim", commit = "9637670896b68805430e2f72cf5d16be5b97a22a" }, -- Visual indentlines
+    { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} }, -- Visual indentlines
     { "goolord/alpha-nvim" },                  -- Startup screen
     { "antoinemadec/FixCursorHold.nvim" },     -- This is needed to fix lsp doc highlight
     { "ap/vim-css-color" },
