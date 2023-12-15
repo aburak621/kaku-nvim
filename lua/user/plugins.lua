@@ -57,6 +57,7 @@ local plugins = {
             })
         end
     },
+    { "nathom/filetype.nvim" },
 
     ----------------------------------------------------------------------------------
     ------------------------ Colorschemes (Themes) and Visual ------------------------
@@ -241,7 +242,13 @@ local plugins = {
             handlers = {}
         }
     },
-    { "theHamsta/nvim-dap-virtual-text", opts = {} },
+    {
+        "theHamsta/nvim-dap-virtual-text",
+        opts = {
+            highlight_new_as_changed = true,
+            all_references = true,
+        }
+    },
 
     --------------------------------------------------------------------
     ------------------------ Unreal - Try later ------------------------
