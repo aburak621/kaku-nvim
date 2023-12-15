@@ -30,7 +30,7 @@ local plugins = {
     --------------------------------------------------------
     { "goolord/alpha-nvim" }, -- Startup screen
     { "kyazdani42/nvim-tree.lua" },
-    { 'akinsho/bufferline.nvim', dependencies = 'nvim-tree/nvim-web-devicons' },
+    { "akinsho/bufferline.nvim", dependencies = "nvim-tree/nvim-web-devicons" },
     { "nvim-lualine/lualine.nvim" },
     { "SmiteshP/nvim-navic", opts = {} },
     { "akinsho/toggleterm.nvim" }, -- Terminal inside nvim
@@ -82,7 +82,7 @@ local plugins = {
     },
     { "echasnovski/mini.hipatterns",
         config = function ()
-            local hipatterns = require('mini.hipatterns')
+            local hipatterns = require("mini.hipatterns")
             hipatterns.setup({
                 highlighters = {
                     -- Highlight hex color strings (`#rrggbb`) using that color
@@ -97,6 +97,7 @@ local plugins = {
     -----------------------------------------------------------
     { "nvim-telescope/telescope.nvim" },
     { "nvim-telescope/telescope-media-files.nvim" },
+    { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 
     -------------------------------------------------------
     ------------------------ Input ------------------------
@@ -240,6 +241,7 @@ local plugins = {
             handlers = {}
         }
     },
+    { "theHamsta/nvim-dap-virtual-text", opts = {} },
 
     --------------------------------------------------------------------
     ------------------------ Unreal - Try later ------------------------
