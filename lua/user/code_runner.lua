@@ -13,6 +13,7 @@ if vim.loop.os_uname().sysname == "Windows_NT" then
 end
 
 cr.setup({
+    mode = "toggleterm",
 	filetype = {
 		java = "cd $dir && javac $fileName && java $fileNameWithoutExt",
 		python = python_cmd,
