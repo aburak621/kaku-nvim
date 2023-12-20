@@ -99,6 +99,7 @@ local plugins = {
     { "nvim-telescope/telescope.nvim" },
     { "nvim-telescope/telescope-media-files.nvim" },
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+    { "nvim-telescope/telescope-ui-select.nvim" },
 
     -------------------------------------------------------
     ------------------------ Input ------------------------
