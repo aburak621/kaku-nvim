@@ -32,15 +32,15 @@ null_ls.setup({
 			},
 			extra_args = { "--no-semi" },
 		}),
-        formatting.rustfmt,
+		formatting.rustfmt,
 		-- Python
 		-- formatting.black,
 		-- diagnostics.flake8,
 		-- diagnostics.pylint,
 		-- Lua
-		-- formatting.stylua,
-        formatting.clang_format.with({
-            extra_args = { "--style=Microsoft" }
-        })
+		formatting.stylua,
+		formatting.clang_format.with({
+			extra_args = { "--style=Microsoft" },
+		}),
 	},
 })

@@ -1,1 +1,1 @@
-vim.cmd[[hi IlluminatedWordRead gui=reverse]]
+vim.cmd([[hi IlluminatedWordRead gui=reverse]])

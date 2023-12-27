@@ -6,14 +6,14 @@ end
 local python_cmd = ""
 if vim.loop.os_uname().sysname == "Windows_NT" then
 	-- Windows-specific configuration
-    python_cmd = "python"
-  else
+	python_cmd = "python"
+else
 	-- Linux-specific configuration
 	python_cmd = "python3 -u"
 end
 
 cr.setup({
-    mode = "toggleterm",
+	mode = "toggleterm",
 	filetype = {
 		java = "cd $dir && javac $fileName && java $fileNameWithoutExt",
 		python = python_cmd,

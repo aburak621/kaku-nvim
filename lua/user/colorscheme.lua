@@ -1,10 +1,9 @@
-require("onedark").setup{
-    style="cool"
-}
+require("onedark").setup({
+	style = "cool",
+})
 
-vim.cmd [[colorscheme onedark]]
+vim.cmd([[colorscheme onedark]])
 vim.cmd("highlight Comment gui=NONE")
-
 
 -- Gruvbox
 -- vim.cmd [[colorscheme gruvbox]]
