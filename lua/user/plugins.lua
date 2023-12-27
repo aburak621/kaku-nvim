@@ -195,7 +195,8 @@ local plugins = {
     { "neovim/nvim-lspconfig" }, -- enable LSP
     { "williamboman/mason.nvim" },         -- simple to use language server installer
     { "williamboman/mason-lspconfig.nvim" },
-    { "jose-elias-alvarez/null-ls.nvim" }, -- for formatters and linters
+    -- { "jose-elias-alvarez/null-ls.nvim" }, -- for formatters and linters
+    { "nvimtools/none-ls.nvim" }, -- for formatters and linters
     { "RRethy/vim-illuminate" },
     { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 
