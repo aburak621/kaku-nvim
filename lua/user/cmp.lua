@@ -8,7 +8,7 @@ if not snip_status_ok then
 	return
 end
 
-require("luasnip/loaders/from_vscode").lazy_load()
+require("luasnip.loaders.from_vscode").lazy_load()
 local autopairs = require("nvim-autopairs.completion.cmp")
 
 local check_backspace = function()
@@ -144,9 +144,11 @@ cmp.setup({
 		select = false,
 	},
 	window = {
-		documentation = {
-			border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-		},
+		completion = cmp.config.window.bordered(),
+		documentation = cmp.config.window.bordered(),
+		-- documentation = {
+		-- 	border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+		-- },
 	},
 	experimental = {
 		ghost_text = false,
