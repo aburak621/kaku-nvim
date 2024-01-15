@@ -215,15 +215,15 @@ local plugins = {
 	{ "CRAG666/code_runner.nvim", dependencies = "nvim-lua/plenary.nvim" },
 	{ "Civitasv/cmake-tools.nvim", commit = "565d3a07cf0605a347cb68714015c0eef7213b16" },
 	-- { "turbio/bracey.vim", run = "npm install --prefix server"}, -- Live server for Web Dev
-	{
-		"luckasRanarison/nvim-devdocs",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-telescope/telescope.nvim",
-			"nvim-treesitter/nvim-treesitter",
-		},
-		opts = {},
-	},
+	-- {
+	-- 	"luckasRanarison/nvim-devdocs",
+	-- 	dependencies = {
+	-- 		"nvim-lua/plenary.nvim",
+	-- 		"nvim-telescope/telescope.nvim",
+	-- 		"nvim-treesitter/nvim-treesitter",
+	-- 	},
+	-- 	opts = {},
+	-- },
 	-- { -- This plugin
 	--     "Zeioth/compiler.nvim",
 	--     cmd = {"CompilerOpen", "CompilerToggleResults", "CompilerRedo"},
