@@ -57,6 +57,7 @@ local plugins = {
 		end,
 	},
 	{ "nathom/filetype.nvim" },
+    { 'echasnovski/mini.align', version = false, opts = {} },
 
 	----------------------------------------------------------------------------------
 	------------------------ Colorschemes (Themes) and Visual ------------------------
