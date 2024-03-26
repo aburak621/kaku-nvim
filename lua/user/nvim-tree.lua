@@ -26,7 +26,7 @@ local function on_attach(bufnr)
 	vim.keymap.set('n', '<C-x>', api.node.open.horizontal,              opts('Open: Horizontal Split'))
 	vim.keymap.set('n', '<BS>',  api.node.navigate.parent_close,        opts('Close Directory'))
 	vim.keymap.set('n', '<CR>',  api.node.open.edit,                    opts('Open'))
-	vim.keymap.set('n', '<Tab>', api.node.open.preview,                 opts('Open Preview'))
+	-- vim.keymap.set('n', '<Tab>', api.node.open.preview,                 opts('Open Preview'))
 	vim.keymap.set('n', '>',     api.node.navigate.sibling.next,        opts('Next Sibling'))
 	vim.keymap.set('n', '<',     api.node.navigate.sibling.prev,        opts('Previous Sibling'))
 	vim.keymap.set('n', '.',     api.node.run.cmd,                      opts('Run Command'))
@@ -83,77 +83,20 @@ local function on_attach(bufnr)
   end
 
 nvim_tree.setup({
-	auto_reload_on_write = true,
 	sync_root_with_cwd = true,
+	respect_buf_cwd = true,
 	update_focused_file = {
 		enable = true,
 		update_root = true,
 	},
-	create_in_closed_folder = false,
-	disable_netrw = false,
-	hijack_cursor = false,
-	hijack_netrw = true,
-	hijack_unnamed_buffer_when_opening = false,
-	-- ignore_buffer_on_setup = false,
-	-- open_on_setup = false,
-	-- open_on_setup_file = false,
-	open_on_tab = false,
-	sort_by = "name",
-	update_cwd = true, -- Project plugin setting
-	reload_on_bufenter = false,
-	respect_buf_cwd = true, -- Project plugin setting
+	disable_netrw = true,
 	on_attach = on_attach,
 	view = {
-		adaptive_size = false,
-		centralize_selection = false,
-		-- width = 30,
-		-- height = 30,
-		side = "left",
 		preserve_window_proportions = true,
-		number = false,
-		relativenumber = false,
-		signcolumn = "yes",
 	},
 	renderer = {
-		add_trailing = false,
-		group_empty = false,
-		highlight_git = false,
-		full_name = false,
-		highlight_opened_files = "none",
-		root_folder_modifier = ":~",
-		indent_markers = {
-			enable = false,
-			icons = {
-				corner = "└ ",
-				edge = "│ ",
-				item = "│ ",
-				none = "  ",
-			},
-		},
 		icons = {
-			webdev_colors = true,
-			git_placement = "before",
-			padding = " ",
-			symlink_arrow = " ➛ ",
-			show = {
-				file = true,
-				folder = true,
-				folder_arrow = true,
-				git = true,
-			},
 			glyphs = {
-				default = "",
-				symlink = "",
-				folder = {
-					arrow_closed = "",
-					arrow_open = "",
-					default = "",
-					open = "",
-					empty = "",
-					empty_open = "",
-					symlink = "",
-					symlink_open = "",
-				},
 				git = {
 					unstaged = "",
 					staged = "S",
@@ -167,83 +110,7 @@ nvim_tree.setup({
 		},
 		special_files = { "Cargo.toml", "Makefile", "README.md", "readme.md" },
 	},
-	hijack_directories = {
-		enable = true,
-		auto_open = true,
-	},
-	system_open = {
-		cmd = "",
-		args = {},
-	},
 	diagnostics = {
 		enable = false,
-		show_on_dirs = false,
-		icons = {
-			hint = "",
-			info = "",
-			warning = "",
-			error = "",
-		},
-	},
-	filters = {
-		dotfiles = false,
-		custom = {},
-		exclude = {},
-	},
-	-- filesystem_watchers = {
-	-- 	enable = false,
-	-- 	-- interval = 100,
-	-- },
-	git = {
-		enable = true,
-		ignore = false,
-		timeout = 400,
-	},
-	actions = {
-		use_system_clipboard = true,
-		change_dir = {
-			enable = true,
-			global = false,
-			restrict_above_cwd = false,
-		},
-		expand_all = {
-			max_folder_discovery = 300,
-		},
-		open_file = {
-			quit_on_open = false,
-			resize_window = false,
-			window_picker = {
-				enable = true,
-				chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
-				exclude = {
-					filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame" },
-					buftype = { "nofile", "terminal", "help" },
-				},
-			},
-		},
-		remove_file = {
-			close_window = true,
-		},
-	},
-	trash = {
-		cmd = "gio trash",
-		require_confirm = true,
-	},
-	live_filter = {
-		prefix = "[FILTER]: ",
-		always_show_folders = true,
-	},
-	log = {
-		enable = false,
-		truncate = false,
-		types = {
-			all = false,
-			config = false,
-			copy_paste = false,
-			diagnostics = false,
-			git = false,
-			profile = false,
-			watcher = false,
-		},
 	},
 })
