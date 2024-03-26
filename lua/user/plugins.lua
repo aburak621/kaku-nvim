@@ -258,7 +258,7 @@ local plugins = {
 	------------------------ Debug ------------------------
 	-------------------------------------------------------
 	{ "mfussenegger/nvim-dap" },
-	{ "rcarriga/nvim-dap-ui", dependencies = "mfussenegger/nvim-dap", event = "VeryLazy" },
+	{ "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"}, event = "VeryLazy" },
 	{
 		"Weissle/persistent-breakpoints.nvim",
 		opts = {

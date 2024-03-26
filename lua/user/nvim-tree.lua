@@ -87,7 +87,7 @@ nvim_tree.setup({
 	sync_root_with_cwd = true,
 	update_focused_file = {
 		enable = true,
-		update_root = true
+		update_root = true,
 	},
 	create_in_closed_folder = false,
 	disable_netrw = false,
@@ -190,10 +190,10 @@ nvim_tree.setup({
 		custom = {},
 		exclude = {},
 	},
-	filesystem_watchers = {
-		enable = false,
-		-- interval = 100,
-	},
+	-- filesystem_watchers = {
+	-- 	enable = false,
+	-- 	-- interval = 100,
+	-- },
 	git = {
 		enable = true,
 		ignore = false,

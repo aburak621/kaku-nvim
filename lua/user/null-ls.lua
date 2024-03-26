@@ -32,7 +32,7 @@ null_ls.setup({
 			},
 			extra_args = { "--no-semi" },
 		}),
-		formatting.rustfmt,
+		-- formatting.rustfmt,
 		-- Python
 		-- formatting.black,
 		-- diagnostics.flake8,
