@@ -110,7 +110,7 @@ local mappings = {
 		c = { "<cmd>close<CR>", "Close" },
 		C = { "<cmd>Bdelete!<CR><cmd>close<CR>", "Close and Kill Buffer" },
 		e = { "<C-W>=", "Equal Size" },
-		m = { "<C-W>_", "Maximize" },
+		m = { "<C-W>_<C-W>|", "Maximize" },
 		o = { "<cmd>only<CR>", "Close other windows." },
 		r = { "<C-W>r", "Rotate Clockwise" },
 		R = { "<C-W>R", "Rotate Counter-clockwise" },
