@@ -38,7 +38,9 @@ null_ls.setup({
 		-- diagnostics.flake8,
 		-- diagnostics.pylint,
 		-- Lua
-		formatting.stylua,
+		formatting.stylua.with({
+			-- args = { "--indent-type", "Spaces" },
+		}),
 		formatting.clang_format.with({
 			extra_args = { "--style=Microsoft" },
 		}),
