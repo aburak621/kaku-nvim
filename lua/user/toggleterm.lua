@@ -5,19 +5,19 @@ end
 
 if vim.loop.os_uname().sysname == "Windows_NT" then
 	-- Windows-specific configuration
-	-- vim.o.shell = "cmd.exe"
-	local powershell_options = {
-		shell = vim.fn.executable("pwsh") == 1 and "pwsh" or "powershell",
-		shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;",
-		shellredir = "-RedirectStandardOutput %s -NoNewWindow -Wait",
-		shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode",
-		shellquote = "",
-		shellxquote = "",
-	}
-
-	for option, value in pairs(powershell_options) do
-		vim.opt[option] = value
-	end
+	vim.o.shell = "cmd.exe"
+	-- local powershell_options = {
+	-- 	shell = vim.fn.executable("pwsh") == 1 and "pwsh" or "powershell",
+	-- 	shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;",
+	-- 	shellredir = "-RedirectStandardOutput %s -NoNewWindow -Wait",
+	-- 	shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode",
+	-- 	shellquote = "",
+	-- 	shellxquote = "",
+	-- }
+	--
+	-- for option, value in pairs(powershell_options) do
+	-- 	vim.opt[option] = value
+	-- end
 else
 	-- Linux-specific configuration
 	vim.o.shell = "zsh"
@@ -52,6 +52,7 @@ toggleterm.setup({
 	start_in_insert = true,
 	insert_mappings = true,
 	persist_size = true,
+    persist_mode = true,
 	direction = "horizontal",
 	close_on_exit = true,
 	shell = vim.o.shell,

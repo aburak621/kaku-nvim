@@ -57,7 +57,8 @@ local plugins = {
 		end,
 	},
 	{ "nathom/filetype.nvim" },
-    { 'echasnovski/mini.align', version = false, opts = {} },
+    { "echasnovski/mini.align", version = false, opts = {} },
+    { "kevinhwang91/nvim-ufo", dependencies = "kevinhwang91/promise-async" },
 
 	----------------------------------------------------------------------------------
 	------------------------ Colorschemes (Themes) and Visual ------------------------
@@ -74,7 +75,7 @@ local plugins = {
 	{ "bartekprtc/gruv-vsassist.nvim" },
 	{ "rktjmp/lush.nvim" },
 	{ "folke/tokyonight.nvim" },
-	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+	{ "catppuccin/nvim", name = "catppuccin", priority = 1000, opts = { no_italic = true } },
 	{ "xiyaowong/transparent.nvim" },
 	{
 		"folke/todo-comments.nvim",
@@ -294,6 +295,7 @@ local plugins = {
         "S1M0N38/love2d.nvim",
         cmd = "LoveRun",
         opts = {},
+        pin = true,
     },
 }
 

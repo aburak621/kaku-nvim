@@ -39,7 +39,7 @@ null_ls.setup({
 		-- diagnostics.pylint,
 		-- Lua
 		formatting.stylua.with({
-			-- args = { "--indent-type", "Spaces" },
+			args = { "--indent-type", "Spaces" },
 		}),
 		formatting.clang_format.with({
 			extra_args = { "--style=Microsoft" },

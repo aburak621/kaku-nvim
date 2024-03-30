@@ -139,6 +139,7 @@ local mappings = {
 		d = { "<cmd>CMakeDebug<CR>", "CMake Debug" },
 		r = { "<cmd>RunFile toggleterm<CR>", "Run" },
 		R = { "<cmd>RunProject toggleterm<CR>", "Run Project" },
+		l = { "<cmd>LoveRun<CR>", "Run Love" },
 	},
 
 	["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
