@@ -172,6 +172,7 @@ local plugins = {
 				-- panel = { enabled = false },
 			})
 		end,
+		enabled = false,
 	},
 	{
 		"zbirenbaum/copilot-cmp",

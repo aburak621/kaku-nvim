@@ -2,7 +2,7 @@ require("onedark").setup({
 	style = "cool",
 })
 
-vim.cmd([[colorscheme doom-one]])
+vim.cmd([[colorscheme catppuccin-latte]])
 vim.cmd("highlight Comment gui=NONE")
 
 -- Gruvbox
