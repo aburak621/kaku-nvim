@@ -101,9 +101,13 @@ telescope.setup({
         ["ui-select"] = {
             require("telescope.themes").get_dropdown({}),
         },
+        ["file_browser"] = {
+            theme = "ivy"
+        }
     },
 })
 
 telescope.load_extension("media_files")
 telescope.load_extension("fzf")
 telescope.load_extension("ui-select")
+telescope.load_extension("file_browser")

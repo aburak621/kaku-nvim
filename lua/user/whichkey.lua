@@ -104,6 +104,7 @@ local mappings = {
 	},
 
 	e = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
+	E = { [[<cmd>lua require 'telescope'.extensions.file_browser.file_browser({ grouped = true, hidden = true })<CR>]], "File Browser" },
 
 	w = {
 		name = "Window",
@@ -179,7 +180,7 @@ local mappings = {
 		k = { "<cmd>lua vim.diagnostic.goto_prev()<cr>", "Prev Diagnostic" },
 		l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
 		s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
-		S = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace Symbols" },
+		S = { "<cmd>Telescope lsp_workspace_symbols<cr>", "Workspace Symbols" },
 		r = { "<cmd>lua require('telescope.builtin').lsp_references()<cr>", "Find References" },
 		t = { "<cmd>Trouble<CR>", "Trouble" },
 	},

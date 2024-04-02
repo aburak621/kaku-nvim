@@ -24,11 +24,9 @@ function M.change_cwd()
             local current_file_path = vim.fn.expand("%:p:h")
             vim.api.nvim_command("lcd " .. current_file_path)
         end
-        vim.api.nvim_command("NvimTreeRefresh")
     end
 end
 
 M.setup()
 
 return M
-
