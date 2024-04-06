@@ -76,6 +76,9 @@ local plugins = {
     { "rktjmp/lush.nvim" },
     { "folke/tokyonight.nvim" },
     { "catppuccin/nvim", name = "catppuccin", priority = 1000, opts = { no_italic = true } },
+    { "Shatur/neovim-ayu" },
+    { "projekt0n/github-nvim-theme" },
+    { "Th3Whit3Wolf/one-nvim" },
     { "xiyaowong/transparent.nvim" },
     {
         "folke/todo-comments.nvim",
@@ -212,6 +215,7 @@ local plugins = {
     { "nvimtools/none-ls.nvim" }, -- for formatters and linters
     { "RRethy/vim-illuminate" },
     { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+    { "folke/neodev.nvim", opts = {} },
 
     -------------------------------------------------------------
     ------------------------ Programming ------------------------

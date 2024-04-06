@@ -2,8 +2,14 @@ require("onedark").setup({
 	style = "cool",
 })
 
-vim.cmd([[colorscheme catppuccin-latte]])
+-- Disable italic comments
 vim.cmd("highlight Comment gui=NONE")
+
+-- Doom One
+-- vim.cmd([[colorscheme doom-one]])
+
+-- Catppuccin
+vim.cmd([[colorscheme catppuccin-latte]])
 
 -- Gruvbox
 -- vim.cmd [[colorscheme gruvbox]]

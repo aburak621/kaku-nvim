@@ -21,9 +21,40 @@ luasnip.add_snippets("lua", {
         ]], {
             i(1, "k"), i(2, "v"), i(3, "table"), rep(1), rep(2)
         }
-    )
-    -- t("for "), i(1, "k"), t(", "), i(2, "v"), t(" in pairs("), i(3, "table"), t({ ") do", "" }),
-    -- t("\tprint("), rep(1), t(", "), rep(2), t({ ")", "" }),
-    -- t("end"),
-    )
+    )),
+    s("new_object", fmt(
+        [[
+        ---@class {}: {}
+        {} = {}:extend()
+
+        function {}:new({})
+            {}.super.new(self, {})
+        end
+
+        function {}:update(dt)
+            {}.super.update(self, dt)
+        end
+
+        function {}:draw()
+        end
+
+        function {}:destroy()
+            {}.super.destroy(self)
+        end
+        ]], {
+            rep(1), rep(2), i(1, "name"), i(2, "parent"), rep(1), i(3, "params"), rep(1), rep(3), rep(1), rep(1), rep(1), rep(1), rep(1)
+        }
+    )),
+    s("class", fmt([[
+        ---@class {}
+        ]], {
+        i(1, "class_name")
+    }
+    )),
+    s("field", fmt([[
+        ---@field {} {}
+        ]], {
+        i(1, "name"), i(2, "type")
+    }
+    )),
 })
