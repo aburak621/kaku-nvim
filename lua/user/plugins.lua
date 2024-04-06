@@ -216,6 +216,7 @@ local plugins = {
     { "RRethy/vim-illuminate" },
     { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
     { "folke/neodev.nvim", opts = {} },
+    { "habamax/vim-godot", event = "VimEnter" },
 
     -------------------------------------------------------------
     ------------------------ Programming ------------------------

@@ -1,3 +1,9 @@
+function sanitize_godot_path(path)
+    local out_path = string.gsub(path, [[/]], [[\\]])
+    out_path = string.gsub(out_path, [[ ]], [[\ ]])
+    return out_path
+end
+
 local M = {}
 
 local workspace_finder = require('user.workspace_finder')

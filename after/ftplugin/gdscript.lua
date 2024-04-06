@@ -1,5 +1,4 @@
-local port = os.getenv('GDScript_Port') or '6008'
-local cmd = { 'ncat', '127.0.0.1', port }
+local cmd = { 'ncat', '127.0.0.1', '6008' }
 local pipe = [[\\.\pipe\godot]]
 
 vim.lsp.start({
