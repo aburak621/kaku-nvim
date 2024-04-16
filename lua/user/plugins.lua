@@ -46,7 +46,6 @@ local plugins = {
     },
     { "folke/trouble.nvim" },
     { "mbbill/undotree" },
-    { "Eandrju/cellular-automaton.nvim" },
     {
         "Shatur/neovim-session-manager",
         config = function()

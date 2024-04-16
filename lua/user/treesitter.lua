@@ -8,7 +8,6 @@ configs.setup({
         "c",
         "c_sharp",
         "cmake",
-        "comment",
         "cpp",
         "css",
         "gdscript",
@@ -44,7 +43,8 @@ configs.setup({
         disable = { "" }, -- list of language that will be disabled
         additional_vim_regex_highlighting = true,
     },
-    indent = { enable = true, disable = { "yaml", "gdscript" } },
+    incremental_selection = { disable = { "dart" } },
+    indent = { enable = true, disable = { "yaml", "gdscript", "dart" } },
     context_commentstring = {
         enable = true,
         enable_autocmd = false,

@@ -64,7 +64,7 @@ cmp.setup({
     },
     completion = { completeopt = "menu, menuone, noinsert, preview" },
     performance = {
-        debounce = 100,
+        debounce = 0,
         throttle = 250,
         fetching_timeout = 100,
         max_view_entries = 20,
@@ -116,6 +116,7 @@ cmp.setup({
         }),
     },
     formatting = {
+        expandable_indicator = true,
         fields = { "kind", "abbr", "menu" },
         format = function(entry, vim_item)
             -- Max width

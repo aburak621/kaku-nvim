@@ -10,6 +10,12 @@ vim.lsp.start({
     end
 })
 
+-- Exec Flags command for Godot Editor (including "--")
+--server "\\\\.\\pipe\\godot.pipe" --remote-send "<C-\><C-N>:lua vim.cmd([[n ]] .. sanitize_godot_path([[{file}]]))<CR>"
+
+-- For VSCode (without "--")
+-- {project} --goto {file}:{line}:{col}
+
 -- C:/tools/neovim/nvim-win64/bin/nvim.exe
 -- --server "\\.\\pipe\\godot" --remote-send "<C-\><C-N>:n {file}<CR>:call cursor({line},{col})<CR>"
 --
