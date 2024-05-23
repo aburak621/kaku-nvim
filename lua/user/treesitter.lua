@@ -11,7 +11,6 @@ configs.setup({
         "cpp",
         "css",
         "gdscript",
-        "gdshader",
         "godot_resource",
         "gitignore",
         "glsl",
