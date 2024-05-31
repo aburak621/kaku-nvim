@@ -55,7 +55,6 @@ local plugins = {
             })
         end,
     },
-    { "nathom/filetype.nvim" },
     { "echasnovski/mini.align", version = false, opts = {} },
     { "kevinhwang91/nvim-ufo", dependencies = "kevinhwang91/promise-async" },
 
