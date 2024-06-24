@@ -54,9 +54,11 @@ local plugins = {
                 autosave_ignore_buftypes = { "terminal" },
             })
         end,
+        commit = "4376507a99af4a92c85263c30ab8efee0bb2857f",
     },
     { "echasnovski/mini.align", version = false, opts = {} },
     { "kevinhwang91/nvim-ufo", dependencies = "kevinhwang91/promise-async" },
+    { "nmac427/guess-indent.nvim", opts = {} },
 
     ----------------------------------------------------------------------------------
     ------------------------ Colorschemes (Themes) and Visual ------------------------
@@ -211,6 +213,17 @@ local plugins = {
     { "williamboman/mason-lspconfig.nvim" },
     -- { "jose-elias-alvarez/null-ls.nvim" }, -- for formatters and linters
     { "nvimtools/none-ls.nvim" }, -- for formatters and linters
+    {
+        "jay-babu/mason-null-ls.nvim",
+        event = { "BufReadPre", "BufNewFile" },
+        dependencies = {
+            "williamboman/mason.nvim",
+            "nvimtools/none-ls.nvim",
+        },
+        config = function()
+            require("user.null-ls") -- require your null-ls config here (example below)
+        end,
+    },
     { "RRethy/vim-illuminate" },
     { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
     { "folke/lazydev.nvim", ft = "lua" },
