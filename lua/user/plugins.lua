@@ -213,7 +213,7 @@ local plugins = {
     { "nvimtools/none-ls.nvim" }, -- for formatters and linters
     { "RRethy/vim-illuminate" },
     { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
-    { "folke/neodev.nvim", opts = {} },
+    { "folke/lazydev.nvim", ft = "lua" },
     { "habamax/vim-godot", event = "VimEnter" },
 
     -------------------------------------------------------------
@@ -222,6 +222,12 @@ local plugins = {
     { "CRAG666/code_runner.nvim", dependencies = "nvim-lua/plenary.nvim" },
     { "Civitasv/cmake-tools.nvim", commit = "565d3a07cf0605a347cb68714015c0eef7213b16" },
     -- { "turbio/bracey.vim", run = "npm install --prefix server"}, -- Live server for Web Dev
+    {
+        'barrett-ruth/live-server.nvim',
+        build = 'npm add -g live-server',
+        cmd = { 'LiveServerStart', 'LiveServerStop' },
+        config = true
+    },
     -- {
     -- 	"luckasRanarison/nvim-devdocs",
     -- 	dependencies = {

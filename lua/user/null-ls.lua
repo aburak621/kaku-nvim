@@ -11,7 +11,6 @@ local diagnostics = null_ls.builtins.diagnostics
 null_ls.setup({
 	debug = false,
 	sources = {
-		-- formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
 		-- Web
 		formatting.prettier.with({
 			filetypes = {
@@ -30,7 +29,7 @@ null_ls.setup({
 				"graphql",
 				"handlebars",
 			},
-			extra_args = { "--no-semi" },
+			extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
 		}),
 		-- formatting.rustfmt,
 		-- Python
