@@ -9,7 +9,7 @@ vim.cmd("highlight Comment gui=NONE")
 -- vim.cmd([[colorscheme doom-one]])
 
 -- Catppuccin
-vim.cmd([[colorscheme catppuccin-latte]])
+vim.cmd([[colorscheme catppuccin-mocha]])
 
 -- Gruvbox
 -- vim.cmd [[colorscheme gruvbox]]

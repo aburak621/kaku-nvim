@@ -102,7 +102,8 @@ telescope.setup({
             require("telescope.themes").get_dropdown({}),
         },
         ["file_browser"] = {
-            theme = "ivy"
+            theme = "ivy",
+            -- initial_mode = "normal"
         }
     },
 })

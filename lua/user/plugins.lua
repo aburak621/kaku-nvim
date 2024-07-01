@@ -1,13 +1,6 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-    vim.fn.system({
-        "git",
-        "clone",
-        "--filter=blob:none",
-        "https://github.com/folke/lazy.nvim.git",
-        "--branch=stable", -- latest stable release
-        lazypath,
-    })
+    vim.fn.system({ "git", "clone", "--filter=blob:none", "https://github.com/folke/lazy.nvim.git", "--branch=stable", })
 end
 vim.opt.rtp:prepend(lazypath)
 
@@ -58,7 +51,7 @@ local plugins = {
     },
     { "echasnovski/mini.align", version = false, opts = {} },
     { "kevinhwang91/nvim-ufo", dependencies = "kevinhwang91/promise-async" },
-    { "nmac427/guess-indent.nvim", opts = {} },
+    -- { "nmac427/guess-indent.nvim", opts = {} },
 
     ----------------------------------------------------------------------------------
     ------------------------ Colorschemes (Themes) and Visual ------------------------
@@ -155,19 +148,10 @@ local plugins = {
         },
     },
     { "max397574/better-escape.nvim", opts = { timeout = 300, mapping = "jk" } },
-    -- { "MunifTanjim/nui.nvim" },
-    -- {
-    --     "m4xshen/hardtime.nvim",
-    --     dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
-    --     opts = {
-    --         max_time = 0,
-    --     }
-    -- },
 
     ------------------------------------------------------------
     ------------------------ Completion ------------------------
     ------------------------------------------------------------
-    -- { "github/copilot.vim" }, -- Github Copilot
     {
         "zbirenbaum/copilot.lua",
         config = function()
@@ -211,7 +195,6 @@ local plugins = {
     { "neovim/nvim-lspconfig" }, -- enable LSP
     { "williamboman/mason.nvim" }, -- simple to use language server installer
     { "williamboman/mason-lspconfig.nvim" },
-    -- { "jose-elias-alvarez/null-ls.nvim" }, -- for formatters and linters
     { "nvimtools/none-ls.nvim" }, -- for formatters and linters
     {
         "jay-babu/mason-null-ls.nvim",
@@ -224,10 +207,10 @@ local plugins = {
             require("user.null-ls") -- require your null-ls config here (example below)
         end,
     },
-    { "RRethy/vim-illuminate" },
+    { "RRethy/vim-illuminate", enabled = true }, -- Disabled because of lag.
     { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
     { "folke/lazydev.nvim", ft = "lua" },
-    { "habamax/vim-godot", event = "VimEnter" },
+    -- { "habamax/vim-godot", event = "VimEnter" },
 
     -------------------------------------------------------------
     ------------------------ Programming ------------------------
@@ -241,34 +224,6 @@ local plugins = {
         cmd = { 'LiveServerStart', 'LiveServerStop' },
         config = true
     },
-    -- {
-    -- 	"luckasRanarison/nvim-devdocs",
-    -- 	dependencies = {
-    -- 		"nvim-lua/plenary.nvim",
-    -- 		"nvim-telescope/telescope.nvim",
-    -- 		"nvim-treesitter/nvim-treesitter",
-    -- 	},
-    -- 	opts = {},
-    -- },
-    -- { -- This plugin
-    --     "Zeioth/compiler.nvim",
-    --     cmd = {"CompilerOpen", "CompilerToggleResults", "CompilerRedo"},
-    --     dependencies = { "stevearc/overseer.nvim" },
-    --     opts = {},
-    -- },
-    -- { -- The task runner we use
-    --     "stevearc/overseer.nvim",
-    --     commit = "400e762648b70397d0d315e5acaf0ff3597f2d8b",
-    --     cmd = { "CompilerOpen", "CompilerToggleResults", "CompilerRedo" },
-    --     opts = {
-    --         task_list = {
-    --             direction = "bottom",
-    --             min_height = 25,
-    --             max_height = 25,
-    --             default_detail = 1
-    --         },
-    --     },
-    -- },
 
     -----------------------------------------------------
     ------------------------ Git ------------------------
@@ -305,12 +260,6 @@ local plugins = {
             all_references = true,
         },
     },
-
-    --------------------------------------------------------------------
-    ------------------------ Unreal - Try later ------------------------
-    --------------------------------------------------------------------
-    -- { "tpope/vim-dispatch" },
-    -- { "zadirion/Unreal.nvim" }
 
     --------------------------------------------------------
     ------------------------ Other ------------------------
