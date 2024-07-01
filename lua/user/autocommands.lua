@@ -30,4 +30,8 @@ vim.cmd([[
     autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
   augroup end
 
+  augroup Indentation
+    autocmd!
+    autocmd FileType javascript,html,css setlocal ts=2 sts=2 sw=2
+  augroup END
 ]])
