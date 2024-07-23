@@ -31,6 +31,7 @@ null_ls.setup({
 			},
 			extra_args = { "--semi", "--single-quote", "--jsx-single-quote" },
 		}),
+        require("none-ls.diagnostics.eslint"), -- requires none-ls-extras.nvim
 		-- formatting.rustfmt,
 		-- Python
 		-- formatting.black,

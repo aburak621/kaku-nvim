@@ -51,6 +51,14 @@ local plugins = {
     },
     { "echasnovski/mini.align", version = false, opts = {} },
     { "kevinhwang91/nvim-ufo", dependencies = "kevinhwang91/promise-async" },
+    {
+        "hedyhli/outline.nvim",
+        opts = {
+            outline_window = {
+                position = "left",
+            },
+        }
+    },
     -- { "nmac427/guess-indent.nvim", opts = {} },
 
     ----------------------------------------------------------------------------------
@@ -195,7 +203,12 @@ local plugins = {
     { "neovim/nvim-lspconfig" }, -- enable LSP
     { "williamboman/mason.nvim" }, -- simple to use language server installer
     { "williamboman/mason-lspconfig.nvim" },
-    { "nvimtools/none-ls.nvim" }, -- for formatters and linters
+    {
+        "nvimtools/none-ls.nvim",
+        dependencies = {
+            "nvimtools/none-ls-extras.nvim",
+        },
+    }, -- for formatters and linters
     {
         "jay-babu/mason-null-ls.nvim",
         event = { "BufReadPre", "BufNewFile" },
@@ -211,6 +224,7 @@ local plugins = {
     { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
     { "folke/lazydev.nvim", ft = "lua" },
     -- { "habamax/vim-godot", event = "VimEnter" },
+    { "Bakudankun/PICO-8.vim" },
 
     -------------------------------------------------------------
     ------------------------ Programming ------------------------
@@ -222,7 +236,7 @@ local plugins = {
         'barrett-ruth/live-server.nvim',
         build = 'npm add -g live-server',
         cmd = { 'LiveServerStart', 'LiveServerStop' },
-        config = true
+        opts = { args = { '--browser=chrome' } },
     },
 
     -----------------------------------------------------

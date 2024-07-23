@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 project.setup({
-    manual_mode = true,
+    -- manual_mode = true,
 })
 
 local tele_status_ok, telescope = pcall(require, "telescope")

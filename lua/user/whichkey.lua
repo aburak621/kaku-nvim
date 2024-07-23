@@ -179,10 +179,11 @@ local mappings = {
 		j = { "<cmd>lua vim.diagnostic.goto_next()<CR>", "Next Diagnostic" },
 		k = { "<cmd>lua vim.diagnostic.goto_prev()<cr>", "Prev Diagnostic" },
 		l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
+        o = { "<cmd>Outline<cr>", "Toggle Outline" },
 		s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
 		S = { "<cmd>Telescope lsp_workspace_symbols<cr>", "Workspace Symbols" },
 		r = { "<cmd>lua require('telescope.builtin').lsp_references()<cr>", "Find References" },
-		t = { "<cmd>Trouble<CR>", "Trouble" },
+		t = { "<cmd>Trouble diagnostics toggle<CR>", "Trouble" },
 	},
 	s = {
 		name = "Search",
