@@ -32,13 +32,13 @@ local on_attach = function(client, bufnr)
     end
 
     nmap("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
-    nmap("gr", function() require('telescope.builtin').lsp_references({ layout_strategy = 'flex' }) end, "[G]oto [R]eferences")
+    nmap("gr", function() require('telescope.builtin').lsp_references({ layout_strategy = 'flex' }) end,
+        "[G]oto [R]eferences")
     nmap("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
     nmap("gD", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
     nmap("<F12>", function() vim.cmd([[Telescope lsp_document_symbols]]) end, "[D]ocument [S]ymbols")
     nmap("<S-F12>", function() vim.cmd([[Telescope lsp_workspace_symbols]]) end, "[W]orkspace [S]ymbols")
     nmap("K", function()
-        print("bruh")
         local winid = require('ufo').peekFoldedLinesUnderCursor()
         if not winid then
             vim.lsp.buf.hover()
@@ -98,6 +98,18 @@ mason_lspconfig.setup_handlers({
             },
         })
     end,
+})
+
+vim.api.nvim_create_autocmd({ 'BufNew', 'BufEnter' }, {
+    pattern = { '*.p8' },
+    callback = function(args)
+        vim.lsp.start({
+            name = 'pico8-ls',
+            cmd = { 'pico8-ls.cmd', '--stdio' },
+            root_dir = vim.fs.dirname(vim.api.nvim_buf_get_name(args.buf)),
+            on_attach = on_attach,
+        })
+    end
 })
 
 -- NULL LS

@@ -12,6 +12,7 @@ local plugins = {
     { "nvim-lua/popup.nvim" }, -- An implementation of the Popup API from vim in Neovim
     { "nvim-lua/plenary.nvim" }, -- Useful lua functions used by lots of plugins
     { "nvim-tree/nvim-web-devicons" },
+    { "echasnovski/mini.icons" },
     { "moll/vim-bbye" },
     { "antoinemadec/FixCursorHold.nvim" }, -- This is needed to fix lsp doc highlight
     { "ap/vim-css-color" },
@@ -155,7 +156,21 @@ local plugins = {
             },
         },
     },
-    { "max397574/better-escape.nvim", opts = { timeout = 300, mapping = "jk" } },
+    {
+        "max397574/better-escape.nvim", opts = {
+            timeout = 300,
+            default_mappings = false,
+            mappings = {
+                i = {
+                    j = {
+                        -- These can all also be functions
+                        k = "<Esc>",
+                        j = "<Esc>",
+                    },
+                },
+            },
+        },
+    },
 
     ------------------------------------------------------------
     ------------------------ Completion ------------------------
