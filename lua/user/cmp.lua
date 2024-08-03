@@ -143,6 +143,7 @@ cmp.setup({
         -- { name = "buffer" },
         { name = "path" },
         { name = "nvim_lsp_signature_help" },
+        { name = "emoji" },
     },
     confirm_opts = {
         behavior = cmp.ConfirmBehavior.Replace,

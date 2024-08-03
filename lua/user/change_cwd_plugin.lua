@@ -32,15 +32,17 @@ function M.change_cwd()
 
     -- Check if the buffer type is not empty and not one of the excluded types
     if buftype == "" then
-        local workspace_folder = workspace_finder.find_workspace_folder()
-
-        if workspace_folder then
-            vim.api.nvim_command("lcd " .. workspace_folder)
+        -- Check if we are in a git repo folder
+        local git_root = find_git_root()
+        if git_root then
+            vim.api.nvim_command("lcd " .. git_root)
         else
-            -- If no workspace folder found, check if we are in a git repo folder
-            local git_root = find_git_root()
-            if git_root then
-                vim.api.nvim_command("lcd " .. git_root)
+            -- If no git folder is found then we check for workspace folder.
+            -- This behavior was reversed but it chose the current folder for js files so I reversed it.
+            local workspace_folder = workspace_finder.find_workspace_folder()
+
+            if workspace_folder then
+                vim.api.nvim_command("lcd " .. workspace_folder)
             else
                 -- If no git repo found, default to current file's directory
                 local current_file_path = vim.fn.expand("%:p:h")

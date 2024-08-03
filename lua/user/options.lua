@@ -41,7 +41,7 @@ local options = {
 vim.opt.shortmess:append "c"
 
 for k, v in pairs(options) do
-  vim.opt[k] = v
+    vim.opt[k] = v
 end
 
 vim.cmd "language en_US.utf8"
@@ -49,6 +49,7 @@ vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
 vim.cmd [[set completeopt=menu,noinsert]]
 vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
+vim.cmd [[set noequalalways]]
 
 vim.api.nvim_create_autocmd('TextYankPost', {
   group = vim.api.nvim_create_augroup('highlight_yank', {}),

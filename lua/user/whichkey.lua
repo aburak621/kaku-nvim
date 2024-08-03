@@ -80,6 +80,9 @@ which_key.add({
     -- Leader key mappings
     { "<leader>a",   "<cmd>Alpha<cr>",                                                                                                      desc = "Alpha" },
 
+    -- Other
+    { "<leader><leader>", group = "Other" },
+
     -- Buffer mappings
     { "<leader>b",   group = "Buffer" },
     { "<leader>bb",  "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{})<cr>",                       desc = "Buffers" },

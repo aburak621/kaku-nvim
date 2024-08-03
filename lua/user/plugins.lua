@@ -60,6 +60,47 @@ local plugins = {
             },
         }
     },
+    -- This is 'noice' but somewhat buggy in my setup.
+    {
+        "folke/noice.nvim", enabled = false,
+        event = "VeryLazy",
+        opts = {
+            lsp = {
+                -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+                override = {
+                    ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+                    ["vim.lsp.util.stylize_markdown"] = true,
+                    ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
+                },
+            },
+            -- you can enable a preset for easier configuration
+            presets = {
+                bottom_search = true, -- use a classic bottom cmdline for search
+                command_palette = true, -- position the cmdline and popupmenu together
+                long_message_to_split = true, -- long messages will be sent to a split
+                inc_rename = true, -- enables an input dialog for inc-rename.nvim
+                lsp_doc_border = false, -- add a border to hover docs and signature help
+            },
+        },
+        dependencies = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" }
+    },
+    {
+        "smjonas/inc-rename.nvim",
+        config = function()
+            require("inc_rename").setup()
+            vim.keymap.set("n", "<F2>", function()
+                return ":IncRename " .. vim.fn.expand("<cword>")
+            end, { expr = true })
+        end,
+    },
+    {
+        "ThePrimeagen/refactoring.nvim",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-treesitter/nvim-treesitter",
+        },
+        opts = {}
+    },
     -- { "nmac427/guess-indent.nvim", opts = {} },
 
     ----------------------------------------------------------------------------------
@@ -171,6 +212,16 @@ local plugins = {
             },
         },
     },
+    {
+        "ziontee113/icon-picker.nvim",
+        config = function()
+            require("icon-picker").setup({ disable_legacy_commands = true })
+            local opts = { noremap = true, silent = true }
+            vim.keymap.set("n", "<Leader><Leader>=", "<cmd>IconPickerNormal<cr>", opts)
+            vim.keymap.set("n", "<Leader><Leader>+", "<cmd>IconPickerYank<cr>", opts) --> Yank the selected icon into register
+            vim.keymap.set("i", "<M-i>", "<cmd>IconPickerInsert<cr>", opts)
+        end
+    },
 
     ------------------------------------------------------------
     ------------------------ Completion ------------------------
@@ -205,6 +256,7 @@ local plugins = {
     { "saadparwaiz1/cmp_luasnip" }, -- snippet completions
     { "hrsh7th/cmp-nvim-lsp" },
     { "hrsh7th/cmp-nvim-lsp-signature-help" },
+    { "hrsh7th/cmp-emoji" },
 
     ----------------------------------------------------------
     ------------------------ Snippets ------------------------
@@ -253,6 +305,7 @@ local plugins = {
         cmd = { 'LiveServerStart', 'LiveServerStop' },
         opts = { args = { '--browser=chrome' } },
     },
+    { "danymat/neogen", config = true },
 
     -----------------------------------------------------
     ------------------------ Git ------------------------
