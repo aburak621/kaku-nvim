@@ -143,7 +143,18 @@ cmp.setup({
         -- { name = "buffer" },
         { name = "path" },
         { name = "nvim_lsp_signature_help" },
+        { name = "neorg" },
         { name = "emoji" },
+    },
+    sorting = {
+        comparators = {
+            cmp.config.compare.offset,
+            cmp.config.compare.exact,
+            cmp.config.compare.score,
+            cmp.config.compare.recently_used,
+            require("cmp-under-comparator").under,
+            cmp.config.compare.kind,
+        },
     },
     confirm_opts = {
         behavior = cmp.ConfirmBehavior.Replace,
