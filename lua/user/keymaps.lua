@@ -92,6 +92,7 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 -- Terminal --
 keymap("n", "<A-j>", "<cmd>ToggleTerm<cr>", opts)
 keymap("i", "<A-j>", "<cmd>ToggleTerm<cr>", opts)
+keymap("t", "<A-k>", [[<C-\><C-n>]], opts)
 -- Better terminal navigation
 keymap("t", "<A-j>", "<cmd>ToggleTerm<cr>", opts)
 keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)

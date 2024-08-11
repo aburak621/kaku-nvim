@@ -5,19 +5,19 @@ end
 
 if vim.loop.os_uname().sysname == "Windows_NT" then
 	-- Windows-specific configuration
-	vim.o.shell = "cmd.exe"
-	-- local powershell_options = {
-	-- 	shell = vim.fn.executable("pwsh") == 1 and "pwsh" or "powershell",
-	-- 	shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;",
-	-- 	shellredir = "-RedirectStandardOutput %s -NoNewWindow -Wait",
-	-- 	shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode",
-	-- 	shellquote = "",
-	-- 	shellxquote = "",
-	-- }
-	--
-	-- for option, value in pairs(powershell_options) do
-	-- 	vim.opt[option] = value
-	-- end
+	-- vim.o.shell = "cmd.exe"
+	local powershell_options = {
+		shell = vim.fn.executable("pwsh") == 1 and "pwsh" or "powershell",
+		shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;",
+		shellredir = "-RedirectStandardOutput %s -NoNewWindow -Wait",
+		shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode",
+		shellquote = "",
+		shellxquote = "",
+	}
+
+	for option, value in pairs(powershell_options) do
+		vim.opt[option] = value
+	end
 else
 	-- Linux-specific configuration
 	vim.o.shell = "zsh"
@@ -49,10 +49,10 @@ toggleterm.setup({
 	shade_filetypes = {},
 	shade_terminals = true,
 	shading_factor = 2,
-	start_in_insert = true,
+	start_insert = true,
 	insert_mappings = true,
 	persist_size = true,
-    persist_mode = true,
+    persist_mode = false,
 	direction = "horizontal",
 	close_on_exit = true,
 	shell = vim.o.shell,
@@ -70,6 +70,7 @@ function _G.set_terminal_keymaps()
 	local opts = { noremap = true }
 	-- vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], opts)
 	-- vim.api.nvim_buf_set_keymap(0, 't', 'jk', [[<C-\><C-n>]], opts)
+	-- vim.api.nvim_buf_set_keymap(0, 't', '<A-k>', [[<C-\><C-n>]], opts)
 	vim.api.nvim_buf_set_keymap(0, "t", "<C-h>", [[<C-\><C-n><C-W>h]], opts)
 	vim.api.nvim_buf_set_keymap(0, "t", "<C-j>", [[<C-\><C-n><C-W>j]], opts)
 	vim.api.nvim_buf_set_keymap(0, "t", "<C-k>", [[<C-\><C-n><C-W>k]], opts)

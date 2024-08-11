@@ -49,3 +49,5 @@ configs.setup({
         enable_autocmd = false,
     },
 })
+
+require('nvim-treesitter.install').compilers = { "zig", vim.fn.getenv('CC'), "cc", "gcc", "clang", "cl" }

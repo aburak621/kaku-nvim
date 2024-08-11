@@ -108,6 +108,34 @@ local plugins = {
         end,
         event = 'VeryLazy',
     },
+    {
+        "nvim-neorg/neorg",
+        lazy = false, -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
+        version = "*", -- Pin Neorg to the latest stable release
+        config = true,
+        opts = {
+            load = {
+                ["core.defaults"] = {},
+                ["core.concealer"] = {},
+                ["core.summary"] = {},
+                ["core.dirman"] = {
+                    config = {
+                        workspaces = {
+                            notes = vim.fn.expand("$HOME") .. "/neorg",
+                        },
+                        default_workspace = "notes",
+                        index = "index.norg", -- The name of the main (root) .norg file
+                    },
+                },
+                -- ["core.completion"] = {
+                --     config = {
+                --         engine = "nvim-cmp",
+                --     },
+                -- },
+                -- ["core.integrations.nvim-cmp"] = {},
+            },
+        },
+    },
     -- { "nmac427/guess-indent.nvim", opts = {} },
 
     ----------------------------------------------------------------------------------
@@ -231,7 +259,7 @@ local plugins = {
     },
 
     ------------------------------------------------------------
-    ------------------------ Completion ------------------------
+    -------------------------- Copilot -------------------------
     ------------------------------------------------------------
     {
         "zbirenbaum/copilot.lua",
@@ -249,6 +277,16 @@ local plugins = {
             require("copilot_cmp").setup()
         end,
     },
+    {
+        "CopilotC-Nvim/CopilotChat.nvim",
+        branch = "canary",
+        dependencies = {
+            { "zbirenbaum/copilot.lua" }, -- or github/copilot.vim
+            { "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
+        },
+        opts = {
+        },
+    },
 
     -----------------------------------------------------
     ------------------------ Cmp ------------------------
@@ -264,6 +302,7 @@ local plugins = {
     { "hrsh7th/cmp-nvim-lsp" },
     { "hrsh7th/cmp-nvim-lsp-signature-help" },
     { "hrsh7th/cmp-emoji" },
+    { "lukas-reineke/cmp-under-comparator" },
 
     ----------------------------------------------------------
     ------------------------ Snippets ------------------------
@@ -328,12 +367,12 @@ local plugins = {
     -------------------------------------------------------
     { "mfussenegger/nvim-dap" },
     { "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"}, event = "VeryLazy" },
-    {
-        "Weissle/persistent-breakpoints.nvim",
-        opts = {
-            load_breakpoints_event = { "BufReadPost" },
-        },
-    },
+    -- {
+    --     "Weissle/persistent-breakpoints.nvim",
+    --     opts = {
+    --         load_breakpoints_event = { "BufReadPost" },
+    --     },
+    -- },
     {
         "jay-babu/mason-nvim-dap.nvim",
         event = "VeryLazy",
@@ -357,8 +396,14 @@ local plugins = {
         "S1M0N38/love2d.nvim",
         cmd = "LoveRun",
         opts = {},
-        pin = true,
+        -- pin = true,
     },
+    {
+        'mrcjkb/rustaceanvim',
+        dependencies = { "williamboman/mason-lspconfig.nvim" },
+        version = '^5', -- Recommended
+        lazy = false, -- This plugin is already lazy
+    }
 }
 
 local opts = {}

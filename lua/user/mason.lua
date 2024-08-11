@@ -3,6 +3,7 @@ local servers = {
     "lua_ls",
     "clangd",
     "cmake",
+    "csharp_ls",
     "pyright",
     "rust_analyzer",
     "taplo",
@@ -10,9 +11,15 @@ local servers = {
     "vimls",
     "jdtls",
     "cssls",
+    "css_variables",
+    -- "cssmodules_ls",
+    -- "tailwindcss",
     "html",
+    "emmet_language_server",
+    -- "eslint",
     "jsonls",
     "marksman",
+    "taplo",
     "sqlls",
 }
 -- with_daps = { "cpptools", "debugpy" }
@@ -77,6 +84,8 @@ mason_lspconfig.setup_handlers({
             capabilities = capabilities,
             cmd = { "clangd", "--header-insertion=never", "--offset-encoding=utf-16" },
         })
+    end,
+    ["rust_analyzer"] = function() -- Skip rust_analyzer
     end,
     ["lua_ls"] = function()
         lspconfig.lua_ls.setup({

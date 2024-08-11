@@ -97,13 +97,13 @@ which_key.add({
     { "<leader>do",  "<cmd>DapStepOver<CR>",                                                                                                desc = "Step Over" },
     { "<leader>dq",  "<cmd>DapTerminate<CR>",                                                                                               desc = "Terminate" },
     { "<leader>dr",  "<cmd>DapToggleRepl<CR>",                                                                                              desc = "Toggle Repl" },
-    { "<leader>dt",  "<cmd>DapToggleBreakpoint<CR>",                                                                                        desc = "Toggle Breakpoint" },
-    { "<leader>du",  "<cmd>DapStepOut<CR>",                                                                                                 desc = "Step Out" },
+    { "<leader>db",  "<cmd>DapToggleBreakpoint<CR>",                                                                                        desc = "Toggle Breakpoint" },
+    { "<leader>dO",  "<cmd>DapStepOut<CR>",                                                                                                 desc = "Step Out" },
     { "<leader>dU",  "<cmd>lua require'dapui'.toggle({reset = true})<cr>",                                                                  desc = "Toggle UI" },
 
     -- Explorer mappings
     { "<leader>e",   "<cmd>NvimTreeToggle<cr>",                                                                                             desc = "Explorer" },
-    { "<leader>E",   [[<cmd>lua require 'telescope'.extensions.file_browser.file_browser({ grouped = true, hidden = true })<CR>]],          desc = "File Browser" },
+    { "<leader>E",   [[<cmd>lua require 'telescope'.extensions.file_browser.file_browser({ grouped = true, hidden = true, path = vim.fn.expand('%:~:h') })<CR>]],          desc = "File Browser" },
 
     -- Window mappings
     { "<leader>w",   group = "Window" },
@@ -193,6 +193,42 @@ which_key.add({
     { "<leader>Ss",  "<cmd>SessionManager save_current_session<cr>",                                                                        desc = "Save Session" },
     { "<leader>Sl",  "<cmd>SessionManager load_session<cr>",                                                                                desc = "Load Session" },
     { "<leader>SL",  "<cmd>SessionManager load_last_session<cr>",                                                                           desc = "Load Last Session" },
+
+    -- Neorg mappings
+    { "<leader>n",   group = "Neorg" },
+    { "<Leader>nn", "<cmd>Neorg index<cr>", desc = "Index" },
+    { "<Leader>nN", "<Plug>(neorg.dirman.new-note)", desc = "Create New Note" },
+    { "<leader>nt",   group = "Todo" },
+    { "<Leader>ntu", "<Plug>(neorg.qol.todo-items.todo.task-undone)", desc = "Mark as Undone" },
+    { "<Leader>ntp", "<Plug>(neorg.qol.todo-items.todo.task-pending)", desc = "Mark as Pending" },
+    { "<Leader>ntd", "<Plug>(neorg.qol.todo-items.todo.task-done)", desc = "Mark as Done" },
+    { "<Leader>nth", "<Plug>(neorg.qol.todo-items.todo.task-on-hold)", desc = "Mark as On Hold" },
+    { "<Leader>ntc", "<Plug>(neorg.qol.todo-items.todo.task-cancelled)", desc = "Mark as Cancelled" },
+    { "<Leader>ntr", "<Plug>(neorg.qol.todo-items.todo.task-recurring)", desc = "Mark as Recurring" },
+    { "<Leader>nti", "<Plug>(neorg.qol.todo-items.todo.task-important)", desc = "Mark as Important" },
+    { "<Leader>nta", "<Plug>(neorg.qol.todo-items.todo.task-ambiguous)", desc = "Mark as Ambiguous" },
+    { "<Leader>ntt", "<Plug>(neorg.qol.todo-items.todo.task-cycle)", desc = "Cycle Task" },
+    { "<CR>", "<Plug>(neorg.esupports.hop.hop-link)", desc = "Jump to Link" },
+    { "<M-CR>", "<Plug>(neorg.esupports.hop.hop-link.vsplit)", desc = "Jump to Link (Vertical Split)" },
+    { ">.", "<Plug>(neorg.promo.promote)", desc = "Promote Object (Non-Recursively)" },
+    { "<,", "<Plug>(neorg.promo.demote)", desc = "Demote Object (Non-Recursively)" },
+    { ">>", "<Plug>(neorg.promo.promote.nested)", desc = "Promote Object (Recursively)" },
+    { "<<", "<Plug>(neorg.promo.demote.nested)", desc = "Demote Object (Recursively)" },
+    { "<leader>nl",   group = "List" },
+    { "<Leader>nlt", "<Plug>(neorg.pivot.list.toggle)", desc = "Toggle (Un)ordered List" },
+    { "<Leader>nli", "<Plug>(neorg.pivot.list.invert)", desc = "Invert (Un)ordered List" },
+    { "<leader>ni",   group = "Insert" },
+    { "<Leader>nid", "<Plug>(neorg.tempus.insert-date)", desc = "Insert Date" },
+    { "<leader>nc",   group = "Code" },
+    { "<Leader>ncm", "<Plug>(neorg.looking-glass.magnify-code-block)", desc = "Magnify Code Block" },
+
+    -- Insert Mode mappings
+    { "<C-n>", "<Plug>(neorg.itero.next-iteration)", desc = "Next iteration", mode = "i" },
+    { "<M-d>", "<Plug>(neorg.tempus.insert-date.insert-mode)", desc = "Insert Date", mode = "i" },
+
+    -- Visual Mode mappings
+    { ">", "<Plug>(neorg.promo.promote.range)gv", desc = "Promote Objects in Range", mode = "v" },
+    { "<", "<Plug>(neorg.promo.demote.range)gv", desc = "Demote Objects in Range", mode = "v" },
 })
 
 -- local mappings = {
