@@ -16,5 +16,3 @@ vim.cmd([[colorscheme vscode]])
 
 -- Gruvbox
 -- vim.cmd [[colorscheme gruvbox]]
--- vim.cmd [[let g:gruvbox_contrast_dark='hard']]
--- vim.cmd [[let g:gruvbox_contrast_light='hard']]

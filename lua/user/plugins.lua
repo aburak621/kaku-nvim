@@ -22,7 +22,8 @@ local plugins = {
     ------------------------ Editor ------------------------
     --------------------------------------------------------
     { "goolord/alpha-nvim" }, -- Startup screen
-    { "kyazdani42/nvim-tree.lua" },
+    { "kyazdani42/nvim-tree.lua",            enabled = true },
+    -- { 'echasnovski/mini.files', version = '*', opts = {} },
     { "akinsho/bufferline.nvim",             dependencies = "nvim-tree/nvim-web-devicons" },
     { "nvim-lualine/lualine.nvim" },
     { "SmiteshP/nvim-navic",                 opts = {} },
@@ -138,7 +139,6 @@ local plugins = {
             },
         },
     },
-    -- { "nmac427/guess-indent.nvim", opts = {} },
 
     ----------------------------------------------------------------------------------
     ------------------------ Colorschemes (Themes) and Visual ------------------------
@@ -146,7 +146,6 @@ local plugins = {
     { "navarasu/onedark.nvim" },
     { "lunarvim/darkplus.nvim" },
     { "Mofiqul/dracula.nvim" },
-    -- { "LunarVim/Colorschemes" },
     { "morhetz/gruvbox" },
     { "tomasiser/vim-code-dark" },
     { "NTBBloodbath/doom-one.nvim" },
@@ -190,8 +189,8 @@ local plugins = {
     -------------------------------------------------------
     ------------------------ Input ------------------------
     -------------------------------------------------------
-    { "numToStr/Comment.nvim" }, -- Easily comment stuff
-    { "windwp/nvim-autopairs" }, -- Autopairs, integrates with both cmp and treesitter
+    { "numToStr/Comment.nvim",                      opts = {} }, -- Easily comment stuff
+    { "windwp/nvim-autopairs" },                                 -- Autopairs, integrates with both cmp and treesitter
     { "folke/which-key.nvim" },
     {
         "kylechui/nvim-surround",
@@ -370,12 +369,6 @@ local plugins = {
     -------------------------------------------------------
     { "mfussenegger/nvim-dap" },
     { "rcarriga/nvim-dap-ui",          dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" }, event = "VeryLazy" },
-    -- {
-    --     "Weissle/persistent-breakpoints.nvim",
-    --     opts = {
-    --         load_breakpoints_event = { "BufReadPost" },
-    --     },
-    -- },
     {
         "jay-babu/mason-nvim-dap.nvim",
         event = "VeryLazy",

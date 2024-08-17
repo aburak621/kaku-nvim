@@ -85,12 +85,12 @@ end
 nvim_tree.setup({
     -- sync_root_with_cwd = true,
     respect_buf_cwd = true,
-    prefer_startup_root = true,
+    -- prefer_startup_root = true,
     update_focused_file = {
         enable = true,
-        update_root = {
-            enable = true,
-        },
+        -- update_root = {
+        --     enable = true,
+        -- },
     },
     disable_netrw = true,
     on_attach = on_attach,

@@ -31,17 +31,6 @@ local setup = {
         separator = "➜", -- symbol used between a key and it's label
         group = "+", -- symbol prepended to a group
     },
-    --DEPRECATED popup_mappings = {
-    --     scroll_down = "<c-d>", -- binding to scroll down inside the popup
-    --     scroll_up = "<c-u>", -- binding to scroll up inside the popup
-    -- },
-    --DEPRECATED window = {
-    --     border = "rounded", -- none, single, double, shadow
-    --     position = "bottom", -- bottom, top
-    --     margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
-    --     padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
-    --     winblend = 0,
-    -- },
     layout = {
         height = { min = 4, max = 25 }, -- min and max height of the columns
         width = { min = 20, max = 50 }, -- min and max width of the columns
@@ -54,17 +43,9 @@ local setup = {
         -- return mapping.desc and mapping.desc ~= ""
         return true
     end,
-    -- DEPRECATED hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
     show_help = true,                      -- show help message on the command line when the popup is visible
     triggers = { "<leader>", mode = "n" }, -- automatically setup triggers
     -- triggers = {"<leader>"} -- or specify a list manually
-    --DEPRECATED triggers_blacklist = {
-    --     -- list of mode / prefixes that should never be hooked by WhichKey
-    --     -- this is mostly relevant for key maps that start with a native binding
-    --     -- most people should not need to change this
-    --     i = { "j", "k" },
-    --     v = { "j", "k" },
-    -- },
 }
 
 local opts = {
@@ -232,138 +213,6 @@ which_key.add({
     -- { ">",                "<Plug>(neorg.promo.promote.range)gv",                                                                                                       desc = "Promote Objects in Range",        mode = "v" },
     -- { "<",                "<Plug>(neorg.promo.demote.range)gv",                                                                                                        desc = "Demote Objects in Range",         mode = "v" },
 })
-
--- local mappings = {
---     a = { "<cmd>Alpha<cr>", "Alpha" },
---
---     b = {
---         name = "Buffer",
---         b = {
---             "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{})<cr>",
---             "Buffers",
---         },
---         c = { "<cmd>Bdelete!<CR>", "Close Buffer" },
---         C = { "<cmd>%bd!|e#|bd!#|'\"<CR>", "Close Other Buffers" },
---         n = { "<cmd>enew<CR>", "New Empty Buffer" },
---     },
---
---     d = {
---         c = { "<cmd>DapContinue<CR>", "Start/Continue" },
---         i = { "<cmd>DapStepInto<CR>", "Step Into" },
---         o = { "<cmd>DapStepOver<CR>", "Step Over" },
---         q = { "<cmd>DapTerminate<CR>", "Terminate" },
---         r = { "<cmd>DapToggleRepl<CR>", "Toggle Repl" },
---         t = { "<cmd>DapToggleBreakpoint<CR>", "Toggle Breakpoint" },
---         u = { "<cmd>DapStepOut<CR>", "Step Out" },
---         U = { "<cmd>lua require'dapui'.toggle({reset = true})<cr>", "Toggle UI" },
---     },
---
---     e = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
---     E = { [[<cmd>lua require 'telescope'.extensions.file_browser.file_browser({ grouped = true, hidden = true })<CR>]], "File Browser" },
---
---     w = {
---         name = "Window",
---         c = { "<cmd>close<CR>", "Close" },
---         C = { "<cmd>Bdelete!<CR><cmd>close<CR>", "Close and Kill Buffer" },
---         e = { "<C-W>=", "Equal Size" },
---         m = { "<C-W>_<C-W>|", "Maximize" },
---         o = { "<cmd>only<CR>", "Close other windows." },
---         r = { "<C-W>r", "Rotate Clockwise" },
---         R = { "<C-W>R", "Rotate Counter-clockwise" },
---         s = { "<cmd>split<CR>", "Split Horizontal" },
---         v = { "<cmd>vsplit<CR>", "Split Vertical" },
---     },
---
---     q = {
---         name = "Quit",
---         a = { "<cmd>qa<CR>", "Close All" },
---         A = { "<cmd>qa!<CR>", "Close All (force)" },
---         q = { "<cmd>q<CR>", "Close" },
---         Q = { "<cmd>q!<CR>", "Close (force)" },
---         w = { "<cmd>wq<CR>", "Save and Close" },
---         W = { "<cmd>wqa<CR>", "Save and Close All" },
---     },
---
---     c = {
---         name = "Code",
---         b = {
---             name = "Bracey",
---             b = { "<cmd>Bracey<CR>", "Start" },
---             s = { "<cmd>BraceyStop<CR>", "Stop" },
---         },
---         c = { "<cmd>CMakeRun<CR>", "CMake Run" },
---         d = { "<cmd>CMakeDebug<CR>", "CMake Debug" },
---         r = { "<cmd>RunFile toggleterm<CR>", "Run" },
---         R = { "<cmd>RunProject toggleterm<CR>", "Run Project" },
---         l = { "<cmd>LoveRun<CR>", "Run Love" },
---     },
---
---     ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
---
---     ["f"] = {
---         "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{ previewer = false })<CR>",
---         "Find files",
---     },
---
---     g = {
---         name = "Git",
---         g = { "<cmd>LazyGit<CR>", "Lazygit" },
---         j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
---         k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
---         l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
---         p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
---         r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
---         R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
---         s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
---         u = {
---             "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
---             "Undo Stage Hunk",
---         },
---         o = { "<cmd>Telescope git_status<cr>", "Open Changed File" },
---         b = { "<cmd>Telescope git_branches<cr>", "Checkout Branch" },
---         c = { "<cmd>Telescope git_commits<cr>", "Checkout Commit" },
---         d = { "<cmd>DiffviewOpen<cr>", "Diffview Open" },
---         D = { "<cmd>DiffviewClose<cr>", "Diffview Close" },
---     },
---
---     l = {
---         name = "LSP",
---         a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
---         f = { "<cmd>lua vim.lsp.buf.format()<cr>", "Format" },
---         i = { "<cmd>LspInfo<cr>", "Info" },
---         j = { "<cmd>lua vim.diagnostic.goto_next()<CR>", "Next Diagnostic" },
---         k = { "<cmd>lua vim.diagnostic.goto_prev()<cr>", "Prev Diagnostic" },
---         l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
---         o = { "<cmd>Outline<cr>", "Toggle Outline" },
---         s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
---         S = { "<cmd>Telescope lsp_workspace_symbols<cr>", "Workspace Symbols" },
---         r = { "<cmd>lua require('telescope.builtin').lsp_references()<cr>", "Find References" },
---         t = { "<cmd>Trouble diagnostics toggle<CR>", "Trouble" },
---     },
---     s = {
---         name = "Search",
---         c = {
---             "<cmd>lua require('telescope.builtin').colorscheme({ enable_preview = true })<cr>",
---             "Colorscheme with Preview",
---         },
---         d = { "<cmd>DevdocsOpenCurrentFloat<cr>", "Devdocs Search" },
---         g = { "<cmd>Telescope live_grep<cr>", "Live Grep" },
---         h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
---         M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
---         r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
---         R = { "<cmd>Telescope registers<cr>", "Registers" },
---         k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
---         l = { "<cmd>Telescope resume<cr>", "Resume Last Search" },
---         C = { "<cmd>Telescope commands<cr>", "Commands" },
---     },
---     S = {
---         name = "Session",
---         d = { "<cmd>SessionManager delete_session<cr>", "Delete Session" },
---         s = { "<cmd>SessionManager save_current_session<cr>", "Save Session" },
---         l = { "<cmd>SessionManager load_session<cr>", "Load Session" },
---         L = { "<cmd>SessionManager load_last_session<cr>", "Load Last Session" },
---     },
--- }
 
 which_key.setup(setup)
 -- which_key.register(mappings, opts)
