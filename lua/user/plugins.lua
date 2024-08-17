@@ -9,7 +9,7 @@ local plugins = {
     --------------------------------------------------------------
     ------------------------ Dependencies ------------------------
     --------------------------------------------------------------
-    { "nvim-lua/popup.nvim" }, -- An implementation of the Popup API from vim in Neovim
+    { "nvim-lua/popup.nvim" },   -- An implementation of the Popup API from vim in Neovim
     { "nvim-lua/plenary.nvim" }, -- Useful lua functions used by lots of plugins
     { "nvim-tree/nvim-web-devicons" },
     { "echasnovski/mini.icons" },
@@ -23,12 +23,12 @@ local plugins = {
     --------------------------------------------------------
     { "goolord/alpha-nvim" }, -- Startup screen
     { "kyazdani42/nvim-tree.lua" },
-    { "akinsho/bufferline.nvim", dependencies = "nvim-tree/nvim-web-devicons" },
+    { "akinsho/bufferline.nvim",             dependencies = "nvim-tree/nvim-web-devicons" },
     { "nvim-lualine/lualine.nvim" },
-    { "SmiteshP/nvim-navic", opts = {} },
-    { "akinsho/toggleterm.nvim" }, -- Terminal inside nvim
+    { "SmiteshP/nvim-navic",                 opts = {} },
+    { "akinsho/toggleterm.nvim" },                                                                     -- Terminal inside nvim
     { "ahmedkhalf/project.nvim" },
-    { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} }, -- Visual indentlines
+    { "lukas-reineke/indent-blankline.nvim", main = "ibl",                                opts = {} }, -- Visual indentlines
     {
         "okuuva/auto-save.nvim",
         opts = {
@@ -50,8 +50,8 @@ local plugins = {
         end,
         commit = "4376507a99af4a92c85263c30ab8efee0bb2857f",
     },
-    { "echasnovski/mini.align", version = false, opts = {} },
-    { "kevinhwang91/nvim-ufo", dependencies = "kevinhwang91/promise-async" },
+    { "echasnovski/mini.align", version = false,                            opts = {} },
+    { "kevinhwang91/nvim-ufo",  dependencies = "kevinhwang91/promise-async" },
     {
         "hedyhli/outline.nvim",
         opts = {
@@ -62,7 +62,8 @@ local plugins = {
     },
     -- This is 'noice' but somewhat buggy in my setup.
     {
-        "folke/noice.nvim", enabled = false,
+        "folke/noice.nvim",
+        enabled = false,
         event = "VeryLazy",
         opts = {
             lsp = {
@@ -75,11 +76,11 @@ local plugins = {
             },
             -- you can enable a preset for easier configuration
             presets = {
-                bottom_search = true, -- use a classic bottom cmdline for search
-                command_palette = true, -- position the cmdline and popupmenu together
+                bottom_search = true,         -- use a classic bottom cmdline for search
+                command_palette = true,       -- position the cmdline and popupmenu together
                 long_message_to_split = true, -- long messages will be sent to a split
-                inc_rename = true, -- enables an input dialog for inc-rename.nvim
-                lsp_doc_border = false, -- add a border to hover docs and signature help
+                inc_rename = true,            -- enables an input dialog for inc-rename.nvim
+                lsp_doc_border = false,       -- add a border to hover docs and signature help
             },
         },
         dependencies = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" }
@@ -110,7 +111,8 @@ local plugins = {
     },
     {
         "nvim-neorg/neorg",
-        lazy = false, -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
+        enable = false,
+        lazy = false,  -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
         version = "*", -- Pin Neorg to the latest stable release
         config = true,
         opts = {
@@ -153,7 +155,7 @@ local plugins = {
     { "bartekprtc/gruv-vsassist.nvim" },
     { "rktjmp/lush.nvim" },
     { "folke/tokyonight.nvim" },
-    { "catppuccin/nvim", name = "catppuccin", priority = 1000, opts = { no_italic = true } },
+    { "catppuccin/nvim",              name = "catppuccin", priority = 1000, opts = { no_italic = true } },
     { "Shatur/neovim-ayu" },
     { "projekt0n/github-nvim-theme" },
     { "Th3Whit3Wolf/one-nvim" },
@@ -181,7 +183,7 @@ local plugins = {
     -----------------------------------------------------------
     { "nvim-telescope/telescope.nvim" },
     { "nvim-telescope/telescope-media-files.nvim" },
-    { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+    { "nvim-telescope/telescope-fzf-native.nvim",   build = "make" },
     { "nvim-telescope/telescope-ui-select.nvim" },
     { "nvim-telescope/telescope-file-browser.nvim", dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" } },
 
@@ -210,7 +212,7 @@ local plugins = {
                 "S",
                 mode = { "n", "o", "x" },
                 function()
-                require("flash").jump()
+                    require("flash").jump()
                 end,
                 desc = "Flash",
             },
@@ -218,7 +220,7 @@ local plugins = {
                 "C",
                 mode = { "n", "o", "x" },
                 function()
-                require("flash").treesitter()
+                    require("flash").treesitter()
                 end,
                 desc = "Flash Treesitter",
             },
@@ -226,14 +228,15 @@ local plugins = {
                 "R",
                 mode = { "n", "o", "x" },
                 function()
-                require("flash").treesitter_search()
+                    require("flash").treesitter_search()
                 end,
                 desc = "Treesitter Search",
             },
         },
     },
     {
-        "max397574/better-escape.nvim", opts = {
+        "max397574/better-escape.nvim",
+        opts = {
             timeout = 300,
             default_mappings = false,
             mappings = {
@@ -282,7 +285,7 @@ local plugins = {
         branch = "canary",
         dependencies = {
             { "zbirenbaum/copilot.lua" }, -- or github/copilot.vim
-            { "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
+            { "nvim-lua/plenary.nvim" },  -- for curl, log wrapper
         },
         opts = {
         },
@@ -291,13 +294,13 @@ local plugins = {
     -----------------------------------------------------
     ------------------------ Cmp ------------------------
     -----------------------------------------------------
-    { "hrsh7th/nvim-cmp" }, -- The completion plugin
-    { "hrsh7th/cmp-buffer" }, -- buffer completions
-    { "hrsh7th/cmp-path" }, -- path completions
-    { "hrsh7th/cmp-copilot" }, -- path completions
-    { "hrsh7th/cmp-nvim-lua" }, -- path completions
-    { "hrsh7th/cmp-calc" }, -- path completions
-    { "hrsh7th/cmp-cmdline" }, -- cmdline completions
+    { "hrsh7th/nvim-cmp" },         -- The completion plugin
+    { "hrsh7th/cmp-buffer" },       -- buffer completions
+    { "hrsh7th/cmp-path" },         -- path completions
+    { "hrsh7th/cmp-copilot" },      -- path completions
+    { "hrsh7th/cmp-nvim-lua" },     -- path completions
+    { "hrsh7th/cmp-calc" },         -- path completions
+    { "hrsh7th/cmp-cmdline" },      -- cmdline completions
     { "saadparwaiz1/cmp_luasnip" }, -- snippet completions
     { "hrsh7th/cmp-nvim-lsp" },
     { "hrsh7th/cmp-nvim-lsp-signature-help" },
@@ -307,13 +310,13 @@ local plugins = {
     ----------------------------------------------------------
     ------------------------ Snippets ------------------------
     ----------------------------------------------------------
-    { "L3MON4D3/LuaSnip" }, --snippet engine
+    { "L3MON4D3/LuaSnip" },             --snippet engine
     { "rafamadriz/friendly-snippets" }, -- a bunch of snippets to use
 
     -----------------------------------------------------
     ------------------------ LSP ------------------------
     -----------------------------------------------------
-    { "neovim/nvim-lspconfig" }, -- enable LSP
+    { "neovim/nvim-lspconfig" },   -- enable LSP
     { "williamboman/mason.nvim" }, -- simple to use language server installer
     { "williamboman/mason-lspconfig.nvim" },
     {
@@ -333,17 +336,17 @@ local plugins = {
             require("user.null-ls") -- require your null-ls config here (example below)
         end,
     },
-    { "RRethy/vim-illuminate", enabled = true }, -- Disabled because of lag.
+    { "RRethy/vim-illuminate",           enabled = true }, -- Disabled because of lag.
     { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
-    { "folke/lazydev.nvim", ft = "lua" },
+    { "folke/lazydev.nvim",              ft = "lua" },
     -- { "habamax/vim-godot", event = "VimEnter" },
     { "Bakudankun/PICO-8.vim" },
 
     -------------------------------------------------------------
     ------------------------ Programming ------------------------
     -------------------------------------------------------------
-    { "CRAG666/code_runner.nvim", dependencies = "nvim-lua/plenary.nvim" },
-    { "Civitasv/cmake-tools.nvim", commit = "565d3a07cf0605a347cb68714015c0eef7213b16" },
+    { "CRAG666/code_runner.nvim",        dependencies = "nvim-lua/plenary.nvim" },
+    { "Civitasv/cmake-tools.nvim",       commit = "565d3a07cf0605a347cb68714015c0eef7213b16" },
     -- { "turbio/bracey.vim", run = "npm install --prefix server"}, -- Live server for Web Dev
     {
         'barrett-ruth/live-server.nvim',
@@ -351,7 +354,7 @@ local plugins = {
         cmd = { 'LiveServerStart', 'LiveServerStop' },
         opts = { args = { '--browser=chrome' } },
     },
-    { "danymat/neogen", config = true },
+    { "danymat/neogen",                config = true },
 
     -----------------------------------------------------
     ------------------------ Git ------------------------
@@ -366,7 +369,7 @@ local plugins = {
     ------------------------ Debug ------------------------
     -------------------------------------------------------
     { "mfussenegger/nvim-dap" },
-    { "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"}, event = "VeryLazy" },
+    { "rcarriga/nvim-dap-ui",          dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" }, event = "VeryLazy" },
     -- {
     --     "Weissle/persistent-breakpoints.nvim",
     --     opts = {
@@ -400,9 +403,10 @@ local plugins = {
     },
     {
         'mrcjkb/rustaceanvim',
+        enabled = false,
         dependencies = { "williamboman/mason-lspconfig.nvim" },
         version = '^5', -- Recommended
-        lazy = false, -- This plugin is already lazy
+        lazy = false,   -- This plugin is already lazy
     }
 }
 

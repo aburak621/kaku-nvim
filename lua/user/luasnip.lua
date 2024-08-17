@@ -42,7 +42,8 @@ luasnip.add_snippets("lua", {
             {}.super.destroy(self)
         end
         ]], {
-            rep(1), rep(2), i(1, "name"), i(2, "parent"), rep(1), i(3, "params"), rep(1), rep(3), rep(1), rep(1), rep(1), rep(1), rep(1)
+            rep(1), rep(2), i(1, "name"), i(2, "parent"), rep(1), i(3, "params"), rep(1), rep(3), rep(1), rep(1), rep(1),
+            rep(1), rep(1)
         }
     )),
     s("class", fmt([[

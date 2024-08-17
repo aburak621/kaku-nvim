@@ -10,7 +10,8 @@ vim.g.rustaceanvim = {
             end
 
             nmap("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
-            nmap("gr", function() require('telescope.builtin').lsp_references({ layout_strategy = 'flex' }) end, "[G]oto [R]eferences")
+            nmap("gr", function() require('telescope.builtin').lsp_references({ layout_strategy = 'flex' }) end,
+                "[G]oto [R]eferences")
             nmap("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
             nmap("gD", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
             nmap("<F12>", function() vim.cmd([[Telescope lsp_document_symbols]]) end, "[D]ocument [S]ymbols")
