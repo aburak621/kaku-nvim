@@ -22,8 +22,8 @@ local plugins = {
     ------------------------ Editor ------------------------
     --------------------------------------------------------
     { "goolord/alpha-nvim" }, -- Startup screen
-    { "kyazdani42/nvim-tree.lua",            enabled = true },
-    -- { 'echasnovski/mini.files', version = '*', opts = {} },
+    -- { "kyazdani42/nvim-tree.lua",            enabled = true },
+    { 'echasnovski/mini.files', version = '*', opts = { windows = { preview = true } } },
     { "akinsho/bufferline.nvim",             dependencies = "nvim-tree/nvim-web-devicons" },
     { "nvim-lualine/lualine.nvim" },
     { "SmiteshP/nvim-navic",                 opts = {} },
@@ -265,13 +265,13 @@ local plugins = {
     ------------------------------------------------------------
     {
         "zbirenbaum/copilot.lua",
+        enabled = true,
         config = function()
             require("copilot").setup({
                 suggestion = { auto_trigger = true },
                 -- panel = { enabled = false },
             })
         end,
-        enabled = false,
     },
     {
         "zbirenbaum/copilot-cmp",
@@ -345,7 +345,7 @@ local plugins = {
     ------------------------ Programming ------------------------
     -------------------------------------------------------------
     { "CRAG666/code_runner.nvim",        dependencies = "nvim-lua/plenary.nvim" },
-    { "Civitasv/cmake-tools.nvim",       commit = "565d3a07cf0605a347cb68714015c0eef7213b16" },
+    { "Civitasv/cmake-tools.nvim", ft = "*.cpp", commit = "565d3a07cf0605a347cb68714015c0eef7213b16" },
     -- { "turbio/bracey.vim", run = "npm install --prefix server"}, -- Live server for Web Dev
     {
         'barrett-ruth/live-server.nvim',
@@ -392,7 +392,7 @@ local plugins = {
         "S1M0N38/love2d.nvim",
         cmd = "LoveRun",
         opts = {},
-        -- pin = true,
+        pin = true,
     },
     {
         'mrcjkb/rustaceanvim',

@@ -35,6 +35,8 @@ function M.change_cwd()
         -- Check if we are in a git repo folder
         local git_root = find_git_root()
         if git_root then
+            -- Just return in non file buffers, like Diffview
+            if git_root:find("://") then return end
             vim.api.nvim_command("lcd " .. git_root)
         else
             -- If no git folder is found then we check for workspace folder.

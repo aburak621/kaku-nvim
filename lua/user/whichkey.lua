@@ -83,8 +83,10 @@ which_key.add({
     { "<leader>dU",       "<cmd>lua require'dapui'.toggle({reset = true})<cr>",                                                                                        desc = "Toggle UI" },
 
     -- Explorer mappings
-    { "<leader>e",        "<cmd>NvimTreeToggle<cr>",                                                                                                                   desc = "Explorer" },
-    { "<leader>E",        [[<cmd>lua require 'telescope'.extensions.file_browser.file_browser({ grouped = true, hidden = true, path = vim.fn.expand('%:~:h') })<CR>]], desc = "File Browser" },
+    -- { "<leader>e",        "<cmd>NvimTreeToggle<cr>",                                                                                                                   desc = "Explorer" },
+    -- { "<leader>E",        [[<cmd>lua require 'telescope'.extensions.file_browser.file_browser({ grouped = true, hidden = true, path = vim.fn.expand('%:~:h') })<CR>]], desc = "File Browser" },
+    { "<leader>e",        "<cmd>lua if not MiniFiles.close() then MiniFiles.open() end<cr>",                                                                                                                   desc = "Explorer" },
+    { "<leader>E",        "<cmd>lua MiniFiles.open(vim.api.nvim_buf_get_name(0))<cr>",                                                                                                                   desc = "Explorer" },
 
     -- Window mappings
     { "<leader>w",        group = "Window" },

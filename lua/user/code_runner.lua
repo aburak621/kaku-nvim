@@ -19,5 +19,6 @@ cr.setup({
         python = python_cmd,
         typescript = "deno run",
         rust = "cd $dir && cargo run",
+        lua = "love .",
     },
 })
