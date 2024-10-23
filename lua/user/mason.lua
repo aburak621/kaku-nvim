@@ -1,4 +1,9 @@
-require("mason").setup()
+local status_ok, mason = pcall(require, "mason")
+if not status_ok then
+    return
+end
+mason.setup()
+
 local servers = {
     "lua_ls",
     "clangd",
@@ -102,6 +107,7 @@ mason_lspconfig.setup_handlers({
                     },
                     diagnostics = {
                         globals = { "vim" },
+                        disable = { "undefined-field" },
                     },
                 },
             },

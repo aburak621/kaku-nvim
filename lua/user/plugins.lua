@@ -338,7 +338,6 @@ local plugins = {
     { "RRethy/vim-illuminate",           enabled = true }, -- Disabled because of lag.
     { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
     { "folke/lazydev.nvim",              ft = "lua" },
-    -- { "habamax/vim-godot", event = "VimEnter" },
     { "Bakudankun/PICO-8.vim" },
 
     -------------------------------------------------------------

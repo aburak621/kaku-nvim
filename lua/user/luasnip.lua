@@ -28,22 +28,27 @@ luasnip.add_snippets("lua", {
         {} = {}:extend()
 
         function {}:new({})
-            {}.super.new(self, {})
+          {}.super.new(self, {})
         end
 
         function {}:update(dt)
-            {}.super.update(self, dt)
+          {}.super.update(self, dt)
         end
 
         function {}:draw()
         end
 
         function {}:destroy()
-            {}.super.destroy(self)
+          {}.super.destroy(self)
+        end
+
+        ---@return {}
+        function {}:create(...)
+            return {}(...)
         end
         ]], {
             rep(1), rep(2), i(1, "name"), i(2, "parent"), rep(1), i(3, "params"), rep(1), rep(3), rep(1), rep(1), rep(1),
-            rep(1), rep(1)
+            rep(1), rep(1), rep(1), rep(1), rep(1)
         }
     )),
     s("class", fmt([[

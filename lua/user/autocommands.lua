@@ -33,5 +33,6 @@ vim.cmd([[
   augroup Indentation
     autocmd!
     autocmd FileType javascript,html,css,json,lua setlocal ts=2 sts=2 sw=2
+    autocmd FileType gdscript setlocal ts=4 sts=4 sw=4 noexpandtab
   augroup END
 ]])
