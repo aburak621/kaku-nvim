@@ -72,13 +72,27 @@ which_key.add({
   { "<leader>bn",       "<cmd>enew<CR>",                                                                                                                      desc = "New Empty Buffer" },
 
   -- DAP mappings
+  {
+    "<leader>db",
+    function() require("persistent-breakpoints.api").toggle_breakpoint() end,
+    desc = "Toggle Breakpoint",
+  },
+  {
+    "<Leader>dB",
+    function() require("persistent-breakpoints.api").clear_all_breakpoints() end,
+    desc = "Clear Breakpoints",
+  },
+  {
+    "<Leader>dC",
+    function() require("persistent-breakpoints.api").set_conditional_breakpoint() end,
+    desc = "Conditional Breakpoint",
+  },
   { "<leader>d",        group = "Debug" },
   { "<leader>dc",       "<cmd>DapContinue<CR>",                                                                                                               desc = "Start/Continue" },
   { "<leader>di",       "<cmd>DapStepInto<CR>",                                                                                                               desc = "Step Into" },
   { "<leader>do",       "<cmd>DapStepOver<CR>",                                                                                                               desc = "Step Over" },
   { "<leader>dq",       "<cmd>DapTerminate<CR>",                                                                                                              desc = "Terminate" },
   { "<leader>dr",       "<cmd>DapToggleRepl<CR>",                                                                                                             desc = "Toggle Repl" },
-  { "<leader>db",       "<cmd>DapToggleBreakpoint<CR>",                                                                                                       desc = "Toggle Breakpoint" },
   { "<leader>dO",       "<cmd>DapStepOut<CR>",                                                                                                                desc = "Step Out" },
   { "<leader>dU",       "<cmd>lua require'dapui'.toggle({reset = true})<cr>",                                                                                 desc = "Toggle UI" },
 
