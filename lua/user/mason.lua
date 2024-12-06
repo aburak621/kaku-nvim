@@ -12,7 +12,7 @@ local servers = {
     "pyright",
     -- "rust_analyzer",
     "taplo",
-    "tsserver",
+    "ts_ls",
     "vimls",
     "jdtls",
     "cssls",

@@ -33,9 +33,6 @@ local plugins = {
   {
     "okuuva/auto-save.nvim",
     opts = {
-      execution_message = {
-        enabled = false,
-      },
       debounce_delay = 135,
     },
   },
@@ -112,7 +109,7 @@ local plugins = {
   },
   {
     "nvim-neorg/neorg",
-    enable = false,
+    enabled = false,
     lazy = false,  -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
     version = "*", -- Pin Neorg to the latest stable release
     config = true,
@@ -165,7 +162,6 @@ local plugins = {
   { "catppuccin/nvim",              name = "catppuccin", priority = 1000, opts = { no_italic = true } },
   { "Shatur/neovim-ayu" },
   { "projekt0n/github-nvim-theme" },
-  { "Th3Whit3Wolf/one-nvim" },
   { "xiyaowong/transparent.nvim" },
   {
     "folke/todo-comments.nvim",
@@ -289,7 +285,6 @@ local plugins = {
   },
   {
     "CopilotC-Nvim/CopilotChat.nvim",
-    branch = "canary",
     dependencies = {
       { "zbirenbaum/copilot.lua" }, -- or github/copilot.vim
       { "nvim-lua/plenary.nvim" },  -- for curl, log wrapper
