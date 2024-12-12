@@ -125,9 +125,10 @@ which_key.add({
 
   -- Code mappings
   { "<leader>c",        group = "Code" },
-  { "<leader>cb",       group = "Bracey" },
-  { "<leader>cbb",      "<cmd>Bracey<CR>",                                                                                                                    desc = "Start" },
-  { "<leader>cbs",      "<cmd>BraceyStop<CR>",                                                                                                                desc = "Stop" },
+  { "<leader>cB",       group = "Bracey" },
+  { "<leader>cBb",      "<cmd>Bracey<CR>",                                                                                                                    desc = "Start" },
+  { "<leader>cBs",      "<cmd>BraceyStop<CR>",                                                                                                                desc = "Stop" },
+  { "<leader>cb",       "<cmd>CMakeBuild<CR>",                                                                                                                desc = "CMake Build" },
   { "<leader>cc",       "<cmd>CMakeRun<CR>",                                                                                                                  desc = "CMake Run" },
   { "<leader>cd",       "<cmd>CMakeDebug<CR>",                                                                                                                desc = "CMake Debug" },
   { "<leader>cr",       "<cmd>RunFile toggleterm<CR>",                                                                                                        desc = "Run" },

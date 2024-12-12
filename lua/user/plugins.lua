@@ -23,7 +23,7 @@ local plugins = {
   --------------------------------------------------------
   { "goolord/alpha-nvim" }, -- Startup screen
   -- { "kyazdani42/nvim-tree.lua",            enabled = true },
-  { 'echasnovski/mini.files',              version = '*',                               opts = { windows = { preview = true } } },
+  { 'echasnovski/mini.files',              version = '*',                               opts = { windows = { max_number = 3, preview = true } } },
   { "akinsho/bufferline.nvim",             dependencies = "nvim-tree/nvim-web-devicons" },
   { "nvim-lualine/lualine.nvim" },
   { "SmiteshP/nvim-navic",                 opts = {} },
