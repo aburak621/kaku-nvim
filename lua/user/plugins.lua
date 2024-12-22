@@ -269,7 +269,7 @@ local plugins = {
   ------------------------------------------------------------
   {
     "zbirenbaum/copilot.lua",
-    enabled = true,
+    enabled = false,
     config = function()
       require("copilot").setup({
         suggestion = { auto_trigger = true },

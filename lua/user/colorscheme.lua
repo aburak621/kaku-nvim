@@ -6,7 +6,7 @@ require("onedark").setup({
 vim.cmd("highlight Comment gui=NONE")
 
 -- Doom One
-vim.cmd([[colorscheme doom-one]])
+-- vim.cmd([[colorscheme doom-one]])
 
 -- Catppuccin
 -- vim.cmd([[colorscheme catppuccin-mocha]])
@@ -16,3 +16,6 @@ vim.cmd([[colorscheme doom-one]])
 
 -- Gruvbox
 -- vim.cmd [[colorscheme gruvbox]]
+
+-- Lunaperche
+vim.cmd [[colorscheme lunaperche]]
