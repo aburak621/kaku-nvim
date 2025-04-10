@@ -1,19 +1,6 @@
-function sanitize_godot_path(path)
-    local out_path = string.gsub(path, [[/]], [[\\]])
-    out_path = string.gsub(out_path, [[ ]], [[\ ]])
-    return out_path
-end
-
 local M = {}
 
 local workspace_finder = require('user.workspace_finder')
-
-function M.setup()
-    vim.api.nvim_command("augroup ChangeCwdPlugin")
-    vim.api.nvim_command("autocmd!")
-    vim.api.nvim_command("autocmd BufEnter * lua require('user.change_cwd_plugin').change_cwd()")
-    vim.api.nvim_command("augroup END")
-end
 
 local function find_git_root()
     local current_dir = vim.fn.expand("%:p:h")
@@ -22,36 +9,47 @@ local function find_git_root()
     if git_dir and git_dir ~= "" then
         return vim.fn.fnamemodify(git_dir, ":h")
     end
-
     return nil
 end
 
-function M.change_cwd()
-    -- Get the buffer type (buftype)
-    local buftype = vim.bo.buftype
+local function safe_change_dir(path)
+    if not path then return false end
 
-    -- Check if the buffer type is not empty and not one of the excluded types
-    if buftype == "" then
-        -- Check if we are in a git repo folder
-        local git_root = find_git_root()
-        if git_root then
-            -- Just return in non file buffers, like Diffview
-            if git_root:find("://") then return end
-            vim.api.nvim_command("lcd " .. git_root)
-        else
-            -- If no git folder is found then we check for workspace folder.
-            -- This behavior was reversed but it chose the current folder for js files so I reversed it.
-            local workspace_folder = workspace_finder.find_workspace_folder()
-
-            if workspace_folder then
-                vim.api.nvim_command("lcd " .. workspace_folder)
-            else
-                -- If no git repo found, default to current file's directory
-                local current_file_path = vim.fn.expand("%:p:h")
-                vim.api.nvim_command("lcd " .. current_file_path)
-            end
-        end
+    local ok, err = pcall(vim.cmd, "lcd " .. path)
+    if not ok then
+        vim.notify("Failed to change directory: " .. err, vim.log.levels.WARN)
+        return false
     end
+    return true
+end
+
+function M.change_cwd()
+    -- Only process normal buffers
+    if vim.bo.buftype ~= "" then return end
+
+    local git_root = find_git_root()
+    if git_root then
+        -- Skip non-file buffers (like Diffview)
+        if git_root:find("://") then return end
+        if safe_change_dir(git_root) then return end
+    end
+
+    -- Try workspace folder if no git root
+    local workspace_folder = workspace_finder.find_workspace_folder()
+    if workspace_folder and safe_change_dir(workspace_folder) then
+        return
+    end
+
+    -- Fall back to current file's directory
+    safe_change_dir(vim.fn.expand("%:p:h"))
+end
+
+function M.setup()
+    vim.api.nvim_create_augroup("ChangeCwdPlugin", { clear = true })
+    vim.api.nvim_create_autocmd("BufEnter", {
+        group = "ChangeCwdPlugin",
+        callback = M.change_cwd,
+    })
 end
 
 M.setup()

@@ -8,31 +8,22 @@ local servers = {
     "lua_ls",
     "clangd",
     "cmake",
-    -- "csharp_ls",
     "pyright",
-    -- "rust_analyzer",
-    "taplo",
     "ts_ls",
     "vimls",
     "jdtls",
     "cssls",
-    -- "css_variables",
-    -- "cssmodules_ls",
-    -- "tailwindcss",
     "html",
     "emmet_language_server",
-    -- "eslint",
     "jsonls",
     "marksman",
     "taplo",
     "sqlls",
 }
--- with_daps = { "cpptools", "debugpy" }
 
 local mason_lspconfig = require("mason-lspconfig")
 mason_lspconfig.setup({
     ensure_installed = servers,
-    -- with_daps = with_daps
 })
 
 local on_attach = function(client, bufnr)
@@ -102,9 +93,7 @@ mason_lspconfig.setup_handlers({
                     workspace = {
                         checkThirdParty = false,
                         telemetry = { enable = false },
-                        library = {
-                            "${3rd}/love2d/library"
-                        }
+                        library = { "${3rd}/love2d/library" }
                     },
                     diagnostics = {
                         globals = { "vim" },
