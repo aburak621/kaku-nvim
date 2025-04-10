@@ -8,7 +8,7 @@ local servers = {
     "lua_ls",
     "clangd",
     "cmake",
-    "csharp_ls",
+    -- "csharp_ls",
     "pyright",
     -- "rust_analyzer",
     "taplo",
@@ -76,6 +76,7 @@ end
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local lspconfig = require("lspconfig")
 
+lspconfig.gdscript.setup(capabilities)
 mason_lspconfig.setup_handlers({
     function(server_name)
         lspconfig[server_name].setup({

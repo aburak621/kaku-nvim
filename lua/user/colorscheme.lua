@@ -5,6 +5,9 @@ require("onedark").setup({
 -- Disable italic comments
 vim.cmd("highlight Comment gui=NONE")
 
+-- AstroDark
+vim.cmd([[colorscheme astrodark]])
+
 -- Doom One
 -- vim.cmd([[colorscheme doom-one]])
 
@@ -18,4 +21,4 @@ vim.cmd("highlight Comment gui=NONE")
 -- vim.cmd [[colorscheme gruvbox]]
 
 -- Lunaperche
-vim.cmd [[colorscheme lunaperche]]
+-- vim.cmd [[colorscheme lunaperche]]

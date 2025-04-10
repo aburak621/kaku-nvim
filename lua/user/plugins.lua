@@ -1,6 +1,17 @@
+-- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({ "git", "clone", "--filter=blob:none", "https://github.com/folke/lazy.nvim.git", "--branch=stable", })
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+  if vim.v.shell_error ~= 0 then
+    vim.api.nvim_echo({
+      { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+      { out, "WarningMsg" },
+      { "\nPress any key to exit..." },
+    }, true, {})
+    vim.fn.getchar()
+    os.exit(1)
+  end
 end
 vim.opt.rtp:prepend(lazypath)
 
@@ -159,6 +170,7 @@ local plugins = {
   { "bartekprtc/gruv-vsassist.nvim" },
   { "rktjmp/lush.nvim" },
   { "folke/tokyonight.nvim" },
+  { "AstroNvim/astrotheme", opts = "" },
   { "catppuccin/nvim",              name = "catppuccin", priority = 1000, opts = { no_italic = true } },
   { "Shatur/neovim-ayu" },
   { "projekt0n/github-nvim-theme" },
@@ -186,7 +198,7 @@ local plugins = {
   -----------------------------------------------------------
   { "nvim-telescope/telescope.nvim" },
   { "nvim-telescope/telescope-media-files.nvim" },
-  { "nvim-telescope/telescope-fzf-native.nvim",   build = "make" },
+  -- { "nvim-telescope/telescope-fzf-native.nvim",   build = "make" },
   { "nvim-telescope/telescope-ui-select.nvim" },
   { "nvim-telescope/telescope-file-browser.nvim", dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" } },
 
@@ -318,8 +330,8 @@ local plugins = {
   -----------------------------------------------------
   ------------------------ LSP ------------------------
   -----------------------------------------------------
-  { "neovim/nvim-lspconfig" },   -- enable LSP
   { "williamboman/mason.nvim" }, -- simple to use language server installer
+  { "neovim/nvim-lspconfig" },   -- enable LSP
   { "williamboman/mason-lspconfig.nvim" },
   {
     "nvimtools/none-ls.nvim",
@@ -411,12 +423,20 @@ local plugins = {
   },
   {
     "QuickGD/quickgd.nvim",
-    ft = { "gdshader", "gdshaderinc" },
-    cmd = { "GodotRun", "GodotRunLast", "GodotStart" },
-    config = true,
+    ft = {"gdshader", "gdshaderinc"},
+    cmd = {"GodotRun","GodotRunLast","GodotStart"},
+    -- Use opts if passing in settings else use config
+    init = function()
+      vim.filetype.add {
+        extension = {
+          gdshaderinc = "gdshaderinc",
+        },
+      }
+    end,
+    opts = { godot_path = "C:\\Users\\Kakule\\Desktop\\Godot4.4.1.exe" }
   },
   {
-    "kawre/leetcode.nvim",
+    "kawre/leetcode.nvim", enabled = false,
     build = ":TSUpdate html",
     dependencies = {
       "nvim-telescope/telescope.nvim",

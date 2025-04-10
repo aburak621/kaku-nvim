@@ -51,4 +51,4 @@ configs.setup({
 })
 
 -- Use zig for Neorg
--- require('nvim-treesitter.install').compilers = { "zig", vim.fn.getenv('CC'), "cc", "gcc", "clang", "cl" }
+require('nvim-treesitter.install').compilers = { "zig", vim.fn.getenv('CC'), "cc", "gcc", "clang", "cl" }
