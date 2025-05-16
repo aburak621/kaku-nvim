@@ -58,7 +58,7 @@ keymap("i", "jk", "<ESC>", opts)
 
 -- Move with ctrl + hjkl
 -- Ctrl-h equals to Ctrl-backspace you need to choose one or the other
-keymap("i", "<C-h>", "<C-w>", opts)
+keymap("i", "<C-backspace>", "<C-w>", opts)
 -- keymap("i", "<C-h>", "<Left>", opts)
 -- keymap("i", "<C-j>", "<Down>", opts)
 -- keymap("i", "<C-k>", "<Up>", opts)
