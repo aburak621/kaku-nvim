@@ -99,7 +99,7 @@ which_key.add({
   -- Explorer mappings
   -- { "<leader>e",        "<cmd>NvimTreeToggle<cr>",                                                                                                                   desc = "Explorer" },
   -- { "<leader>E",        [[<cmd>lua require 'telescope'.extensions.file_browser.file_browser({ grouped = true, hidden = true, path = vim.fn.expand('%:~:h') })<CR>]], desc = "File Browser" },
-  { "<leader>e",        "<cmd>lua if not MiniFiles.close() then MiniFiles.open() end<cr>",                                                                    desc = "Explorer" },
+  { "<leader>e",        "<cmd>lua if not MiniFiles.close() then MiniFiles.open(nil, false) end<cr>",                                                                    desc = "Explorer" },
   { "<leader>E",        "<cmd>lua MiniFiles.open(vim.api.nvim_buf_get_name(0))<cr>",                                                                          desc = "Explorer" },
 
   -- Window mappings
@@ -131,8 +131,8 @@ which_key.add({
   { "<leader>cb",       "<cmd>CMakeBuild<CR>",                                                                                                                desc = "CMake Build" },
   { "<leader>cc",       "<cmd>CMakeRun<CR>",                                                                                                                  desc = "CMake Run" },
   { "<leader>cd",       "<cmd>CMakeDebug<CR>",                                                                                                                desc = "CMake Debug" },
-  { "<leader>cr",       "<cmd>RunFile toggleterm<CR>",                                                                                                        desc = "Run" },
-  { "<leader>cR",       "<cmd>RunProject toggleterm<CR>",                                                                                                     desc = "Run Project" },
+  { "<leader>cr",       "<cmd>RunFile toggleterm<CR><C-W>j",                                                                                                        desc = "Run" },
+  { "<leader>cR",       "<cmd>RunProject toggleterm<CR><C-W>j",                                                                                                     desc = "Run Project" },
   { "<leader>cl",       "<cmd>LoveRun<CR>",                                                                                                                   desc = "Run Love" },
   -- { "<leader>cl",       "<cmd>require('toggleterm.terminal'):new({ cmd = 'love .', hidden = true }):toggle()<CR>",                                                                                                                          desc = "Run Love" },
 
@@ -233,7 +233,7 @@ which_key.add({
   -- Toggle mappings
   { "<leader>t",        group = "Toggle" },
   { "<leader>tc",       "<cmd>CopilotChatToggle<cr>",                                                                                                         desc = "Toggle Copilot Chat" },
-  { "<leader>tC",       "<cmd>Copilot disable<cr>",                                                                                                           desc = "Toggle Copilot" },
+  { "<leader>tC",       "<cmd>Copilot toggle<cr>",                                                                                                           desc = "Toggle Copilot" },
   { "<leader>tu",       "<cmd>UndotreeToggle<cr>",                                                                                                            desc = "Toggle Undotree" },
   { "<leader>t1",       "<cmd>1ToggleTerm<cr>",                                                                                                               desc = "Toggle Toggleterm 1" },
   { "<leader>t2",       "<cmd>2ToggleTerm<cr>",                                                                                                               desc = "Toggle Toggleterm 2" },

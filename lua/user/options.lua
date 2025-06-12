@@ -18,6 +18,7 @@ local options = {
     swapfile = false,                             -- creates a swapfile
     termguicolors = true,                         -- set term gui colors (most terminals support this)
     shell = "cmd.exe",
+    timeout = false,
     timeoutlen = 300,                             -- time to wait for a mapped sequence to complete (in milliseconds)
     undofile = true,                              -- enable persistent undo
     updatetime = 300,                             -- faster completion (4000ms default)
