@@ -17,7 +17,6 @@ local function safe_change_dir(path)
 
     local ok, err = pcall(vim.cmd, "lcd " .. path)
     if not ok then
-        vim.notify("Failed to change directory: " .. err, vim.log.levels.WARN)
         return false
     end
     return true

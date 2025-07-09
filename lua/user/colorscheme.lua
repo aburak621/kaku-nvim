@@ -6,7 +6,7 @@ require("onedark").setup({
 vim.cmd("highlight Comment gui=NONE")
 
 -- AstroDark
-vim.cmd([[colorscheme astrodark]])
+-- vim.cmd([[colorscheme astrodark]])
 
 -- Doom One
 -- vim.cmd([[colorscheme doom-one]])
@@ -15,7 +15,7 @@ vim.cmd([[colorscheme astrodark]])
 -- vim.cmd([[colorscheme catppuccin-mocha]])
 
 -- VSCode
--- vim.cmd([[colorscheme vscode]])
+vim.cmd([[colorscheme vscode]])
 
 -- Gruvbox
 -- vim.cmd [[colorscheme gruvbox]]
