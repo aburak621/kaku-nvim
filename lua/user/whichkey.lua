@@ -233,7 +233,7 @@ which_key.add({
   -- Toggle mappings
   { "<leader>t",        group = "Toggle" },
   { "<leader>tc",       "<cmd>CopilotChatToggle<cr>",                                                                                                         desc = "Toggle Copilot Chat" },
-  { "<leader>tC",       "<cmd>Copilot toggle<cr>",                                                                                                           desc = "Toggle Copilot" },
+  { "<leader>tC",       "<cmd>Copilot disable<cr>",                                                                                                           desc = "Toggle Copilot" },
   { "<leader>tu",       "<cmd>UndotreeToggle<cr>",                                                                                                            desc = "Toggle Undotree" },
   { "<leader>t1",       "<cmd>1ToggleTerm<cr>",                                                                                                               desc = "Toggle Toggleterm 1" },
   { "<leader>t2",       "<cmd>2ToggleTerm<cr>",                                                                                                               desc = "Toggle Toggleterm 2" },
