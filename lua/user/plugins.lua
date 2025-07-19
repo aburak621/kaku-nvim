@@ -77,13 +77,6 @@ local plugins = {
     end,
     event = 'VeryLazy',
   },
-  {
-    "daic0r/dap-helper.nvim",
-    dependencies = { "rcarriga/nvim-dap-ui", "mfussenegger/nvim-dap" },
-    config = function()
-      require("dap-helper").setup()
-    end,
-  },
   { "LunarVim/bigfile.nvim", },
 
   ----------------------------------------------------------------------------------
@@ -316,6 +309,14 @@ local plugins = {
   },
   { "Weissle/persistent-breakpoints.nvim", event = "BufReadPost", opts = {} },
   { "LiadOz/nvim-dap-repl-highlights", opts = {} },
+  {
+    "daic0r/dap-helper.nvim",
+    dependencies = { "rcarriga/nvim-dap-ui", "mfussenegger/nvim-dap" },
+    config = function()
+      require("dap-helper").setup()
+    end,
+  },
+  { "leoluz/nvim-dap-go" },
 
   --------------------------------------------------------
   ------------------------ Other ------------------------
@@ -325,7 +326,7 @@ local plugins = {
     'mrcjkb/rustaceanvim',
     enabled = false,
     dependencies = { "williamboman/mason-lspconfig.nvim" },
-    version = '^5', -- Recommended
+    version = '^6', -- Recommended
     lazy = false,   -- This plugin is already lazy
   },
   {

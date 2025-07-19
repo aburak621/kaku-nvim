@@ -20,5 +20,6 @@ cr.setup({
     typescript = "deno run",
     rust = "cd $dir && cargo run",
     lua = "love .",
+    go = "cd $dir && go run $fileName",
   },
 })
