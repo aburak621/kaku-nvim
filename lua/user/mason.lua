@@ -4,9 +4,7 @@ if not status_ok then
 end
 mason.setup()
 
-vim.diagnostic.config({
-  virtual_text = true
-})
+vim.diagnostic.config({ virtual_text = true })
 
 local servers = {
   "lua_ls",
