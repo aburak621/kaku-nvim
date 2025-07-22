@@ -108,6 +108,10 @@ telescope.setup({
     },
 })
 
+vim.keymap.set("n", "<leader>sn", function()
+  require("telescope.builtin").find_files { cwd = vim.fn.stdpath "config" }
+end, { desc = "Neovim Config Files" })
+
 telescope.load_extension("media_files")
 -- telescope.load_extension("fzf")
 telescope.load_extension("ui-select")
