@@ -48,7 +48,7 @@ local plugins = {
     "Shatur/neovim-session-manager",
     config = function()
       require("session_manager").setup({
-        autoload_mode = require("session_manager.config").AutoloadMode.Disabled,
+        autoload_mode = require("session_manager.config").AutoloadMode.CurrentDir,
         autosave_ignore_buftypes = { "terminal" },
       })
     end,
@@ -78,7 +78,11 @@ local plugins = {
     event = 'VeryLazy',
   },
   { "LunarVim/bigfile.nvim", },
-
+  {
+    "kawre/neotab.nvim",
+    event = "InsertEnter",
+    opts = { },
+  },
   ----------------------------------------------------------------------------------
   ------------------------ Colorschemes (Themes) and Visual ------------------------
   ----------------------------------------------------------------------------------
@@ -199,7 +203,7 @@ local plugins = {
   ------------------------------------------------------------
   {
     "zbirenbaum/copilot.lua",
-    enabled = true,
+    enabled = false,
     config = function()
       require("copilot").setup({
         suggestion = { auto_trigger = true },
