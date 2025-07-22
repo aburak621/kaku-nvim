@@ -50,6 +50,7 @@ local plugins = {
       require("session_manager").setup({
         autoload_mode = require("session_manager.config").AutoloadMode.CurrentDir,
         autosave_ignore_buftypes = { "terminal" },
+        autosave_ignore_dirs = { os.getenv("HOME") },
       })
     end,
   },
