@@ -146,7 +146,7 @@ cmp.setup({
     { name = "path" },
     { name = "nvim_lsp_signature_help" },
     { name = "neorg" },
-    { name = "emoji" },
+    -- { name = "emoji" },
   },
   sorting = {
     comparators = {

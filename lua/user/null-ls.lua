@@ -33,7 +33,7 @@ null_ls.setup({
     }),
     -- formatting.rustfmt,
     -- Python
-    -- formatting.black,
+    formatting.black,
     -- diagnostics.flake8,
     -- diagnostics.pylint,
     -- Lua
