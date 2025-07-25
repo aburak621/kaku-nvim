@@ -204,18 +204,12 @@ local plugins = {
   ------------------------------------------------------------
   {
     "zbirenbaum/copilot.lua",
-    enabled = false,
+    enabled = true,
     config = function()
       require("copilot").setup({
         suggestion = { auto_trigger = true },
         -- panel = { enabled = false },
       })
-    end,
-  },
-  {
-    "zbirenbaum/copilot-cmp",
-    config = function()
-      require("copilot_cmp").setup()
     end,
   },
   {
@@ -226,21 +220,55 @@ local plugins = {
     },
   },
 
-  -----------------------------------------------------
-  ------------------------ Cmp ------------------------
-  -----------------------------------------------------
-  { "hrsh7th/nvim-cmp" },         -- The completion plugin
-  { "hrsh7th/cmp-buffer" },       -- buffer completions
-  { "hrsh7th/cmp-path" },         -- path completions
-  { "hrsh7th/cmp-copilot" },      -- path completions
-  { "hrsh7th/cmp-nvim-lua" },     -- path completions
-  { "hrsh7th/cmp-calc" },         -- path completions
-  { "hrsh7th/cmp-cmdline" },      -- cmdline completions
-  { "saadparwaiz1/cmp_luasnip" }, -- snippet completions
-  { "hrsh7th/cmp-nvim-lsp" },
-  { "hrsh7th/cmp-nvim-lsp-signature-help" },
-  { "hrsh7th/cmp-emoji" },
-  { "lukas-reineke/cmp-under-comparator" },
+  ------------------------------------------------------------
+  ------------------------ Completion ------------------------
+  ------------------------------------------------------------
+  {
+    "saghen/blink.cmp",
+    dependencies = { "L3MON4D3/LuaSnip" },
+    -- use a release tag to download pre-built binaries
+    version = "1.*",
+    ---@module "blink.cmp"
+    ---@type blink.cmp.Config
+    opts = {
+      keymap = {
+        preset = "super-tab",
+        ["<C-j>"] = { "select_next", "fallback" },
+        ["<C-k>"] = { "select_prev", "fallback" },
+        ["<Enter>"] = { "select_and_accept", "fallback" },
+        ["<Escape>"] = { "hide", "fallback" },
+        ['<C-p>'] = { 'show_signature', 'hide_signature', 'fallback' },
+      },
+      appearance = {
+        nerd_font_variant = "mono"
+      },
+      completion = {
+        documentation = {
+          auto_show = true
+        },
+        menu = {
+          draw = {
+            treesitter = { "lsp" },
+          }
+        }
+      },
+      signature = { enabled = true },
+      snippets = { preset = "luasnip" },
+      sources = {
+        default = { "lazydev", "lsp", "path", "snippets", "buffer" },
+        providers = {
+          lazydev = {
+            name = "LazyDev",
+            module = "lazydev.integrations.blink",
+            score_offset = 100,
+          },
+        },
+      },
+      fuzzy = { implementation = "prefer_rust_with_warning" },
+      cmdline = { completion = { list = { selection = { preselect = false } } } }
+    },
+    opts_extend = { "sources.default" },
+  },
 
   ----------------------------------------------------------
   ------------------------ Snippets ------------------------
