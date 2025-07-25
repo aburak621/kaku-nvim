@@ -221,7 +221,9 @@ local plugins = {
   {
     "CopilotC-Nvim/CopilotChat.nvim",
     dependencies = { "zbirenbaum/copilot.lua", "nvim-lua/plenary.nvim" },
-    opts = {},
+    opts = {
+      model = "claude-sonnet-4"
+    },
   },
 
   -----------------------------------------------------
