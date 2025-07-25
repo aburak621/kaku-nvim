@@ -250,6 +250,13 @@ local plugins = {
           draw = {
             treesitter = { "lsp" },
           }
+        },
+        trigger = {
+          show_on_blocked_trigger_characters = function()
+            if vim.bo.filetype == 'python' then return { ' ', '\n', '\t', ':' } end
+            if vim.bo.filetype == 'gdscript' then return { ' ', '\n', '\t', ':' } end
+            return { ' ', '\n', '\t' }
+          end,
         }
       },
       signature = { enabled = true },
