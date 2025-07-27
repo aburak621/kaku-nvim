@@ -117,7 +117,14 @@ keymap("n", "<F8>", "<cmd>DapStepOut<CR>", opts)
 vim.api.nvim_set_keymap(
     "i",
     ";",
-    '<C-o>:lua require("user.semicolon").place_semicolon()<CR>',
+    '<C-o>:lua require("user.semicolon").place_semicolon(";")<CR>',
+    { noremap = true, silent = true }
+)
+
+vim.api.nvim_set_keymap(
+    "i",
+    ":",
+    '<C-o>:lua require("user.semicolon").place_semicolon(":")<CR>',
     { noremap = true, silent = true }
 )
 
