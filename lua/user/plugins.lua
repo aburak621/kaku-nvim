@@ -35,7 +35,7 @@ local plugins = {
   { "goolord/alpha-nvim" }, -- Startup screen
   { 'echasnovski/mini.files', version = '*', opts = { windows = { max_number = 3, preview = true, width_preview = 45 } } },
   { "akinsho/bufferline.nvim", dependencies = "nvim-tree/nvim-web-devicons" },
-  { "nvim-lualine/lualine.nvim" },
+  { "nvim-lualine/lualine.nvim", opts = { options = { theme = "flexoki" } } },
   { "SmiteshP/nvim-navic", opts = {} },
   { "akinsho/toggleterm.nvim" },                                                                     -- Terminal inside nvim
   { "ahmedkhalf/project.nvim" },
@@ -85,7 +85,17 @@ local plugins = {
   { "navarasu/onedark.nvim" },
   { "lunarvim/darkplus.nvim" },
   { "Mofiqul/dracula.nvim" },
-  { "morhetz/gruvbox" },
+  {
+    "ellisonleao/gruvbox.nvim",
+    -- opts = {
+    --   italic = {
+    --     strings = false,
+    --     emphasis = false,
+    --     comments = false,
+    --     folds = false,
+    --   },
+    -- },
+  },
   { "tomasiser/vim-code-dark" },
   { "NTBBloodbath/doom-one.nvim" },
   { "Mofiqul/vscode.nvim" },
@@ -93,6 +103,16 @@ local plugins = {
   { "bartekprtc/gruv-vsassist.nvim" },
   { "rktjmp/lush.nvim" },
   { "folke/tokyonight.nvim" },
+  { "rebelot/kanagawa.nvim" },
+  {
+    "cpplain/flexoki.nvim", opts = {
+      plugins = {
+        "gitsigns",
+        "nvim_treesitter_context",
+        "which_key",
+      }
+    }
+  },
   { "AstroNvim/astrotheme", opts = "" },
   { "catppuccin/nvim", name = "catppuccin", priority = 1000, opts = { no_italic = true } },
   { "Shatur/neovim-ayu" },
