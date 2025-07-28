@@ -33,7 +33,6 @@ local plugins = {
   ------------------------ Editor ------------------------
   --------------------------------------------------------
   { "goolord/alpha-nvim" }, -- Startup screen
-  -- { "kyazdani42/nvim-tree.lua" },
   { 'echasnovski/mini.files', version = '*', opts = { windows = { max_number = 3, preview = true, width_preview = 45 } } },
   { "akinsho/bufferline.nvim", dependencies = "nvim-tree/nvim-web-devicons" },
   { "nvim-lualine/lualine.nvim" },
@@ -67,23 +66,19 @@ local plugins = {
     end,
   },
   {
-    "ThePrimeagen/refactoring.nvim",
-    dependencies = { "nvim-lua/plenary.nvim", "nvim-treesitter/nvim-treesitter" },
-    opts = {}
-  },
-  {
     'b0o/incline.nvim',
     config = function()
       require('incline').setup()
     end,
     event = 'VeryLazy',
   },
-  { "LunarVim/bigfile.nvim", },
+  { "LunarVim/bigfile.nvim" },
   {
     "kawre/neotab.nvim",
     event = "InsertEnter",
     opts = { },
   },
+
   ----------------------------------------------------------------------------------
   ------------------------ Colorschemes (Themes) and Visual ------------------------
   ----------------------------------------------------------------------------------
@@ -193,8 +188,7 @@ local plugins = {
     config = function()
       require("icon-picker").setup({ disable_legacy_commands = true })
       local opts = { noremap = true, silent = true }
-      vim.keymap.set("n", "<Leader><Leader>=", "<cmd>IconPickerNormal<cr>", opts)
-      vim.keymap.set("n", "<Leader><Leader>+", "<cmd>IconPickerYank<cr>", opts) --> Yank the selected icon into register
+      vim.keymap.set("n", "<Leader>si", "<cmd>IconPickerYank<cr>", opts) --> Yank the selected icon into register
       vim.keymap.set("i", "<M-i>", "<cmd>IconPickerInsert<cr>", opts)
     end
   },
@@ -321,7 +315,6 @@ local plugins = {
   -------------------------------------------------------------
   { "CRAG666/code_runner.nvim", dependencies = "nvim-lua/plenary.nvim" },
   { "Civitasv/cmake-tools.nvim", ft = "*.cpp", commit = "565d3a07cf0605a347cb68714015c0eef7213b16" },
-  -- { "turbio/bracey.vim", run = "npm install --prefix server"}, -- Live server for Web Dev
   {
     'barrett-ruth/live-server.nvim',
     build = 'npm add -g live-server',
