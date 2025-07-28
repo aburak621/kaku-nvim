@@ -369,7 +369,15 @@ local plugins = {
     end,
   },
   { "leoluz/nvim-dap-go" },
-  { "mfussenegger/nvim-dap-python" },
+  { "mfussenegger/nvim-dap-python",
+    config = function()
+      if vim.loop.os_uname().sysname == "Windows_NT" then
+        require("dap-python").setup("python")
+      else
+        require("dap-python").setup("python3")
+      end
+    end,
+  },
 
   --------------------------------------------------------
   ------------------------ Other ------------------------
