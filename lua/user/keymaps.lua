@@ -115,17 +115,17 @@ keymap("n", "<F8>", "<cmd>DapStepOut<CR>", opts)
 
 -- Bind the function to the semicolon key in insert mode.
 vim.api.nvim_set_keymap(
-    "i",
-    ";",
-    '<C-o>:lua require("user.semicolon").place_semicolon(";")<CR>',
-    { noremap = true, silent = true }
+  "i",
+  ";",
+  '<C-o>:lua require("user.semicolon").place_semicolon(";")<CR>',
+  { noremap = true, silent = true }
 )
 
 vim.api.nvim_set_keymap(
-    "i",
-    ":",
-    '<C-o>:lua require("user.semicolon").place_semicolon(":")<CR>',
-    { noremap = true, silent = true }
+  "i",
+  ":",
+  '<C-o>:lua require("user.semicolon").place_semicolon(":")<CR>',
+  { noremap = true, silent = true }
 )
 
 -- Copilot

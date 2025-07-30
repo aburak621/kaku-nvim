@@ -1,5 +1,5 @@
 require("onedark").setup({
-    style = "cool",
+  style = "cool",
 })
 
 -- Disable italic comments

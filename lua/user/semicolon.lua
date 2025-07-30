@@ -12,7 +12,7 @@ end
 function M.place_semicolon(punctuation)
   punctuation = punctuation or ";"
   local line = vim.api.nvim_get_current_line()
-  local col = vim.fn.col(".")   -- Add 1 to get the character to the right of the cursor
+  local col = vim.fn.col(".") -- Add 1 to get the character to the right of the cursor
   local line_len = #line
 
   -- Check if there is a closing parenthesis at the current position
