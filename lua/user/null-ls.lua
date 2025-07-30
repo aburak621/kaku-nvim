@@ -41,7 +41,7 @@ null_ls.setup({
       args = { "--indent-type", "Spaces" },
     }),
     formatting.clang_format.with({
-      extra_args = { "--style=Microsoft" },
+      extra_args = { "-style=Microsoft" },
     }),
     formatting.gdformat,
   },

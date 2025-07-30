@@ -94,7 +94,7 @@ which_key.add({
   { "<leader>dq",       "<cmd>DapTerminate<CR>",                                                                                                              desc = "Terminate" },
   { "<leader>dr",       "<cmd>DapToggleRepl<CR>",                                                                                                             desc = "Toggle Repl" },
   { "<leader>dO",       "<cmd>DapStepOut<CR>",                                                                                                                desc = "Step Out" },
-  { "<leader>dU",       "<cmd>lua require'dapui'.toggle({reset = true})<cr>",                                                                                 desc = "Toggle UI" },
+  { "<leader>du",       "<cmd>lua require'dapui'.toggle({reset = true})<cr>",                                                                                 desc = "Toggle UI" },
 
   -- Explorer mappings
   -- { "<leader>e",        "<cmd>NvimTreeToggle<cr>",                                                                                                                   desc = "Explorer" },

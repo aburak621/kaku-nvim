@@ -25,6 +25,14 @@ dap.adapters.godot = {
   port = 6006,
 }
 
+dap.adapters.codelldb = {
+  type = "executable",
+  command = "codelldb", -- or if not in $PATH: "/absolute/path/to/codelldb"
+
+  -- On windows you may have to uncomment this:
+  detached = vim.fn.has("win32") == 1 and false or nil,
+}
+
 dap.configurations.gdscript = {
   {
     type = "godot",
