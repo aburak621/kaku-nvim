@@ -356,7 +356,38 @@ local plugins = {
   ------------------------ Debug ------------------------
   -------------------------------------------------------
   { "mfussenegger/nvim-dap" },
-  { "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" }, event = "VeryLazy" },
+  {
+    "rcarriga/nvim-dap-ui",
+    dependencies = { "mfussenegger/nvim-dap",
+      "nvim-neotest/nvim-nio" },
+    event = "VeryLazy",
+    opts = {
+      layouts = {
+        {
+          elements = {
+            {
+              id = "scopes",
+              size = 0.4
+            },
+            {
+              id = "breakpoints",
+              size = 0.2
+            },
+            {
+              id = "stacks",
+              size = 0.2
+            },
+            {
+              id = "watches",
+              size = 0.2
+            }
+          },
+          position = "left",
+          size = 36
+        },
+      },
+    },
+  },
   {
     "jay-babu/mason-nvim-dap.nvim",
     event = "VeryLazy",
