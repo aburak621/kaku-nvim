@@ -237,6 +237,7 @@ which_key.add({
   { "<leader>tC",       "<cmd>Copilot disable<cr>",                                                                                                           desc = "Toggle Copilot" },
   { "<leader>tu",       "<cmd>UndotreeToggle<cr>",                                                                                                            desc = "Toggle Undotree" },
   { "<leader>tz",       "<cmd>ZenMode<cr>",                                                                                                                   desc = "Toggle Zen Mode" },
+  { "<leader>tZ",       "<cmd>lua vim.b.completion = not vim.b.completion<cr>",                                                                               desc = "Toggle Completion" },
   { "<leader>t1",       "<cmd>1ToggleTerm<cr>",                                                                                                               desc = "Toggle Toggleterm 1" },
   { "<leader>t2",       "<cmd>2ToggleTerm<cr>",                                                                                                               desc = "Toggle Toggleterm 2" },
   { "<leader>t3",       "<cmd>3ToggleTerm<cr>",                                                                                                               desc = "Toggle Toggleterm 3" },
