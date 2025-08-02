@@ -4,7 +4,7 @@ if not cmake_status_ok then
 end
 
 cmake.setup({
-  cmake_generate_options = { "-DCMAKE_EXPORT_COMPILE_COMMANDS=1", "-G Ninja" },
+  -- cmake_generate_options = { "-DCMAKE_EXPORT_COMPILE_COMMANDS=1", "-G Ninja" },
   cmake_build_directory = "build",
   cmake_regenerate_on_save = false,
 })
