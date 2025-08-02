@@ -42,7 +42,12 @@ local plugins = {
   { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} }, -- Visual indentlines
   { "okuuva/auto-save.nvim", opts = { debounce_delay = 135 } },
   { "folke/trouble.nvim", opts = "" },
-  { "mbbill/undotree" },
+  { "mbbill/undotree", config =
+    function()
+      if vim.fn.has("win32") == 1 then
+        vim.g.undotree_DiffCommand = "FC"
+      end
+    end},
   {
     "Shatur/neovim-session-manager",
     config = function()
