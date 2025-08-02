@@ -109,9 +109,9 @@ keymap("c", "<C-h>", "<C-w>", { noremap = true, silent = false })
 
 -- DAP
 keymap("n", "<F5>", "<cmd>DapContinue<CR>", opts)
-keymap("n", "<F6>", "<cmd>DapStepInto<CR>", opts)
-keymap("n", "<F7>", "<cmd>DapStepOver<CR>", opts)
-keymap("n", "<F8>", "<cmd>DapStepOut<CR>", opts)
+keymap("n", "<F11>", "<cmd>DapStepInto<CR>", opts)
+keymap("n", "<F10>", "<cmd>DapStepOver<CR>", opts)
+keymap("n", "<S-F11>", "<cmd>DapStepOut<CR>", opts)
 
 -- Bind the function to the semicolon key in insert mode.
 vim.api.nvim_set_keymap(
