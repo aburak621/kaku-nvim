@@ -49,7 +49,7 @@ local plugins = {
       require("session_manager").setup({
         autoload_mode = require("session_manager.config").AutoloadMode.Disabled,
         autosave_ignore_buftypes = { "terminal" },
-        -- autosave_ignore_dirs = { os.getenv("HOME") },
+        autosave_ignore_dirs = { os.getenv("HOME"), os.getenv("UserProfile") },
       })
     end,
   },
@@ -77,6 +77,19 @@ local plugins = {
     "kawre/neotab.nvim",
     event = "InsertEnter",
     opts = { },
+  },
+  {
+    "folke/zen-mode.nvim",
+    opts = {
+      on_open = function ()
+        vim.b.completion = false
+        vim.cmd("Copilot disable")
+      end,
+      on_close = function ()
+        vim.b.completion = true
+        vim.cmd("Copilot enable")
+      end
+    }
   },
 
   ----------------------------------------------------------------------------------
@@ -144,7 +157,7 @@ local plugins = {
   ------------------------ Input ------------------------
   -------------------------------------------------------
   { "numToStr/Comment.nvim", opts = {} }, -- Easily comment stuff
-  { "windwp/nvim-autopairs" }, -- Autopairs, integrates with both cmp and treesitter
+  { "echasnovski/mini.pairs", opts = { modes = { insert = true, command = true } } },
   { "folke/which-key.nvim" },
   {
     "kylechui/nvim-surround",

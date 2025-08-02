@@ -193,7 +193,7 @@ which_key.add({
   { "<leader>Sd",       "<cmd>SessionManager delete_session<cr>",                                                                                             desc = "Delete Session" },
   { "<leader>Ss",       "<cmd>SessionManager save_current_session<cr>",                                                                                       desc = "Save Session" },
   { "<leader>Sl",       "<cmd>SessionManager load_session<cr>",                                                                                               desc = "Load Session" },
-  { "<leader>SL",       "<cmd>SessionManager load_last_session<cr>",                                                                                          desc = "Load Last Session" },
+  { "<leader>SS",       "<cmd>SessionManager load_last_session<cr>",                                                                                          desc = "Load Last Session" },
 
   -- Neorg mappings
   { "<leader>n",        group = "Neorg" },
@@ -236,6 +236,7 @@ which_key.add({
   { "<leader>tc",       "<cmd>CopilotChatToggle<cr>",                                                                                                         desc = "Toggle Copilot Chat" },
   { "<leader>tC",       "<cmd>Copilot disable<cr>",                                                                                                           desc = "Toggle Copilot" },
   { "<leader>tu",       "<cmd>UndotreeToggle<cr>",                                                                                                            desc = "Toggle Undotree" },
+  { "<leader>tz",       "<cmd>ZenMode<cr>",                                                                                                                   desc = "Toggle Zen Mode" },
   { "<leader>t1",       "<cmd>1ToggleTerm<cr>",                                                                                                               desc = "Toggle Toggleterm 1" },
   { "<leader>t2",       "<cmd>2ToggleTerm<cr>",                                                                                                               desc = "Toggle Toggleterm 2" },
   { "<leader>t3",       "<cmd>3ToggleTerm<cr>",                                                                                                               desc = "Toggle Toggleterm 3" },
