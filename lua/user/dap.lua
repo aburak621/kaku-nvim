@@ -45,8 +45,7 @@ dap.configurations.gdscript = {
 
 vim.keymap.set("n", "<leader>d?", function()
   require("dapui").eval(nil, { enter = true })
-end
-)
+end)
 
 local M = {}
 

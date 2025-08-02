@@ -7,12 +7,12 @@ local open_file = function(path)
   open_in_external_editor(MiniFiles.get_fs_entry().path)
 end
 
-vim.api.nvim_create_autocmd('User', {
-  pattern = 'MiniFilesBufferCreate',
+vim.api.nvim_create_autocmd("User", {
+  pattern = "MiniFilesBufferCreate",
   callback = function(args)
-    vim.keymap.set('n', '<S-s>', open_file, { buffer = args.data.buf_id })
-    vim.keymap.set('n', '<Tab>', '', { buffer = args.data.buf_id })
-    vim.keymap.set('n', '<S-Tab>', '', { buffer = args.data.buf_id })
+    vim.keymap.set("n", "<S-s>", open_file, { buffer = args.data.buf_id })
+    vim.keymap.set("n", "<Tab>", "", { buffer = args.data.buf_id })
+    vim.keymap.set("n", "<S-Tab>", "", { buffer = args.data.buf_id })
   end,
 })
 

@@ -59,7 +59,7 @@ cmp.setup({
 
   snippet = {
     expand = function(args)
-      luasnip.lsp_expand(args.body)       -- For `luasnip` users.
+      luasnip.lsp_expand(args.body) -- For `luasnip` users.
     end,
   },
   -- completion = { completeopt = "menu, menuone, noinsert, preview" }, -- This fucker was a huge lag causer.
@@ -75,7 +75,7 @@ cmp.setup({
     ["<C-d>"] = cmp.mapping(cmp.mapping.scroll_docs(-2), { "i", "c" }),
     ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(2), { "i", "c" }),
     ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
-    ["<C-y>"] = cmp.config.disable,     -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+    ["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
     ["<C-e>"] = cmp.mapping({
       i = cmp.mapping.abort(),
       c = cmp.mapping.close(),
@@ -92,7 +92,7 @@ cmp.setup({
         --     luasnip.expand()
         -- elseif luasnip.jumpable() then
         --     luasnip.jump()
-      elseif luasnip.expand_or_jumpable() then       -- Unfortunately jumpable check affects fluidity of typing.
+      elseif luasnip.expand_or_jumpable() then -- Unfortunately jumpable check affects fluidity of typing.
         luasnip.expand_or_jump()
         -- elseif check_backspace() then
         --     fallback()
@@ -141,7 +141,7 @@ cmp.setup({
     { name = "nvim_lsp" },
     { name = "quickgd" },
     { name = "luasnip" },
-    { name = "lazydev", group_index = 0, },
+    { name = "lazydev", group_index = 0 },
     -- { name = "buffer" },
     { name = "path" },
     { name = "nvim_lsp_signature_help" },
@@ -176,20 +176,20 @@ cmp.setup({
 })
 
 -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline({ '/', '?' }, {
+cmp.setup.cmdline({ "/", "?" }, {
   mapping = cmp.mapping.preset.cmdline(),
   sources = {
-    { name = 'buffer' }
-  }
+    { name = "buffer" },
+  },
 })
 
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline(':', {
+cmp.setup.cmdline(":", {
   mapping = cmp.mapping.preset.cmdline(),
   sources = cmp.config.sources({
-    { name = 'path' }
+    { name = "path" },
   }, {
-    { name = 'cmdline' }
+    { name = "cmdline" },
   }),
-  matching = { disallow_symbol_nonprefix_matching = false }
+  matching = { disallow_symbol_nonprefix_matching = false },
 })

@@ -5,7 +5,7 @@ local M = {}
 
 -- Define a function to check if a line ends with a specific character.
 local function ends_with(str, ending)
-  return ending == "" or str:sub(- #ending) == ending
+  return ending == "" or str:sub(-#ending) == ending
 end
 
 -- Define the main function to handle semicolon placement.

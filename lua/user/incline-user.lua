@@ -2,9 +2,9 @@ local helpers_status_ok, helpers = pcall(require, "incline.helpers")
 if not helpers_status_ok then
   return
 end
-local devicons = require 'nvim-web-devicons'
+local devicons = require("nvim-web-devicons")
 
-require('incline').setup {
+require("incline").setup({
   window = {
     padding = 0,
     margin = { horizontal = 0 },
@@ -18,21 +18,21 @@ require('incline').setup {
   },
   highlight = {
     groups = {
-      InclineNormalNC = "NonText"
+      InclineNormalNC = "NonText",
     },
   },
   render = function(props)
-    local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ':t')
+    local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
     -- if filename == '' then
     --   filename = '[No Name]'
     -- end
     local ft_icon, ft_color = devicons.get_icon_color(filename)
     local modified = vim.bo[props.buf].modified
     return {
-      ft_icon and { ' ', ft_icon, '', guifg = ft_color } or '',
-      ' ',
-      { filename, gui = modified and 'bold,italic' or 'bold' },
-      ' ',
+      ft_icon and { " ", ft_icon, "", guifg = ft_color } or "",
+      " ",
+      { filename, gui = modified and "bold,italic" or "bold" },
+      " ",
     }
   end,
-}
+})

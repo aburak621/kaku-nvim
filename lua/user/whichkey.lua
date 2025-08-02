@@ -163,7 +163,7 @@ which_key.add({
   { "<leader>l",        group = "LSP" },
   { "<leader>la",       "<cmd>lua vim.lsp.buf.code_action()<cr>",                                                                                             desc = "Code Action" },
   { "<leader>ld",       "<cmd>lua vim.diagnostic.open_float()<cr>",                                                                                           desc = "Open diagnostic" },
-  { "<leader>lf",       "<cmd>lua vim.lsp.buf.format()<cr>",                                                                                                  desc = "Format" },
+  { "<leader>lf",       "<cmd>lua require('conform').format()<cr>",                                                                                                  desc = "Format" },
   { "<leader>li",       "<cmd>LspInfo<cr>",                                                                                                                   desc = "Info" },
   { "<leader>lj",       "<cmd>lua vim.diagnostic.goto_next()<CR>",                                                                                            desc = "Next Diagnostic" },
   { "<leader>lk",       "<cmd>lua vim.diagnostic.goto_prev()<cr>",                                                                                            desc = "Prev Diagnostic" },

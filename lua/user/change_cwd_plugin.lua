@@ -1,10 +1,10 @@
 local M = {}
 
-local workspace_finder = require('user.workspace_finder')
+local workspace_finder = require("user.workspace_finder")
 
 local function find_git_root()
   local current_dir = vim.fn.expand("%:p:h")
-  local git_dir = vim.fn.finddir('.git', current_dir .. ';')
+  local git_dir = vim.fn.finddir(".git", current_dir .. ";")
 
   if git_dir and git_dir ~= "" then
     return vim.fn.fnamemodify(git_dir, ":h")
@@ -13,7 +13,9 @@ local function find_git_root()
 end
 
 local function safe_change_dir(path)
-  if not path then return false end
+  if not path then
+    return false
+  end
 
   local ok, err = pcall(vim.cmd, "lcd " .. path)
   if not ok then
@@ -24,13 +26,19 @@ end
 
 function M.change_cwd()
   -- Only process normal buffers
-  if vim.bo.buftype ~= "" then return end
+  if vim.bo.buftype ~= "" then
+    return
+  end
 
   local git_root = find_git_root()
   if git_root then
     -- Skip non-file buffers (like Diffview)
-    if git_root:find("://") then return end
-    if safe_change_dir(git_root) then return end
+    if git_root:find("://") then
+      return
+    end
+    if safe_change_dir(git_root) then
+      return
+    end
   end
 
   -- Try workspace folder if no git root

@@ -6,7 +6,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   if vim.v.shell_error ~= 0 then
     vim.api.nvim_echo({
       { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-      { out,                            "WarningMsg" },
+      { out, "WarningMsg" },
       { "\nPress any key to exit..." },
     }, true, {})
     vim.fn.getchar()
@@ -20,7 +20,7 @@ local plugins = {
   --------------------------------------------------------------
   ------------------------ Dependencies ------------------------
   --------------------------------------------------------------
-  { "nvim-lua/popup.nvim" },   -- An implementation of the Popup API from vim in Neovim
+  { "nvim-lua/popup.nvim" }, -- An implementation of the Popup API from vim in Neovim
   { "nvim-lua/plenary.nvim" }, -- Useful lua functions used by lots of plugins
   { "nvim-tree/nvim-web-devicons" },
   { "echasnovski/mini.icons" },
@@ -33,21 +33,27 @@ local plugins = {
   ------------------------ Editor ------------------------
   --------------------------------------------------------
   { "goolord/alpha-nvim" }, -- Startup screen
-  { 'echasnovski/mini.files', version = '*', opts = { windows = { max_number = 3, preview = true, width_preview = 45 } } },
+  {
+    "echasnovski/mini.files",
+    version = "*",
+    opts = { windows = { max_number = 3, preview = true, width_preview = 45 } },
+  },
   { "akinsho/bufferline.nvim", dependencies = "nvim-tree/nvim-web-devicons" },
   { "nvim-lualine/lualine.nvim", opts = { options = { theme = "flexoki" } } },
   { "SmiteshP/nvim-navic", opts = {} },
-  { "akinsho/toggleterm.nvim" },                                                                     -- Terminal inside nvim
+  { "akinsho/toggleterm.nvim" }, -- Terminal inside nvim
   { "ahmedkhalf/project.nvim" },
   { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} }, -- Visual indentlines
   { "okuuva/auto-save.nvim", opts = { debounce_delay = 135 } },
   { "folke/trouble.nvim", opts = "" },
-  { "mbbill/undotree", config =
-    function()
+  {
+    "mbbill/undotree",
+    config = function()
       if vim.fn.has("win32") == 1 then
         vim.g.undotree_DiffCommand = "FC"
       end
-    end},
+    end,
+  },
   {
     "Shatur/neovim-session-manager",
     config = function()
@@ -60,7 +66,7 @@ local plugins = {
   },
   { "echasnovski/mini.align", version = false, opts = {} },
   { "kevinhwang91/nvim-ufo", dependencies = "kevinhwang91/promise-async" },
-  { "hedyhli/outline.nvim", opts = { outline_window = { position = "left", } } },
+  { "hedyhli/outline.nvim", opts = { outline_window = { position = "left" } } },
   {
     "smjonas/inc-rename.nvim",
     config = function()
@@ -71,30 +77,30 @@ local plugins = {
     end,
   },
   {
-    'b0o/incline.nvim',
+    "b0o/incline.nvim",
     config = function()
-      require('incline').setup()
+      require("incline").setup()
     end,
-    event = 'VeryLazy',
+    event = "VeryLazy",
   },
   { "LunarVim/bigfile.nvim" },
   {
     "kawre/neotab.nvim",
     event = "InsertEnter",
-    opts = { },
+    opts = {},
   },
   {
     "folke/zen-mode.nvim",
     opts = {
-      on_open = function ()
+      on_open = function()
         vim.b.completion = false
         vim.cmd("Copilot disable")
       end,
-      on_close = function ()
+      on_close = function()
         vim.b.completion = true
         vim.cmd("Copilot enable")
-      end
-    }
+      end,
+    },
   },
 
   ----------------------------------------------------------------------------------
@@ -123,20 +129,21 @@ local plugins = {
   { "folke/tokyonight.nvim" },
   { "rebelot/kanagawa.nvim" },
   {
-    "cpplain/flexoki.nvim", opts = {
+    "cpplain/flexoki.nvim",
+    opts = {
       plugins = {
         "gitsigns",
         "nvim_treesitter_context",
         "which_key",
-      }
-    }
+      },
+    },
   },
   { "AstroNvim/astrotheme", opts = "" },
   { "catppuccin/nvim", name = "catppuccin", priority = 1000, opts = { no_italic = true } },
   { "Shatur/neovim-ayu" },
   { "projekt0n/github-nvim-theme" },
   { "xiyaowong/transparent.nvim" },
-  { "folke/todo-comments.nvim", dependencies = { "nvim-lua/plenary.nvim" }, opts = {}, },
+  { "folke/todo-comments.nvim", dependencies = { "nvim-lua/plenary.nvim" }, opts = {} },
   {
     "echasnovski/mini.hipatterns",
     config = function()
@@ -156,7 +163,10 @@ local plugins = {
   { "nvim-telescope/telescope.nvim" },
   { "nvim-telescope/telescope-media-files.nvim" },
   { "nvim-telescope/telescope-ui-select.nvim" },
-  { "nvim-telescope/telescope-file-browser.nvim", dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" } },
+  {
+    "nvim-telescope/telescope-file-browser.nvim",
+    dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+  },
 
   -------------------------------------------------------
   ------------------------ Input ------------------------
@@ -228,7 +238,7 @@ local plugins = {
       local opts = { noremap = true, silent = true }
       vim.keymap.set("n", "<Leader>si", "<cmd>IconPickerYank<cr>", opts) --> Yank the selected icon into register
       vim.keymap.set("i", "<M-i>", "<cmd>IconPickerInsert<cr>", opts)
-    end
+    end,
   },
 
   ------------------------------------------------------------
@@ -248,7 +258,7 @@ local plugins = {
     "CopilotC-Nvim/CopilotChat.nvim",
     dependencies = { "zbirenbaum/copilot.lua", "nvim-lua/plenary.nvim" },
     opts = {
-      model = "claude-sonnet-4"
+      model = "claude-sonnet-4",
     },
   },
 
@@ -269,27 +279,31 @@ local plugins = {
         ["<C-k>"] = { "select_prev", "fallback" },
         ["<Enter>"] = { "select_and_accept", "fallback" },
         ["<Escape>"] = { "hide", "fallback" },
-        ['<C-p>'] = { 'show_signature', 'hide_signature', 'fallback' },
+        ["<C-p>"] = { "show_signature", "hide_signature", "fallback" },
       },
       appearance = {
-        nerd_font_variant = "mono"
+        nerd_font_variant = "mono",
       },
       completion = {
         documentation = {
-          auto_show = true
+          auto_show = true,
         },
         menu = {
           draw = {
             treesitter = { "lsp" },
-          }
+          },
         },
         trigger = {
           show_on_blocked_trigger_characters = function()
-            if vim.bo.filetype == 'python' then return { ' ', '\n', '\t', ':' } end
-            if vim.bo.filetype == 'gdscript' then return { ' ', '\n', '\t', ':' } end
-            return { ' ', '\n', '\t' }
+            if vim.bo.filetype == "python" then
+              return { " ", "\n", "\t", ":" }
+            end
+            if vim.bo.filetype == "gdscript" then
+              return { " ", "\n", "\t", ":" }
+            end
+            return { " ", "\n", "\t" }
           end,
-        }
+        },
       },
       signature = { enabled = true },
       snippets = { preset = "luasnip" },
@@ -304,7 +318,7 @@ local plugins = {
         },
       },
       fuzzy = { implementation = "prefer_rust_with_warning" },
-      cmdline = { completion = { list = { selection = { preselect = false } } } }
+      cmdline = { completion = { list = { selection = { preselect = false } } } },
     },
     opts_extend = { "sources.default" },
   },
@@ -312,25 +326,56 @@ local plugins = {
   ----------------------------------------------------------
   ------------------------ Snippets ------------------------
   ----------------------------------------------------------
-  { "L3MON4D3/LuaSnip" },             --snippet engine
+  { "L3MON4D3/LuaSnip" }, --snippet engine
   { "rafamadriz/friendly-snippets" }, -- a bunch of snippets to use
 
   -----------------------------------------------------
   ------------------------ LSP ------------------------
   -----------------------------------------------------
   { "williamboman/mason.nvim" }, -- simple to use language server installer
-  { "neovim/nvim-lspconfig" },   -- enable LSP
+  { "neovim/nvim-lspconfig" }, -- enable LSP
   { "williamboman/mason-lspconfig.nvim" },
-  { "nvimtools/none-ls.nvim", dependencies = { "nvimtools/none-ls-extras.nvim" } },
   {
-    "jay-babu/mason-null-ls.nvim",
-    event = { "BufReadPre", "BufNewFile" },
-    dependencies = {
-      "williamboman/mason.nvim",
-      "nvimtools/none-ls.nvim",
-    },
+    "mfussenegger/nvim-lint",
     config = function()
-      require("user.null-ls") -- require your null-ls config here
+      require("lint").linters_by_ft = {}
+      vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+        callback = function()
+          require("lint").try_lint()
+        end,
+      })
+    end,
+  },
+  {
+    "stevearc/conform.nvim",
+    config = function()
+      local prettierd = { "prettierd" }
+      local clang_format = { "clang_format" }
+      require("conform").setup({
+        formatters_by_ft = {
+          lua = { "stylua" }, -- You can add ", { lsp_format = "fallback" }" to the table to fallback to lsp formatting
+          python = { "black" },
+          javascript = prettierd,
+          typescript = prettierd,
+          html = prettierd,
+          css = prettierd,
+          json = prettierd,
+          gdscript = { "gdformat" },
+          c = clang_format,
+          cpp = clang_format,
+        },
+        formatters = {
+          stylua = {
+            prepend_args = { "--indent-type", "Spaces", "--indent-width", "2" },
+          },
+          prettierd = {
+            prepend_args = { "--semi", "--single-quote", "--jsx-single-quote" },
+          },
+          clang_format = {
+            prepend_args = { "--style={BasedOnStyle: Microsoft, BreakBeforeBraces: Allman, IndentCaseLabels: true}" },
+          },
+        },
+      })
     end,
   },
   { "RRethy/vim-illuminate", enabled = true }, -- Disabled because of lag.
@@ -355,10 +400,10 @@ local plugins = {
   -- { "Civitasv/cmake-tools.nvim", ft = "*.cpp", commit = "565d3a07cf0605a347cb68714015c0eef7213b16" },
   { "aburak621/cmake-tools.nvim", ft = "*.cpp" },
   {
-    'barrett-ruth/live-server.nvim',
-    build = 'npm add -g live-server',
-    cmd = { 'LiveServerStart', 'LiveServerStop' },
-    opts = { args = { '--browser=chrome' } },
+    "barrett-ruth/live-server.nvim",
+    build = "npm add -g live-server",
+    cmd = { "LiveServerStart", "LiveServerStop" },
+    opts = { args = { "--browser=chrome" } },
   },
   { "danymat/neogen", config = true },
 
@@ -377,8 +422,7 @@ local plugins = {
   { "mfussenegger/nvim-dap" },
   {
     "rcarriga/nvim-dap-ui",
-    dependencies = { "mfussenegger/nvim-dap",
-      "nvim-neotest/nvim-nio" },
+    dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
     event = "VeryLazy",
     opts = {
       layouts = {
@@ -386,23 +430,23 @@ local plugins = {
           elements = {
             {
               id = "scopes",
-              size = 0.4
+              size = 0.4,
             },
             {
               id = "breakpoints",
-              size = 0.2
+              size = 0.2,
             },
             {
               id = "stacks",
-              size = 0.2
+              size = 0.2,
             },
             {
               id = "watches",
-              size = 0.2
-            }
+              size = 0.2,
+            },
           },
           position = "left",
-          size = 36
+          size = 36,
         },
       },
     },
@@ -432,7 +476,8 @@ local plugins = {
     end,
   },
   { "leoluz/nvim-dap-go" },
-  { "mfussenegger/nvim-dap-python",
+  {
+    "mfussenegger/nvim-dap-python",
     config = function()
       if vim.loop.os_uname().sysname == "Windows_NT" then
         require("dap-python").setup("python")
@@ -447,11 +492,11 @@ local plugins = {
   --------------------------------------------------------
   { "S1M0N38/love2d.nvim", cmd = "LoveRun", opts = {}, pin = true },
   {
-    'mrcjkb/rustaceanvim',
+    "mrcjkb/rustaceanvim",
     enabled = false,
     dependencies = { "williamboman/mason-lspconfig.nvim" },
-    version = '^6', -- Recommended
-    lazy = false,   -- This plugin is already lazy
+    version = "^6", -- Recommended
+    lazy = false, -- This plugin is already lazy
   },
   {
     "QuickGD/quickgd.nvim",
@@ -459,13 +504,13 @@ local plugins = {
     cmd = { "GodotRun", "GodotRunLast", "GodotStart" },
     -- Use opts if passing in settings else use config
     init = function()
-      vim.filetype.add {
+      vim.filetype.add({
         extension = {
           gdshaderinc = "gdshaderinc",
         },
-      }
+      })
     end,
-    opts = { godot_path = "C:\\Users\\Kakule\\Desktop\\Godot4.4.1.exe" }
+    opts = { godot_path = "C:\\Users\\Kakule\\Desktop\\Godot4.4.1.exe" },
   },
 }
 

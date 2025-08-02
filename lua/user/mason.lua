@@ -37,14 +37,19 @@ local on_attach = function(client, bufnr)
   end
 
   nmap("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
-  nmap("gr", function() require('telescope.builtin').lsp_references({ layout_strategy = 'flex' }) end,
-    "[G]oto [R]eferences")
+  nmap("gr", function()
+    require("telescope.builtin").lsp_references({ layout_strategy = "flex" })
+  end, "[G]oto [R]eferences")
   nmap("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
   nmap("gD", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
-  nmap("<F12>", function() vim.cmd([[Telescope lsp_document_symbols]]) end, "[D]ocument [S]ymbols")
-  nmap("<S-F12>", function() vim.cmd([[Telescope lsp_workspace_symbols]]) end, "[W]orkspace [S]ymbols")
+  nmap("<F12>", function()
+    vim.cmd([[Telescope lsp_document_symbols]])
+  end, "[D]ocument [S]ymbols")
+  nmap("<S-F12>", function()
+    vim.cmd([[Telescope lsp_workspace_symbols]])
+  end, "[W]orkspace [S]ymbols")
   nmap("K", function()
-    local winid = require('ufo').peekFoldedLinesUnderCursor()
+    local winid = require("ufo").peekFoldedLinesUnderCursor()
     if not winid then
       vim.lsp.buf.hover()
     end
@@ -67,7 +72,7 @@ local on_attach = function(client, bufnr)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = vim.tbl_deep_extend("force", capabilities, require('blink.cmp').get_lsp_capabilities({}, false))
+capabilities = vim.tbl_deep_extend("force", capabilities, require("blink.cmp").get_lsp_capabilities({}, false))
 capabilities["workspace"] = { didChangeWatchedFiles = { dynamicRegistration = true } }
 local lspconfig = require("lspconfig")
 
@@ -81,7 +86,7 @@ vim.lsp.config("clangd", {
     on_attach = on_attach,
     capabilities = capabilities,
     cmd = { "clangd", "--header-insertion=never", "--offset-encoding=utf-16" },
-  })
+  }),
 })
 vim.lsp.config("lua_ls", {
   lspconfig.lua_ls.setup({
@@ -92,7 +97,7 @@ vim.lsp.config("lua_ls", {
         workspace = {
           checkThirdParty = false,
           telemetry = { enable = false },
-          library = { "${3rd}/love2d/library" }
+          library = { "${3rd}/love2d/library" },
         },
         diagnostics = {
           globals = { "vim" },
@@ -100,21 +105,18 @@ vim.lsp.config("lua_ls", {
         },
       },
     },
-  })
+  }),
 })
 vim.lsp.config("rust_analyzer", {})
 
-vim.api.nvim_create_autocmd({ 'BufNew', 'BufEnter' }, {
-  pattern = { '*.p8' },
+vim.api.nvim_create_autocmd({ "BufNew", "BufEnter" }, {
+  pattern = { "*.p8" },
   callback = function(args)
     vim.lsp.start({
-      name = 'pico8-ls',
-      cmd = { 'pico8-ls.cmd', '--stdio' },
+      name = "pico8-ls",
+      cmd = { "pico8-ls.cmd", "--stdio" },
       root_dir = vim.fs.dirname(vim.api.nvim_buf_get_name(args.buf)),
       on_attach = on_attach,
     })
-  end
+  end,
 })
-
--- NULL LS
-require("user.null-ls")
