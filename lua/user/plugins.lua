@@ -334,7 +334,8 @@ local plugins = {
   ------------------------ Programming ------------------------
   -------------------------------------------------------------
   { "CRAG666/code_runner.nvim", dependencies = "nvim-lua/plenary.nvim" },
-  { "Civitasv/cmake-tools.nvim", ft = "*.cpp", commit = "565d3a07cf0605a347cb68714015c0eef7213b16" },
+  -- { "Civitasv/cmake-tools.nvim", ft = "*.cpp", commit = "565d3a07cf0605a347cb68714015c0eef7213b16" },
+  { "aburak621/cmake-tools.nvim", ft = "*.cpp" },
   {
     'barrett-ruth/live-server.nvim',
     build = 'npm add -g live-server',
