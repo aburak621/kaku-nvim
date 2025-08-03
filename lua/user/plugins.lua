@@ -70,7 +70,7 @@ local plugins = {
   {
     "smjonas/inc-rename.nvim",
     config = function()
-      require("inc_rename").setup()
+      require("inc_rename").setup({})
       vim.keymap.set("n", "<F2>", function()
         return ":IncRename " .. vim.fn.expand("<cword>")
       end, { expr = true })
@@ -270,8 +270,6 @@ local plugins = {
     dependencies = { "L3MON4D3/LuaSnip" },
     -- use a release tag to download pre-built binaries
     version = "1.*",
-    ---@module "blink.cmp"
-    ---@type blink.cmp.Config
     opts = {
       keymap = {
         preset = "super-tab",
