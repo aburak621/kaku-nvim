@@ -26,6 +26,12 @@ local servers = {
 local mason_lspconfig = require("mason-lspconfig")
 mason_lspconfig.setup({
   ensure_installed = servers,
+  automatic_enable = {
+    exclude = {
+      "clangd",
+      "lua_ls"
+    }
+  }
 })
 
 local on_attach = function(client, bufnr)
