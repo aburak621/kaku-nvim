@@ -370,7 +370,7 @@ local plugins = {
             prepend_args = { "--semi", "--single-quote", "--jsx-single-quote" },
           },
           clang_format = {
-            prepend_args = { "--style={BasedOnStyle: Microsoft, BreakBeforeBraces: Allman, IndentCaseLabels: true}" },
+            prepend_args = { "--style={BasedOnStyle: Microsoft, BreakBeforeBraces: Allman, IndentCaseLabels: true, PointerAlignment: Left}" },
           },
         },
       })
