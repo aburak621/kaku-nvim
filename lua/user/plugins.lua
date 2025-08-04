@@ -92,6 +92,9 @@ local plugins = {
   {
     "folke/zen-mode.nvim",
     opts = {
+      window = {
+        width = 126,
+      },
       on_open = function()
         vim.b.completion = false
         vim.cmd("Copilot disable")
@@ -370,7 +373,9 @@ local plugins = {
             prepend_args = { "--semi", "--single-quote", "--jsx-single-quote" },
           },
           clang_format = {
-            prepend_args = { "--style={BasedOnStyle: Microsoft, BreakBeforeBraces: Allman, IndentCaseLabels: true, PointerAlignment: Left}" },
+            prepend_args = {
+              "--style={BasedOnStyle: Microsoft, BreakBeforeBraces: Allman, IndentCaseLabels: true, PointerAlignment: Left}",
+            },
           },
         },
       })
