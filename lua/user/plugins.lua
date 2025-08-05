@@ -388,7 +388,7 @@ local plugins = {
           },
           clang_format = {
             prepend_args = {
-              "--style={BasedOnStyle: Microsoft, BreakBeforeBraces: Allman, IndentCaseLabels: true, PointerAlignment: Left}",
+              "--style={BasedOnStyle: Microsoft, BreakBeforeBraces: Allman, IndentCaseLabels: true, PointerAlignment: Left, AlignAfterOpenBracket: AlwaysBreak, BinPackArguments: false, BinPackParameters: false}",
             },
           },
         },
