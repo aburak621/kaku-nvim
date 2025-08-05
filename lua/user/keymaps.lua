@@ -103,6 +103,11 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 keymap("n", "<A-q>", "<cmd>lua vim.lsp.buf.hover()<CR>", term_opts)
 keymap("i", "<A-q>", "<cmd>lua vim.lsp.buf.hover()<CR>", term_opts)
 
+vim.keymap.del("n", "grn")
+vim.keymap.del("n", "grr")
+vim.keymap.del("n", "gri")
+vim.keymap.del("n", "gra")
+
 keymap("n", "<F10>", "<cmd>ClangdSwitchSourceHeader<CR>", opts)
 
 keymap("c", "<C-h>", "<C-w>", { noremap = true, silent = false })
@@ -114,19 +119,9 @@ keymap("n", "<F10>", "<cmd>DapStepOver<CR>", opts)
 keymap("n", "<S-F11>", "<cmd>DapStepOut<CR>", opts)
 
 -- Bind the function to the semicolon key in insert mode.
-vim.api.nvim_set_keymap(
-  "i",
-  ";",
-  '<C-o>:lua require("user.semicolon").place_semicolon(";")<CR>',
-  { noremap = true, silent = true }
-)
+keymap("i", ";", '<C-o>:lua require("user.semicolon").place_semicolon(";")<CR>', opts)
 
-vim.api.nvim_set_keymap(
-  "i",
-  ":",
-  '<C-o>:lua require("user.semicolon").place_semicolon(":")<CR>',
-  { noremap = true, silent = true }
-)
+keymap("i", ":", '<C-o>:lua require("user.semicolon").place_semicolon(":")<CR>', opts)
 
 -- Copilot
 keymap("i", "<A-l>", "<cmd>lua require('copilot.suggestion').accept()<CR>", opts)
