@@ -179,7 +179,7 @@ which_key.add({
   { "<leader>sc",       "<cmd>lua require('telescope.builtin').colorscheme({ enable_preview = true })<cr>",                                                   desc = "Colorscheme with Preview" },
   { "<leader>sd",       "<cmd>Telescope diagnostics<cr>",                                                                                                     desc = "Diagnostics" },
   { "<leader>sg",       "<cmd>Telescope live_grep<cr>",                                                                                                       desc = "Live Grep" },
-  { "<leader>sw",       "<cmd>Telescope grep_string<cr>",                                                                                                     desc = "Grep Word" },
+  { "<leader>sw",       "<cmd>lua require('telescope.builtin').grep_string(require('telescope.themes').get_dropdown{})<cr>",                                                                                                     desc = "Grep Word" },
   { "<leader>sh",       "<cmd>Telescope help_tags<cr>",                                                                                                       desc = "Find Help" },
   { "<leader>sM",       "<cmd>Telescope man_pages<cr>",                                                                                                       desc = "Man Pages" },
   { "<leader>sr",       "<cmd>Telescope oldfiles<cr>",                                                                                                        desc = "Open Recent File" },
