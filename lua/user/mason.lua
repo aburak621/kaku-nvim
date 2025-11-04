@@ -26,12 +26,6 @@ local servers = {
 local mason_lspconfig = require("mason-lspconfig")
 mason_lspconfig.setup({
   ensure_installed = servers,
-  automatic_enable = {
-    exclude = {
-      "clangd",
-      "lua_ls"
-    }
-  }
 })
 
 local on_attach = function(client, bufnr)
@@ -80,40 +74,32 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = vim.tbl_deep_extend("force", capabilities, require("blink.cmp").get_lsp_capabilities({}, false))
 capabilities["workspace"] = { didChangeWatchedFiles = { dynamicRegistration = true } }
-local lspconfig = require("lspconfig")
 
-lspconfig.gdscript.setup(capabilities)
 vim.lsp.config("*", {
   on_attach = on_attach,
   capabilities = capabilities,
 })
 vim.lsp.config("clangd", {
-  lspconfig.clangd.setup({
-    on_attach = on_attach,
-    capabilities = capabilities,
-    cmd = { "clangd", "--header-insertion=never", "--offset-encoding=utf-16" },
-  }),
+  cmd = { "clangd", "--header-insertion=never", "--offset-encoding=utf-16" },
 })
 vim.lsp.config("lua_ls", {
-  lspconfig.lua_ls.setup({
-    on_attach = on_attach,
-    capabilities = capabilities,
-    settings = {
-      Lua = {
-        workspace = {
-          checkThirdParty = false,
-          telemetry = { enable = false },
-          library = { "${3rd}/love2d/library" },
-        },
-        diagnostics = {
-          globals = { "vim" },
-          disable = { "undefined-field" },
-        },
+  settings = {
+    Lua = {
+      workspace = {
+        checkThirdParty = false,
+        telemetry = { enable = false },
+        library = { "${3rd}/love2d/library" },
+      },
+      diagnostics = {
+        globals = { "vim" },
+        disable = { "undefined-field" },
       },
     },
-  }),
+  },
 })
 vim.lsp.config("rust_analyzer", {})
+
+vim.lsp.enable("gdscript")
 
 vim.api.nvim_create_autocmd({ "BufNew", "BufEnter" }, {
   pattern = { "*.p8" },
