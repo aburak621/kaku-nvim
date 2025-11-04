@@ -42,7 +42,7 @@ local plugins = {
   { "nvim-lualine/lualine.nvim", opts = { options = { theme = "flexoki" } } },
   { "SmiteshP/nvim-navic", opts = {} },
   { "akinsho/toggleterm.nvim" }, -- Terminal inside nvim
-  { "ahmedkhalf/project.nvim" },
+  { "DrKJeff16/project.nvim", opts = {} },
   { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} }, -- Visual indentlines
   { "okuuva/auto-save.nvim", opts = { debounce_delay = 135 } },
   { "folke/trouble.nvim", opts = "" },
