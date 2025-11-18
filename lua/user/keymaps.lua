@@ -121,7 +121,7 @@ keymap("n", "<S-F11>", "<cmd>DapStepOut<CR>", opts)
 -- Bind the function to the semicolon key in insert mode.
 keymap("i", ";", '<C-o>:lua require("user.semicolon").place_semicolon(";")<CR>', opts)
 
-keymap("i", ":", '<C-o>:lua require("user.semicolon").place_semicolon(":")<CR>', opts)
+-- keymap("i", ":", '<C-o>:lua require("user.semicolon").place_semicolon(":")<CR>', opts)
 
 -- Copilot
 keymap("i", "<A-l>", "<cmd>lua require('copilot.suggestion').accept()<CR>", opts)

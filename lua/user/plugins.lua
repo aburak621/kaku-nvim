@@ -266,7 +266,10 @@ local plugins = {
     enabled = true,
     config = function()
       require("copilot").setup({
-        suggestion = { auto_trigger = true },
+        suggestion = {
+          auto_trigger = true,
+          debounce = 0,
+        },
         -- panel = { enabled = false },
       })
     end,
@@ -527,7 +530,7 @@ local plugins = {
         },
       })
     end,
-    opts = { godot_path = "C:\\Users\\Kakule\\Desktop\\Godot4.4.1.exe" },
+    opts = { godot_path = "C:\\Users\\Kakule\\Desktop\\Godot_v4.5.1-stable_win64.exe" },
   },
 }
 
