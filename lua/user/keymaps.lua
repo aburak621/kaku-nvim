@@ -123,6 +123,9 @@ keymap("i", ";", '<C-o>:lua require("user.semicolon").place_semicolon(";")<CR>',
 
 -- keymap("i", ":", '<C-o>:lua require("user.semicolon").place_semicolon(":")<CR>', opts)
 
+-- Lazy
+keymap("n", "<S-l>", "<cmd>Lazy<CR>", opts)
+
 -- Copilot
 keymap("i", "<A-l>", "<cmd>lua require('copilot.suggestion').accept()<CR>", opts)
 -- vim.cmd [[imap <silent><script><expr> <C-l> copilot#Accept("\<CR>")]]
