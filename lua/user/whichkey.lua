@@ -100,7 +100,7 @@ which_key.add({
   -- { "<leader>e",        "<cmd>NvimTreeToggle<cr>",                                                                                                                   desc = "Explorer" },
   -- { "<leader>E",        [[<cmd>lua require 'telescope'.extensions.file_browser.file_browser({ grouped = true, hidden = true, path = vim.fn.expand('%:~:h') })<CR>]], desc = "File Browser" },
   { "<leader>e",        "<cmd>lua MiniFiles.open(vim.api.nvim_buf_get_name(0))<cr>",                                                                          desc = "Explorer" },
-  { "<leader>E",        "<cmd>lua if not MiniFiles.close() then MiniFiles.open() end<cr>",                                                                    desc = "Explorer" },
+  { "<leader>E",        "<cmd>lua if not MiniFiles.close() then MiniFiles.open() end<cr>",                                                                    desc = "Explorer (Root)" },
 
   -- Window mappings
   { "<leader>w",        group = "Window" },
@@ -234,7 +234,7 @@ which_key.add({
   -- Toggle mappings
   { "<leader>t",        group = "Toggle" },
   { "<leader>tc",       "<cmd>CopilotChatToggle<cr>",                                                                                                         desc = "Toggle Copilot Chat" },
-  { "<leader>tC",       "<cmd>Copilot disable<cr>",                                                                                                           desc = "Toggle Copilot" },
+  { "<leader>tC",       "<cmd>Copilot toggle<cr>",                                                                                                            desc = "Toggle Copilot" },
   { "<leader>tu",       "<cmd>UndotreeToggle<cr>",                                                                                                            desc = "Toggle Undotree" },
   { "<leader>tz",       "<cmd>ZenMode<cr>",                                                                                                                   desc = "Toggle Zen Mode" },
   { "<leader>tZ",       "<cmd>lua vim.b.completion = not vim.b.completion<cr>",                                                                               desc = "Toggle Completion" },

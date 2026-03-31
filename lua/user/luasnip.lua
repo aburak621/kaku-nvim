@@ -133,4 +133,12 @@ func on_load_game(saved_data: SavedData) -> void:
       }
     )
   ),
+  s("onready", {
+    t("@onready var "),
+    i(1, "name"),
+    t(": "),
+    i(2, "Type"),
+    t(" = $"),
+    rep(2),
+  }),
 })

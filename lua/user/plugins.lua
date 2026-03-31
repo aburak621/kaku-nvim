@@ -173,6 +173,7 @@ local plugins = {
       })
     end,
   },
+  { "MeanderingProgrammer/render-markdown.nvim", opts = {} },
 
   -----------------------------------------------------------
   ------------------------ Telescope ------------------------
@@ -189,7 +190,31 @@ local plugins = {
   ------------------------ Input ------------------------
   -------------------------------------------------------
   { "numToStr/Comment.nvim", opts = {} }, -- Easily comment stuff
-  { "echasnovski/mini.pairs", opts = { modes = { insert = true, command = true } } },
+  {
+    "echasnovski/mini.pairs",
+    opts = {
+      modes = { insert = true, command = true },
+      mappings = {
+        -- Parentheses: only open if the char to the right is NOT alphanumeric
+        ["("] = { action = "open", pair = "()", neigh_pattern = "[^\\][^%w]" },
+
+        -- Double Quotes: only open if the char to the right is NOT alphanumeric
+        ['"'] = { action = "closeopen", pair = '""', neigh_pattern = "[^%w\\][^%w]", register = { cr = false } },
+
+        -- Single Quotes: only open if the char to the right is NOT alphanumeric
+        -- (Note: %a is letters, %w is alphanumeric)
+        ["'"] = { action = "closeopen", pair = "''", neigh_pattern = "[^%w\\][^%w]", register = { cr = false } },
+
+        -- Keep others as default or apply similar logic
+        ["["] = { action = "open", pair = "[]", neigh_pattern = "^[^\\]" },
+        ["{"] = { action = "open", pair = "{}", neigh_pattern = "^[^\\]" },
+        [")"] = { action = "close", pair = "()", neigh_pattern = "^[^\\]" },
+        ["]"] = { action = "close", pair = "[]", neigh_pattern = "^[^\\]" },
+        ["}"] = { action = "close", pair = "{}", neigh_pattern = "^[^\\]" },
+        ["`"] = { action = "closeopen", pair = "``", neigh_pattern = "^[^\\]", register = { cr = false } },
+      },
+    },
+  },
   { "folke/which-key.nvim" },
   {
     "kylechui/nvim-surround",
@@ -263,7 +288,7 @@ local plugins = {
   ------------------------------------------------------------
   {
     "zbirenbaum/copilot.lua",
-    enabled = true,
+    enabled = false,
     config = function()
       require("copilot").setup({
         suggestion = {
@@ -278,7 +303,7 @@ local plugins = {
     "CopilotC-Nvim/CopilotChat.nvim",
     dependencies = { "zbirenbaum/copilot.lua", "nvim-lua/plenary.nvim" },
     opts = {
-      model = "claude-sonnet-4",
+      model = "auto",
     },
   },
 
@@ -530,7 +555,7 @@ local plugins = {
         },
       })
     end,
-    opts = { godot_path = "C:\\Users\\Kakule\\Desktop\\Godot_v4.5.1-stable_win64.exe" },
+    opts = { godot_path = "C:\\Users\\Kakule\\Desktop\\Godot_v4.6-stable_win64.exe" },
   },
 }
 
