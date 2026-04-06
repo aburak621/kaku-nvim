@@ -141,4 +141,13 @@ func on_load_game(saved_data: SavedData) -> void:
     t(" = $"),
     rep(2),
   }),
+  s({ trig = "funcl", dscr = "Empty lambda function." }, {
+    t("func"),
+    t("("),
+    i(1), -- The arguments (empty by default)
+    t(") -> void:"),
+    t({ "", "\t" }), -- Newline and indentation
+    i(0), -- Final cursor position
+    t({ "", "" }),
+  }),
 })
