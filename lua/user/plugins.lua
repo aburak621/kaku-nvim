@@ -23,7 +23,7 @@ local plugins = {
   { "nvim-lua/popup.nvim" }, -- An implementation of the Popup API from vim in Neovim
   { "nvim-lua/plenary.nvim" }, -- Useful lua functions used by lots of plugins
   { "nvim-tree/nvim-web-devicons" },
-  { "echasnovski/mini.icons" },
+  { "nvim-mini/mini.icons" },
   { "moll/vim-bbye" },
   { "antoinemadec/FixCursorHold.nvim" }, -- This is needed to fix lsp doc highlight
   { "ap/vim-css-color" },
@@ -34,7 +34,7 @@ local plugins = {
   --------------------------------------------------------
   { "goolord/alpha-nvim" }, -- Startup screen
   {
-    "echasnovski/mini.files",
+    "nvim-mini/mini.files",
     version = "*",
     opts = { windows = { max_number = 3, preview = true, width_preview = 45 } },
   },
@@ -64,7 +64,7 @@ local plugins = {
       })
     end,
   },
-  { "echasnovski/mini.align", version = false, opts = {} },
+  { "nvim-mini/mini.align", version = false, opts = {} },
   {
     "kevinhwang91/nvim-ufo",
     dependencies = "kevinhwang91/promise-async",
@@ -162,7 +162,7 @@ local plugins = {
   { "xiyaowong/transparent.nvim" },
   { "folke/todo-comments.nvim", dependencies = { "nvim-lua/plenary.nvim" }, opts = {} },
   {
-    "echasnovski/mini.hipatterns",
+    "nvim-mini/mini.hipatterns",
     config = function()
       local hipatterns = require("mini.hipatterns")
       hipatterns.setup({
@@ -191,7 +191,7 @@ local plugins = {
   -------------------------------------------------------
   { "numToStr/Comment.nvim", opts = {} }, -- Easily comment stuff
   {
-    "echasnovski/mini.pairs",
+    "nvim-mini/mini.pairs",
     opts = {
       modes = { insert = true, command = true },
       mappings = {
@@ -423,7 +423,7 @@ local plugins = {
       })
     end,
   },
-  { "RRethy/vim-illuminate", enabled = true }, -- Disabled because of lag.
+  { "nvim-mini/mini.cursorword", version = false, opts = {} },
   { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
   {
     "folke/lazydev.nvim",

@@ -150,4 +150,7 @@ func on_load_game(saved_data: SavedData) -> void:
     i(0), -- Final cursor position
     t({ "", "" }),
   }),
+  s("value", {
+    t("value: float, "),
+  }),
 })
