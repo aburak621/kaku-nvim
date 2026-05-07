@@ -39,8 +39,8 @@ keymap("n", "<TAB>", ":bnext<CR>", opts)
 keymap("n", "<S-TAB>", ":bprevious<CR>", opts)
 
 -- Tabs
-keymap("n", "<S-h>", "<cmd>tabprevious<CR>", opts)
-keymap("n", "<S-l>", "<cmd>tabnext<CR>", opts)
+keymap("n", "<S-j>", "<cmd>tabprevious<CR>", opts)
+keymap("n", "<S-k>", "<cmd>tabnext<CR>", opts)
 keymap("n", "<C-t>", "<cmd>tabnew<CR>", opts)
 keymap("n", "<C-w>", "<cmd>tabclose<CR>", opts)
 
@@ -108,7 +108,7 @@ vim.keymap.del("n", "grr")
 vim.keymap.del("n", "gri")
 vim.keymap.del("n", "gra")
 
-keymap("n", "<F10>", "<cmd>ClangdSwitchSourceHeader<CR>", opts)
+keymap("n", "<F10>", "<cmd>ClangdSwitchSourceHeader<CR>", opts) -- TODO: Possible clash
 
 keymap("c", "<C-h>", "<C-w>", { noremap = true, silent = false })
 
@@ -125,6 +125,9 @@ keymap("i", ";", '<C-o>:lua require("user.semicolon").place_semicolon(";")<CR>',
 
 -- Lazy
 keymap("n", "<S-l>", "<cmd>Lazy<CR>", opts)
+
+-- Mason
+keymap("n", "<S-m>", "<cmd>Mason<CR>", opts)
 
 -- Copilot
 keymap("i", "<A-l>", "<cmd>lua require('copilot.suggestion').accept()<CR>", opts)

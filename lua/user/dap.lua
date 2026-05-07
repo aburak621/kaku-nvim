@@ -1,5 +1,8 @@
 local status_ok, dap = pcall(require, "dap")
-local dapui = require("dapui")
+if not status_ok then
+  return
+end
+local status_ok, dapui = pcall(require, "dapui")
 if not status_ok then
   return
 end
@@ -44,7 +47,7 @@ dap.configurations.gdscript = {
 }
 
 vim.keymap.set("n", "<leader>d?", function()
-  require("dapui").eval(nil, { enter = true })
+  require("dapui").eval(nil, { context = "repl", width = 100, height = 25, enter = true })
 end)
 
 local M = {}

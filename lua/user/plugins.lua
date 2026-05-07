@@ -42,7 +42,7 @@ local plugins = {
   { "nvim-lualine/lualine.nvim", opts = { options = { theme = "flexoki" } } },
   { "SmiteshP/nvim-navic", opts = {} },
   { "akinsho/toggleterm.nvim" }, -- Terminal inside nvim
-  { "DrKJeff16/project.nvim", opts = { manual_mode = true } },
+  { "DrKJeff16/project.nvim", opts = { manual_mode = false } },
   { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} }, -- Visual indentlines
   { "okuuva/auto-save.nvim", opts = { debounce_delay = 135 } },
   { "folke/trouble.nvim", opts = "" },
@@ -424,7 +424,45 @@ local plugins = {
     end,
   },
   { "nvim-mini/mini.cursorword", version = false, opts = {} },
-  { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+  { "nvim-treesitter/nvim-treesitter", lazy = false, build = ":TSUpdate" },
+  {
+    "romus204/tree-sitter-manager.nvim",
+    dependencies = {},
+    config = function()
+      require("tree-sitter-manager").setup({
+        ensure_installed = {
+          "c",
+          "c_sharp",
+          "cmake",
+          "cpp",
+          "css",
+          "gdscript",
+          "godot_resource",
+          "gitignore",
+          "glsl",
+          "hlsl",
+          "html",
+          "http",
+          "java",
+          "javascript",
+          "json",
+          "markdown",
+          "lua",
+          "python",
+          "regex",
+          "rust",
+          "sql",
+          "toml",
+          "tsx",
+          "typescript",
+          "vim",
+          "yaml",
+        },
+        auto_install = true,
+        highlight = true,
+      })
+    end,
+  },
   {
     "folke/lazydev.nvim",
     ft = "lua", -- only load on lua files
@@ -433,6 +471,7 @@ local plugins = {
         -- See the configuration section for more details
         -- Load luvit types when the `vim.uv` word is found
         { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+        { path = "snacks.nvim", words = { "Snacks" } },
       },
     },
   },
@@ -513,13 +552,6 @@ local plugins = {
   },
   { "Weissle/persistent-breakpoints.nvim", event = "BufReadPost", opts = {} },
   { "LiadOz/nvim-dap-repl-highlights", opts = {} },
-  {
-    "daic0r/dap-helper.nvim",
-    dependencies = { "rcarriga/nvim-dap-ui", "mfussenegger/nvim-dap" },
-    config = function()
-      require("dap-helper").setup()
-    end,
-  },
   { "leoluz/nvim-dap-go" },
   {
     "mfussenegger/nvim-dap-python",
@@ -556,6 +588,23 @@ local plugins = {
       })
     end,
     opts = { godot_path = "C:\\Users\\Kakule\\Desktop\\Godot_v4.6-stable_win64.exe" },
+  },
+  {
+    "folke/snacks.nvim",
+    opts = function()
+      -- Toggle the profiler
+      Snacks.toggle.profiler():map("<leader>pp")
+      -- Toggle the profiler highlights
+      Snacks.toggle.profiler_highlights():map("<leader>ph")
+    end,
+    keys = {
+      {
+        "<leader>pp",
+        function()
+          Snacks.profiler()
+        end,
+      },
+    },
   },
 }
 

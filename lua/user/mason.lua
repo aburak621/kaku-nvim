@@ -13,7 +13,6 @@ local servers = {
   "pyright",
   "ts_ls",
   "vimls",
-  "jdtls",
   "cssls",
   "html",
   "emmet_language_server",

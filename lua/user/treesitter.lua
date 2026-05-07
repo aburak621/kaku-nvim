@@ -1,56 +1,22 @@
-local status_ok, configs = pcall(require, "nvim-treesitter.configs")
+local status_ok, ts = pcall(require, "nvim-treesitter")
 if not status_ok then
   return
 end
 
-configs.setup({
-  ensure_installed = {
-    "c",
-    "c_sharp",
-    "cmake",
-    "cpp",
-    "css",
-    "dap_repl",
-    "gdscript",
-    "godot_resource",
-    "gitignore",
-    "glsl",
-    "hlsl",
-    "html",
-    "http",
-    "java",
-    "javascript",
-    "json",
-    "markdown",
-    "lua",
-    "python",
-    "regex",
-    "rust",
-    "sql",
-    "toml",
-    "tsx",
-    "typescript",
-    "vim",
-    "yaml",
-  }, -- "all" (parsers with maintainers), or a list of languages
-  auto_install = true,
-  sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
-  ignore_install = { "" }, -- List of parsers to ignore installing
-  autopairs = {
-    enable = true,
-  },
-  highlight = {
-    enable = true, -- false will disable the whole extension
-    disable = { "" }, -- list of language that will be disabled
-    additional_vim_regex_highlighting = true,
-  },
-  incremental_selection = { disable = { "dart" } },
-  indent = { enable = true, disable = { "yaml", "gdscript", "dart" } },
-  context_commentstring = {
-    enable = true,
-    enable_autocmd = false,
-  },
-})
+local install = require("nvim-treesitter.install")
+install.prefer_git = true
+install.compilers = { "zig", vim.fn.getenv("CC"), "cc", "gcc", "clang", "cl" }
 
--- Use zig for Neorg
-require("nvim-treesitter.install").compilers = { "zig", vim.fn.getenv("CC"), "cc", "gcc", "clang", "cl" }
+vim.api.nvim_create_autocmd("FileType", {
+  callback = function(args)
+    -- Enable Highlighting
+    pcall(vim.treesitter.start, args.buf)
+
+    local ft = vim.bo[args.buf].filetype
+    local indent_disabled = { yaml = true, gdscript = true, dart = true }
+
+    if not indent_disabled[ft] then
+      vim.bo[args.buf].indentexpr = "v:lua.vim.treesitter.indentexpr()"
+    end
+  end,
+})
