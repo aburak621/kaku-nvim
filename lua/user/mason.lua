@@ -90,7 +90,7 @@ vim.lsp.config("lua_ls", {
         library = { "${3rd}/love2d/library" },
       },
       diagnostics = {
-        globals = { "vim" },
+        globals = { "vim", "hl" },
         disable = { "undefined-field" },
       },
     },
