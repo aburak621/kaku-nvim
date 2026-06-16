@@ -39,7 +39,7 @@ keymap("n", "<TAB>", ":bnext<CR>", opts)
 keymap("n", "<S-TAB>", ":bprevious<CR>", opts)
 
 -- Tabs
-keymap("n", "<S-j>", "<cmd>tabprevious<CR>", opts)
+-- keymap("n", "<S-j>", "<cmd>tabprevious<CR>", opts)
 keymap("n", "<S-k>", "<cmd>tabnext<CR>", opts)
 keymap("n", "<C-t>", "<cmd>tabnew<CR>", opts)
 keymap("n", "<C-w>", "<cmd>tabclose<CR>", opts)
