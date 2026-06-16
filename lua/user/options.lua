@@ -51,6 +51,7 @@ vim.cmd [[set iskeyword+=-]]
 vim.cmd [[set completeopt=menu,noinsert]]
 vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
 vim.cmd [[set noequalalways]]
+vim.opt.fillchars:append({ eob = " " })
 
 vim.api.nvim_create_autocmd('TextYankPost', {
   group = vim.api.nvim_create_augroup('highlight_yank', {}),

@@ -153,4 +153,16 @@ func on_load_game(saved_data: SavedData) -> void:
   s("value", {
     t("value: float, "),
   }),
+  s("var", {
+    t("var "),
+    i(1, "name"),
+    t(": "),
+    i(0, "Node"),
+  }),
+  s("export", {
+    t("@export var "),
+    i(1, "name"),
+    t(": "),
+    i(0, "Node"),
+  }),
 })
