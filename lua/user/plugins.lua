@@ -587,7 +587,7 @@ local plugins = {
         },
       })
     end,
-    opts = { godot_path = "C:\\Users\\Kakule\\Desktop\\Godot_v4.6-stable_win64.exe" },
+    opts = { godot_path = "C:\\Users\\Kakule\\Desktop\\Godot_v4.7-stable_win64.exe" },
   },
   {
     "folke/snacks.nvim",
