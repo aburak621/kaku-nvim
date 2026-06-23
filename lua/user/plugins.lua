@@ -111,11 +111,11 @@ local plugins = {
       },
       on_open = function()
         vim.b.completion = false
-        vim.cmd("Copilot disable")
+        -- vim.cmd("Copilot disable")
       end,
       on_close = function()
         vim.b.completion = true
-        vim.cmd("Copilot enable")
+        -- vim.cmd("Copilot enable")
       end,
     },
   },
