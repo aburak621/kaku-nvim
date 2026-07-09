@@ -8,8 +8,13 @@ require("luasnip.loaders.from_vscode").lazy_load()
 local s = luasnip.snippet
 local t = luasnip.text_node
 local i = luasnip.insert_node
+local d = luasnip.dynamic_node
+local sn = luasnip.snippet_node
+local c = luasnip.choice_node
+local f = luasnip.function_node
 local rep = require("luasnip.extras").rep
 local fmt = require("luasnip.extras.fmt").fmt
+local events = require("luasnip.util.events")
 
 ---------------
 -- Lua Snippets
@@ -164,5 +169,35 @@ func on_load_game(saved_data: SavedData) -> void:
     i(1, "name"),
     t(": "),
     i(0, "Node"),
+  }),
+  s("timer", {
+    t("await get_tree().create_timer("),
+    i(0, "1"),
+    t(").timeout"),
+  }),
+  s("connect", {
+    i(1, "variable"),
+    t("."),
+
+    i(2, "signal", {
+      node_callbacks = {
+        [events.leave] = function()
+          vim.cmd("normal! yi(")
+        end,
+      },
+    }),
+
+    t(".connect(_on_"),
+    rep(1),
+    t("_"),
+    rep(2),
+    t(")"),
+  }),
+  s("fun", {
+    t("func "),
+    i(1, "name"),
+    t("() -> void:"),
+    t({ "", "\t" }),
+    i(0, "pass"),
   }),
 })
