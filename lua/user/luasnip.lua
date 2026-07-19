@@ -140,11 +140,35 @@ func on_load_game(saved_data: SavedData) -> void:
   ),
   s("onready", {
     t("@onready var "),
-    i(1, "name"),
+    f(function(args)
+      local str = args[1][1] or ""
+      -- Strip everything up to the last slash if a slash exists
+      str = str:gsub(".*/", "")
+      -- Strip a leading $ or % if present (in case there was no slash)
+      str = str:gsub("^[$%%]", "")
+      -- 1. Insert underscores between lowercase letters/numbers and capital letters
+      str = str:gsub("(%l)(%u)", "%1_%2")
+      str = str:gsub("(%d)(%u)", "%1_%2")
+      -- 2. Handle uppercase acronyms followed by a normal word (e.g., HTTPClient -> http_client)
+      str = str:gsub("(%u+)(%u%l)", "%1_%2")
+      return str:lower()
+    end, { 1 }),
     t(": "),
-    i(2, "Type"),
+    -- Node 2 is a dynamic node that listens to node 1
+    d(2, function(args)
+      -- args[1][1] holds the current text of node 1
+      local current_name = args[1][1] or ""
+      -- Strip everything up to the last slash if a slash exists
+      current_name = current_name:gsub(".*/", "")
+      -- Strip a leading $ or % if present
+      current_name = current_name:gsub("^[$%%]", "")
+      -- Return an insert node inside a snippet node.
+      return sn(nil, {
+        i(1, current_name),
+      })
+    end, { 1 }),
     t(" = $"),
-    rep(2),
+    i(1, "Name"),
   }),
   s({ trig = "funcl", dscr = "Empty lambda function." }, {
     t("func"),
@@ -196,8 +220,17 @@ func on_load_game(saved_data: SavedData) -> void:
   s("fun", {
     t("func "),
     i(1, "name"),
-    t("() -> void:"),
+    t("("),
+    i(2),
+    t(") -> void:"),
     t({ "", "\t" }),
     i(0, "pass"),
+  }),
+  s("preload", {
+    t("var "),
+    i(1, "name"),
+    t(': PackedScene = preload("'),
+    i(0),
+    t('")'),
   }),
 })
